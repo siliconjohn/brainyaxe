@@ -2,7 +2,7 @@ var React = require('react');
 
 var FretboardMenu = React.createClass({
 
-  render: () => {
+   render: function() {
     return (
       <div>
         <div className="row">

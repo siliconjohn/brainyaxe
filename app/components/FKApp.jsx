@@ -4,11 +4,11 @@ var FretboardMenu = require('FretboardMenu');
 
 var FKApp = React.createClass({
 
-  getInitialState: () => {
+  getInitialState: function() {
     return {}
   },
 
-  render: () => {
+  render: function() {
     return (
       <div>
         <br/>
