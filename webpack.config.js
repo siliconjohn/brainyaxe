@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var BeepPlugin = require('webpack-beep-plugin');
 
 // if -p (production) build  mimimized files: webpack -p
 var production = process.argv.indexOf("-p") != -1 ? true : false
@@ -26,7 +27,8 @@ module.exports = {
         },
         minimize: true
     }),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    new BeepPlugin()
   ],
   output: {
     path: __dirname,
