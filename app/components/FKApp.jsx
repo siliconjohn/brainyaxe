@@ -1,6 +1,8 @@
 var React = require('react');
+var Fretboard = require('Fretboard');
+var FretboardMenu = require('FretboardMenu');
 
-  var FKApp = React.createClass({
+var FKApp = React.createClass({
 
   getInitialState: () => {
     return {}
@@ -9,11 +11,13 @@ var React = require('react');
   render: () => {
     return (
       <div>
-        FKApp
+        <br/>
+        <FretboardMenu/>
+        <br/>
+        <Fretboard/>
       </div>
     )
   }
-
 });
 
 module.exports = FKApp;
