@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var BeepPlugin = require('webpack-beep-plugin');
+var path = require('path');
 
 // if -p (production) build  mimimized files: webpack -p
 var production = process.argv.indexOf("-p") != -1 ? true : false
@@ -56,6 +57,11 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
       }
+    ]
+  },
+  sassLoader: {
+    includePaths:[
+      path.resolve(__dirname, './node_modules/foundation-sites/scss'),
     ]
   },
   devtool: production ? null : 'cheap-module-eval-source-map'

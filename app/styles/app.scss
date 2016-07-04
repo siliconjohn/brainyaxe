@@ -1,3 +1,8 @@
 .gray {
   background-color: #C0C0C0;
 }
+
+// foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;

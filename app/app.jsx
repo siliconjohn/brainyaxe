@@ -3,8 +3,9 @@ var ReactDOM = require('react-dom');
 var FKApp = require('FKApp');
 //var { Route, Router, IndexRoute, hashHistory } = require('react-router');
 
-require('style!css!foundation-sites/dist/foundation.min.css');
+//require('style!css!foundation-sites/dist/foundation.min.css');
 require('style!css!sass!applicationStyles');
+require('script!foundation-sites/dist/foundation.js');
 
 $(document).foundation();
 
