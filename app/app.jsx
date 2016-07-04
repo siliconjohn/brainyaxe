@@ -5,9 +5,10 @@ var FKApp = require('FKApp');
 
 //require('style!css!foundation-sites/dist/foundation.min.css');
 require('style!css!sass!applicationStyles');
-require('script!foundation-sites/dist/foundation.js');
 
-$(document).foundation();
+// not needed unless using foundation js 
+// require('script!foundation-sites/dist/foundation.js');
+// $(document).foundation();
 
 ReactDOM.render(
   <FKApp/>,
