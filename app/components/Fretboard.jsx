@@ -41,7 +41,7 @@ var Fretboard = React.createClass({
     return (
       <div>
         <div className="row">
-          <div className="column small-centered large-10 medium-12 small-12">{tuning.name} - {tuning.notes}</div>
+          <div className="column small-centered large-10 medium-12 small-12"><h3>{tuning.name} - {tuning.notes}</h3></div>
         </div>
         <br/>
         <div className="row">
