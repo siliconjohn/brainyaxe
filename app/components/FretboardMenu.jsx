@@ -38,10 +38,10 @@ var FretboardMenu = React.createClass({
           <select value={selectedTuningKey} onChange={this.changeTuning} ref="tuningChooser">
             {renderTunings()}
           </select>
-          <h4>Choose Scale</h4>
+          {/*<h4>Choose Scale</h4>
           <select value={selectedScaleKey} onChange={this.changeScale} ref="scaleChooser">
             {renderScales()}
-          </select>
+          </select>*/}
         </div>
       </div>
     )
