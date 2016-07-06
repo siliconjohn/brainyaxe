@@ -15,7 +15,8 @@ var FKApp = React.createClass({
         { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:'35,45,50,55,59,64', key:"dd"}
       ],
       selectedTuningKey: "dd",
-      selectedScaleKey: "1z"
+      selectedScaleKey: "1z",
+      numberOfFrets: 18
     }
   },
 
@@ -32,7 +33,7 @@ var FKApp = React.createClass({
   },
 
   render: function() {
-    var {scales, tunings, selectedTuningKey, selectedScaleKey} = this.state;
+    var {scales, tunings, selectedTuningKey, selectedScaleKey, numberOfFrets} = this.state;
 
     var selectedTuning = tunings.find(function(tuning) {
       return tuning.key === this.state.selectedTuningKey ? true : false
@@ -45,7 +46,7 @@ var FKApp = React.createClass({
           selectedScaleKey={selectedScaleKey} onChangeScale={this.handleChangeScale}
           onChangeTuning={this.handleChangeTuning}/>
         <br/>
-        <Fretboard tuning={selectedTuning}/>
+        <Fretboard tuning={selectedTuning} numberOfFrets={numberOfFrets}/>
       </div>
     )
   }

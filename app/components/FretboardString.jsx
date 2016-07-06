@@ -3,8 +3,8 @@ var React = require('react');
 var FretboardString = React.createClass({
 
   render:function () {
-    var {midiNote, note} = this.props;
-    var fretCount = new Array(12);
+    var {midiNote, note, numberOfFrets} = this.props;
+    var fretCount = new Array(numberOfFrets);
 
     // set the midi notes for each fret
     var midiNoteInt = Number.parseInt(midiNote,10);
@@ -21,7 +21,7 @@ var FretboardString = React.createClass({
     var renderFrets = () => {
       return fretCount.map((value, index) => {
                return (
-                 <td className="string-fret" key={value}>{value}</td>
+                 <td className="string-fr" key={value}>{value}</td>
                )
              });
     };
