@@ -6,3 +6,33 @@
 @import "base/foundation-settings";
 @import "foundation";
 @include foundation-everything;
+
+// fretboard
+.fretboard-table {
+
+  // header
+  .header-note-name {
+
+  }
+
+  .header-fret-number {
+
+  }
+
+  // blank row
+  .seperator-row {
+    height:30px;
+  }
+
+  // string
+  .string-row {
+
+    .string-note {
+
+    }
+
+    .string-fret {
+
+    }
+  }
+}
