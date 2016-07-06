@@ -48,6 +48,7 @@ var Fretboard = React.createClass({
                 </tr>
               </thead>
               <tbody>
+                <tr className="seperator-row"><td></td></tr>
                 {renderStrings()}
               </tbody>
             </table>
