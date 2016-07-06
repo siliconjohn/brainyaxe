@@ -3,11 +3,7 @@ var React = require('react');
 var Fretboard = React.createClass({
 
   render: function() {
-    var {tunings} = this.props;
-
-    var tuning = tunings.find(function(tuning) {
-      return tuning.key === this.props.selectedTuningKey ? true : false
-    },this);
+    var {tuning} = this.props;
 
     return (
       <div>
