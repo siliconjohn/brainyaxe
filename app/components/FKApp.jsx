@@ -16,7 +16,7 @@ var FKApp = React.createClass({
       ],
       selectedTuningKey: "dd",
       selectedScaleKey: "1z",
-      numberOfFrets: 18
+      numberOfFrets: 19
     }
   },
 

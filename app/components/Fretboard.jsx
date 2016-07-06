@@ -26,9 +26,15 @@ var Fretboard = React.createClass({
 
       // fret numbers
       return fretCount.map((index) => {
-        return (
-          <th className="header-fret-number" key={index}>{index}</th>
-        )
+        if(index == 1) {
+          return (
+            <th className="header-fret-number header-open-string" key={index}>Open</th>
+          )
+        } else {
+          return (
+            <th className="header-fret-number" key={index}>{index - 1}</th>
+          )
+        }
       });
     };
 
@@ -43,7 +49,6 @@ var Fretboard = React.createClass({
             <table className="fretboard-table">
               <thead>
                 <tr>
-                  <th className="header-note-name" key="note">Note</th>
                   {renderTableHeader()}
                 </tr>
               </thead>

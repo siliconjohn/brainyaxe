@@ -28,7 +28,6 @@ var FretboardString = React.createClass({
 
     return (
       <tr className="string-row">
-        {renderStringName()}
         {renderFrets()}
       </tr>
     )
