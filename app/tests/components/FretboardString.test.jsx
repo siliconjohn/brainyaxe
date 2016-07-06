@@ -4,10 +4,10 @@ var expect = require('expect');
 // var TestUtils = require('react-addons-test-utils');
 // var $ = require('jquery');
 
-var Fretboard = require('String');
+var FretboardString = require('FretboardString');
 
-describe('String', () => {
+describe('FretboardString', () => {
   it('should exist', () => {
-    expect(String).toExist();
+    expect(FretboardString).toExist();
   });
 });

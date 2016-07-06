@@ -1,5 +1,5 @@
 var React = require('react');
-var String = require('String');
+var FretboardString = require('FretboardString');
 
 var Fretboard = React.createClass({
 
@@ -11,7 +11,7 @@ var Fretboard = React.createClass({
 
       return tuning.midiNotes.split(',').map((midiNote,index) => {
         return (
-           <String midiNote={midiNote} note={notes[index]} key={index}></String>
+           <FretboardString midiNote={midiNote} note={notes[index]} key={index}></FretboardString>
            );
       }).reverse(); // reverse returned array so lowest note is at bottom
     };
