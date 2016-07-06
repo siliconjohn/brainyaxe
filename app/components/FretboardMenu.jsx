@@ -34,13 +34,13 @@ var FretboardMenu = React.createClass({
     return (
       <div className="row">
         <div className="column small-centered large-8 medium-8 small-10 gray">
-          <h4>Choose Scale</h4>
-          <select onChange={this.changeScale} ref="scaleChooser">
-            {renderScales()}
-          </select>
           <h4>Choose Tuning</h4>
           <select name="tunings" onChange={this.changeTuning} ref="tuningChooser">
             {renderTunings()}
+          </select>
+          <h4>Choose Scale</h4>
+          <select onChange={this.changeScale} ref="scaleChooser">
+            {renderScales()}
           </select>
         </div>
       </div>
