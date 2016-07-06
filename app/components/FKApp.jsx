@@ -14,8 +14,8 @@ var FKApp = React.createClass({
         { name: 'Standard', notes:'E A D G B E', midiNotes:'40,45,50,55,59,64', key:"0"},
         { name: 'Drop D', notes:'D A D G B E', midiNotes:'35,45,50,55,59,64', key:"1"}
       ],
-      selectedTuningIndex: 0,
-      selectedScaleIndex: 0
+      selectedTuningIndex: 1,
+      selectedScaleIndex: 1
     }
   },
 
@@ -32,12 +32,13 @@ var FKApp = React.createClass({
   },
 
   render: function() {
-    var {scales, tunings, selectedTuningIndex} = this.state;
+    var {scales,tunings,selectedTuningIndex,selectedScaleIndex} = this.state;
 
     return (
       <div>
         <br/>
-        <FretboardMenu scales={scales} tunings={tunings} onChangeScale={this.handleChangeScale}
+        <FretboardMenu scales={scales} tunings={tunings} selectedTuningIndex={selectedTuningIndex}
+          selectedScaleIndex={selectedScaleIndex} onChangeScale={this.handleChangeScale}
           onChangeTuning={this.handleChangeTuning}/>
         <br/>
         <Fretboard scales={scales} tunings={tunings} tuningIndex={selectedTuningIndex}/>

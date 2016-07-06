@@ -7,18 +7,18 @@ var FretboardMenu = React.createClass({
     this.props.onChangeScale(index);
   },
 
-  changeTuning: function() {
+  changeTuning: function(e) {
     var index = this.refs.tuningChooser.selectedIndex;
     this.props.onChangeTuning(index);
   },
 
   render: function() {
-    var {scales,tunings} = this.props;
+    var {scales,tunings,selectedTuningIndex,selectedScaleIndex} = this.props;
 
     var renderScales = () => {
       return scales.map((scale) => {
         return (
-          <option key={scale.key}>{scale.name}</option>
+          <option key={scale.key} value={scale.key}>{scale.name}</option>
         )
       })
     };
@@ -26,7 +26,7 @@ var FretboardMenu = React.createClass({
     var renderTunings = () => {
       return tunings.map((tuning) => {
         return (
-          <option key={tuning.key}>{tuning.name} - {tuning.notes}</option>
+          <option key={tuning.key} value={tuning.key}>{tuning.name} - {tuning.notes}</option>
         )
       })
     };
@@ -35,11 +35,11 @@ var FretboardMenu = React.createClass({
       <div className="row">
         <div className="column small-centered large-8 medium-8 small-10 gray">
           <h4>Choose Tuning</h4>
-          <select name="tunings" onChange={this.changeTuning} ref="tuningChooser">
+          <select value={selectedTuningIndex} onChange={this.changeTuning} ref="tuningChooser">
             {renderTunings()}
           </select>
           <h4>Choose Scale</h4>
-          <select onChange={this.changeScale} ref="scaleChooser">
+          <select value={selectedScaleIndex} onChange={this.changeScale} ref="scaleChooser">
             {renderScales()}
           </select>
         </div>
