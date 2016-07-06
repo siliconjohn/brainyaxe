@@ -4,20 +4,20 @@ var FretboardString = require('FretboardString');
 var Fretboard = React.createClass({
 
   render: function() {
-    var {tuning, numberOfFrets} = this.props;
+    var {tuning, numberOfNotesOnFretboard} = this.props;
 
     var renderStrings = () => {
       var notes = tuning.notes.split(',');
 
       return tuning.midiNotes.split(',').map((midiNote,index) => {
         return (
-           <FretboardString numberOfFrets={numberOfFrets} midiNote={midiNote} note={notes[index]} key={index}></FretboardString>
+           <FretboardString numberOfNotesOnFretboard={numberOfNotesOnFretboard} midiNote={midiNote} note={notes[index]} key={index}></FretboardString>
            );
       }).reverse(); // reverse returned array so lowest note is at bottom
     };
 
     var renderTableHeader = () => {
-      var fretCount = new Array(numberOfFrets);
+      var fretCount = new Array(numberOfNotesOnFretboard);
 
       // TO do: use this to set the width of each fret
       for(var i=0; i < fretCount.length; i++){

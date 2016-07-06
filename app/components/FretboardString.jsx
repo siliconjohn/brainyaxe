@@ -3,8 +3,8 @@ var React = require('react');
 var FretboardString = React.createClass({
 
   render:function () {
-    var {midiNote, note, numberOfFrets} = this.props;
-    var fretCount = new Array(numberOfFrets);
+    var {midiNote, note, numberOfNotesOnFretboard} = this.props;
+    var fretCount = new Array(numberOfNotesOnFretboard);
 
     // set the midi notes for each fret
     var midiNoteInt = Number.parseInt(midiNote,10);
