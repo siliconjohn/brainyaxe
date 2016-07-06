@@ -7,41 +7,41 @@ var FKApp = React.createClass({
   getInitialState: function() {
     return {
       scales: [
-        { name: 'Major', degrees: '1,2,3,4,5,6,7', key:"0"},
-        { name: 'Blues', degrees: '1,♭3,4,♭5,5,♭7', key:"1"}
+        { name: 'Major', degrees: '1,2,3,4,5,6,7', key:"0zz"},
+        { name: 'Blues', degrees: '1,♭3,4,♭5,5,♭7', key:"1z"}
       ],
       tunings: [
-        { name: 'Standard', notes:'E A D G B E', midiNotes:'40,45,50,55,59,64', key:"0"},
-        { name: 'Drop D', notes:'D A D G B E', midiNotes:'35,45,50,55,59,64', key:"1"}
+        { name: 'Standard', notes:'E A D G B E', midiNotes:'40,45,50,55,59,64', key:"d"},
+        { name: 'Drop D', notes:'D A D G B E', midiNotes:'35,45,50,55,59,64', key:"dd"}
       ],
-      selectedTuningIndex: 1,
-      selectedScaleIndex: 1
+      selectedTuningKey: "dd",
+      selectedScaleKey: "1z"
     }
   },
 
-  handleChangeScale: function (index) {
+  handleChangeScale: function (key) {
     this.setState({
-      selectedScaleIndex: index
+      selectedScaleKey: key
     })
   },
 
-  handleChangeTuning: function (index) {
+  handleChangeTuning: function (key) {
     this.setState({
-      selectedTuningIndex: index
+      selectedTuningKey: key
     })
   },
 
   render: function() {
-    var {scales,tunings,selectedTuningIndex,selectedScaleIndex} = this.state;
+    var {scales, tunings, selectedTuningKey, selectedScaleKey} = this.state;
 
     return (
       <div>
         <br/>
-        <FretboardMenu scales={scales} tunings={tunings} selectedTuningIndex={selectedTuningIndex}
-          selectedScaleIndex={selectedScaleIndex} onChangeScale={this.handleChangeScale}
+        <FretboardMenu scales={scales} tunings={tunings} selectedTuningKey={selectedTuningKey}
+          selectedScaleKey={selectedScaleKey} onChangeScale={this.handleChangeScale}
           onChangeTuning={this.handleChangeTuning}/>
         <br/>
-        <Fretboard scales={scales} tunings={tunings} tuningIndex={selectedTuningIndex}/>
+        <Fretboard tunings={tunings} selectedTuningKey={selectedTuningKey}/>
       </div>
     )
   }
