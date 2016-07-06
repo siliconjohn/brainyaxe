@@ -11,8 +11,8 @@ var FKApp = React.createClass({
         { name: 'Blues', degrees: '1,♭3,4,♭5,5,♭7', key:"1z"}
       ],
       tunings: [
-        { name: 'Standard', notes:'E A D G B E', midiNotes:'40,45,50,55,59,64', key:"d"},
-        { name: 'Drop D', notes:'D A D G B E', midiNotes:'35,45,50,55,59,64', key:"dd"}
+        { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:'40,45,50,55,59,64', key:"d"},
+        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:'35,45,50,55,59,64', key:"dd"}
       ],
       selectedTuningKey: "dd",
       selectedScaleKey: "1z"
