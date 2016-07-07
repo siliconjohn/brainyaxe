@@ -12,9 +12,9 @@ var FKApp = React.createClass({
       ],
       tunings: [
         { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:'40,45,50,55,59,64', key:"d"},
-        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:'35,45,50,55,59,64', key:"dd"}
+        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:'38,45,50,55,59,64', key:"dd"}
       ],
-      selectedTuningKey: "dd",
+      selectedTuningKey: "d",
       selectedScaleKey: "1z",
       numberOfNotesOnFretboard: 19
     }
