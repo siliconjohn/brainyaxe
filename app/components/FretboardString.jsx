@@ -1,4 +1,5 @@
 var React = require('react');
+var utils = require('utils');
 
 var FretboardString = React.createClass({
 
@@ -21,7 +22,7 @@ var FretboardString = React.createClass({
     var renderFrets = () => {
       return fretCount.map((value, index) => {
                return (
-                 <td className="string-fr" key={value}>{value}</td>
+                 <td className="string-fr" key={value}>{utils.getNoteNameFromMIDINumber(value)}</td>
                )
              });
     };
