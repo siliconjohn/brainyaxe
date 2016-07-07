@@ -7,6 +7,7 @@
 @import "foundation";
 @include foundation-everything;
 
+
 // fretboard
 .fretboard-parent {
   overflow: scroll;
@@ -14,6 +15,8 @@
   overflow-y: hidden;
   padding-left:0px;
   padding-right: 0px;
+
+  //position:fixed; bottom:0; z-index:100000;
 }
 
 .fretboard-table {
