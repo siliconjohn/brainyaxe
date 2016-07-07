@@ -22,7 +22,8 @@ var FretboardString = React.createClass({
     var renderFrets = () => {
       return fretCount.map((value, index) => {
                return (
-                 <td className="string-fr" key={value}>{utils.getNoteNameFromMIDINumber(value)}</td>
+                 <td className={ index > 0 ? 'fret' : 'fret fret-open'}
+                   key={value}>{utils.getNoteNameFromMIDINumber(value)}</td>
                )
              });
     };

@@ -42,12 +42,13 @@
   // string
   .string-row {
 
-    .string-note {
-
+    .fret {
+      font-size: 80%;
     }
 
-    .string-fret {
-
+    // changes to .fret for open strings
+    .fret-open {
+      font-size: 100%;
     }
   }
 }
