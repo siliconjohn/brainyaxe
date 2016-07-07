@@ -13,12 +13,6 @@ var FretboardString = React.createClass({
       fretCount[i] = midiNoteInt + i;
     }
 
-    var renderStringName = () => {
-      return (
-        <td className="string-name" key={note}>{note}</td>
-      )
-    };
-
     var renderFrets = () => {
       return fretCount.map((value, index) => {
                return (
