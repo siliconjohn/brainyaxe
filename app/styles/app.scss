@@ -22,6 +22,8 @@
 .fretboard-table {
   margin-bottom: 0px;
   table-layout: fixed;
+  width:80rem;
+
   // header
   .header-note-name {
 
@@ -35,6 +37,7 @@
   .header-open-string {
 
   }
+
   // blank row
   .seperator-row {
     height:30px;
@@ -45,11 +48,15 @@
 
     .fret {
       font-size: 0.80rem;
+      border-left: thin solid black;
     }
 
     // changes to .fret class for open strings
     .fret-open {
+      border-left: none;
+      border-right: thick solid black;
       font-size: 100%;
+      text-align: center;
     }
   }
 }
