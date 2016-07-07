@@ -44,17 +44,18 @@ var Fretboard = React.createClass({
           <div className="column small-centered large-10 medium-12 small-12"><h3>{tuning.name} - {tuning.notes}</h3></div>
         </div>
         <br/>
+
         <div className="row">
-          <div className="fretboard-parent column small-centered large-10 medium-12 small-12">
+          <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
             <table className="fretboard-table">
-              <thead>
+              <tfoot>
                 <tr>
                   {renderTableHeader()}
                 </tr>
-              </thead>
+              </tfoot>
               <tbody>
-                <tr className="seperator-row"><td></td></tr>
                 {renderStrings()}
+                <tr className="seperator-row"><td></td></tr>
               </tbody>
             </table>
           </div>
