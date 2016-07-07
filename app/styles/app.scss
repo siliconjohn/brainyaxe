@@ -8,6 +8,14 @@
 @include foundation-everything;
 
 // fretboard
+.fretboard-parent {
+  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-left:0px;
+  padding-right: 0px;
+}
+
 .fretboard-table {
 
   // header
@@ -20,7 +28,7 @@
   }
 
   .header-open-string {
-    
+
   }
   // blank row
   .seperator-row {

@@ -45,7 +45,7 @@ var Fretboard = React.createClass({
         </div>
         <br/>
         <div className="row">
-          <div className="column small-centered large-10 medium-12 small-12">
+          <div className="fretboard-parent column small-centered large-10 medium-12 small-12">
             <table className="fretboard-table">
               <thead>
                 <tr>
