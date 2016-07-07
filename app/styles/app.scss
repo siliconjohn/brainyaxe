@@ -21,14 +21,14 @@
 
 .fretboard-table {
   margin-bottom: 0px;
-
+  table-layout: fixed;
   // header
   .header-note-name {
 
   }
 
   .header-fret-number {
-
+    width:2rem;
   }
 
   .header-open-string {
@@ -46,7 +46,7 @@
       font-size: 0.80rem;
     }
 
-    // changes to .fret for open strings
+    // changes to .fret class for open strings
     .fret-open {
       font-size: 100%;
     }
