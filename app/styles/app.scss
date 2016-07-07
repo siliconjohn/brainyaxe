@@ -30,8 +30,8 @@
   }
 
   .header-fret-number {
-    width:2rem;
     text-align: center;
+    width:2rem;
   }
 
   .header-open-string {
@@ -47,8 +47,8 @@
   .string-row {
 
     .fret {
-      font-size: 0.80rem;
       border-left: thin solid black;
+      font-size: 0.80rem;
     }
 
     // changes to .fret class for open strings
