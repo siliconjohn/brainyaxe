@@ -16,7 +16,7 @@ var FKApp = React.createClass({
       ],
       selectedTuningKey: "d",
       selectedScaleKey: "1z",
-      numberOfNotesOnFretboard: 19
+      numberOfNotesOnFretboard: 25
     }
   },
 
