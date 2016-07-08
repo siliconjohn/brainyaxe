@@ -4,14 +4,18 @@ var FretboardString = require('FretboardString');
 var Fretboard = React.createClass({
 
   render: function() {
-    var {tuning, numberOfNotesOnFretboard} = this.props;
+    var {tuning, numberOfNotesOnFretboard, selectedNotesForScale,
+         selectedNotesForChord} = this.props;
 
     var renderStrings = () => {
       var notes = tuning.notes.split(',');
 
       return tuning.midiNotes.split(',').map((midiNote,index) => {
         return (
-           <FretboardString numberOfNotesOnFretboard={numberOfNotesOnFretboard} midiNote={midiNote} note={notes[index]} key={index}></FretboardString>
+           <FretboardString numberOfNotesOnFretboard={numberOfNotesOnFretboard} midiNote={midiNote}
+             note={notes[index]} key={index} selectedNotesForScale={selectedNotesForScale}
+             selectedNotesForChord={selectedNotesForChord}> 
+           </FretboardString>
            );
       }).reverse(); // reverse returned array so lowest note is at bottom
     };
