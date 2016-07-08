@@ -12,8 +12,14 @@ var FretboardMenu = React.createClass({
     this.props.onChangeTuning(key);
   },
 
+  changeChord: function(e) {
+    var key = e.target.value;
+    this.props.onChangeChord(key);
+  },
+
   render: function() {
-    var {scales, tunings, selectedTuningKey, selectedScaleKey} = this.props;
+    var {scales, tunings, chords, selectedTuningKey,
+      selectedChordKey, selectedScaleKey, } = this.props;
 
     var renderScales = () => {
       return scales.map((scale) => {
@@ -31,6 +37,14 @@ var FretboardMenu = React.createClass({
       })
     };
 
+    var renderChords = () => {
+      return chords.map((chord) => {
+        return (
+          <option key={chord.key} value={chord.key}>{chord.name}</option>
+        )
+      })
+    };
+
     return (
       <div className="row">
         <div className="column small-centered large-8 medium-8 small-10 gray">
@@ -38,10 +52,14 @@ var FretboardMenu = React.createClass({
           <select value={selectedTuningKey} onChange={this.changeTuning} ref="tuningChooser">
             {renderTunings()}
           </select>
-          {/*<h4>Choose Scale</h4>
+          <h4>Choose Scale</h4>
           <select value={selectedScaleKey} onChange={this.changeScale} ref="scaleChooser">
             {renderScales()}
-          </select>*/}
+          </select>
+          <h4>Choose Chord</h4>
+          <select value={selectedChordKey} onChange={this.changeChord} ref="chordChooser">
+            {renderChords()}
+          </select>
         </div>
       </div>
     )
