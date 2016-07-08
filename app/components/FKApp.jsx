@@ -12,9 +12,9 @@ var FKApp = React.createClass({
         { name: 'Major', degrees: '1,2,3,4,5,6,7', intervals:[2,4,5,7,9,11], key:"0zz"},
         { name: 'Blues', degrees: '1,♭3,4,5,♭7', intervals:[3,5,7,10], key:"1z"}
       ],
-      tunings: [                                 //TODO refraction midiNotes to an array
-        { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:'40,45,50,55,59,64', key:"d"},
-        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:'38,45,50,55,59,64', key:"dd"}
+      tunings: [
+        { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[40,45,50,55,59,64], key:"d"},
+        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[38,45,50,55,59,64], key:"dd"}
       ],
       chords: [
         { name: 'No Chord', degrees: '', intervals:[], key:"03z"},

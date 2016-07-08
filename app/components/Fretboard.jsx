@@ -10,11 +10,11 @@ var Fretboard = React.createClass({
     var renderStrings = () => {
       var notes = tuning.notes.split(',');
 
-      return tuning.midiNotes.split(',').map((midiNote,index) => {
+      return tuning.midiNotes.map((midiNote,index) => {
         return (
            <FretboardString numberOfNotesOnFretboard={numberOfNotesOnFretboard} midiNote={midiNote}
              note={notes[index]} key={index} selectedNotesForScale={selectedNotesForScale}
-             selectedNotesForChord={selectedNotesForChord}> 
+             selectedNotesForChord={selectedNotesForChord}>
            </FretboardString>
            );
       }).reverse(); // reverse returned array so lowest note is at bottom
