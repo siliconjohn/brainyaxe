@@ -23,7 +23,9 @@ var FKApp = React.createClass({
       ],
       selectedTuningKey: "d",
       selectedScaleKey: "033z",
+      selectedScaleNote: "E",
       selectedChordKey: "03z",
+      selectedChordNote: "D",
       numberOfNotesOnFretboard: 25,
       selectedNotesForScale: [],
       selectedNotesForChord: []
@@ -32,23 +34,24 @@ var FKApp = React.createClass({
 
   componentWillMount: function() {
     // set the inital state for things that are calculated by the app
-    var {scales, selectedScaleKey, chords, selectedChordKey} = this.state;
+    var {scales, selectedScaleKey, chords, selectedChordKey, selectedScaleNote,
+        selectedChordNote} = this.state;
 
     var scale = getObjectForKey(scales, selectedScaleKey);
     var chord = getObjectForKey(chords, selectedChordKey);
 
     this.setState({
-      selectedNotesForScale : getNotesForArray(scale, "E"),
-      selectedNotesForChord : getNotesForArray(chord, "E")
+      selectedNotesForScale : getNotesForArray(scale, selectedScaleNote),
+      selectedNotesForChord : getNotesForArray(chord, selectedChordNote)
     })
   },
 
   handleChangeScale: function (key) {
-    var {scales} = this.state;
+    var {scales, selectedScaleNote} = this.state;
 
     this.setState({
       selectedScaleKey: key,
-      selectedNotesForScale : getNotesForArray(getObjectForKey(scales, key), "E")
+      selectedNotesForScale : getNotesForArray(getObjectForKey(scales, key), selectedScaleNote)
     })
   },
 
@@ -59,27 +62,48 @@ var FKApp = React.createClass({
   },
 
   handleChangeChord: function (key) {
-    var {chords} = this.state;
+    var {chords, selectedChordNote} = this.state;
 
     this.setState({
       selectedChordKey: key,
-      selectedNotesForChord : getNotesForArray(getObjectForKey(chords, key), "E")
+      selectedNotesForChord : getNotesForArray(getObjectForKey(chords, key), selectedChordNote)
+    })
+  },
+
+  handleChangeSelectedChordNote: function ( note ) {
+    var {chords, selectedChordKey} = this.state;
+
+    this.setState({
+      selectedChordNote: note,
+      selectedNotesForChord : getNotesForArray(getObjectForKey(chords, selectedChordKey), note)
+    })
+  },
+
+  handleChangeSelectedScaleNote: function ( note ) {
+    var {scales, selectedScaleKey} = this.state;
+
+    this.setState({
+      selectedScaleNote: note,
+      selectedNotesForScale : getNotesForArray(getObjectForKey(scales, selectedScaleKey), note)
     })
   },
 
   render: function() {
     var {scales, tunings, selectedTuningKey, selectedScaleKey, numberOfNotesOnFretboard,
-        chords, selectedChordKey, selectedNotesForScale, selectedNotesForChord} = this.state;
+        chords, selectedChordKey, selectedNotesForScale, selectedNotesForChord,
+        selectedChordNote, selectedScaleNote} = this.state;
 
     var selectedTuning = getObjectForKey(tunings,selectedTuningKey);
 
     return (
       <div>
         <br/>
-        <FretboardMenu scales={scales} tunings={tunings} chords={chords}
-          selectedTuningKey={selectedTuningKey} selectedScaleKey={selectedScaleKey}
+        <FretboardMenu scales={scales} tunings={tunings} chords={chords} selectedChordNote={selectedChordNote}
+          selectedTuningKey={selectedTuningKey} selectedScaleKey={selectedScaleKey} selectedScaleNote={selectedScaleNote}
           selectedChordKey={selectedChordKey} onChangeScale={this.handleChangeScale}
-          onChangeTuning={this.handleChangeTuning}  onChangeChord={this.handleChangeChord}/>
+          onChangeTuning={this.handleChangeTuning}  onChangeChord={this.handleChangeChord}
+          onChangeSelectedChordNote={this.handleChangeSelectedChordNote}
+          onChangeSelectedScaleNote={this.handleChangeSelectedScaleNote}/>
         <br/>
         <Fretboard tuning={selectedTuning} numberOfNotesOnFretboard={numberOfNotesOnFretboard}
           selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>

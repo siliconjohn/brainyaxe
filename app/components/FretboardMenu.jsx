@@ -1,4 +1,5 @@
 var React = require('react');
+var {twelveNotesTable} = require('../utils');
 
 var FretboardMenu = React.createClass({
 
@@ -17,9 +18,20 @@ var FretboardMenu = React.createClass({
     this.props.onChangeChord(key);
   },
 
+  changeSelectedChordNote: function(e) {
+    var note = e.target.value;
+    this.props.onChangeSelectedChordNote(note);
+  },
+
+  changeSelectedScaleNote: function(e) {
+    var note = e.target.value;
+    this.props.onChangeSelectedScaleNote(note);
+  },
+
   render: function() {
     var {scales, tunings, chords, selectedTuningKey,
-      selectedChordKey, selectedScaleKey, } = this.props;
+      selectedChordKey, selectedScaleKey, selectedChordNote,
+      selectedScaleNote} = this.props;
 
     var renderScales = () => {
       return scales.map((scale) => {
@@ -45,21 +57,56 @@ var FretboardMenu = React.createClass({
       })
     };
 
+    var renderTwelveNotes = () => {
+      return twelveNotesTable.map((tone,index) => {
+        return (
+          <option key={index} value={tone}>{tone}</option>
+        )
+      })
+    };
+
+    var selectedChordNoteIndex = twelveNotesTable.find( function(ref){
+      return ref === selectedChordNote ? true :false },this);
+
+    var selectedScaleNoteIndex = twelveNotesTable.find( function(ref){
+        return ref === selectedScaleNote ? true :false },this);
+
     return (
       <div className="row">
         <div className="column small-centered large-8 medium-8 small-10 gray">
+
           <h4>Choose Tuning</h4>
           <select value={selectedTuningKey} onChange={this.changeTuning} ref="tuningChooser">
             {renderTunings()}
           </select>
+
           <h4>Choose Scale</h4>
-          <select value={selectedScaleKey} onChange={this.changeScale} ref="scaleChooser">
-            {renderScales()}
-          </select>
+          <div className="row">
+            <div className="small-2 columns">
+              <select value={selectedScaleNoteIndex} onChange={this.changeSelectedScaleNote} ref="scaleNoteChooser">
+                {renderTwelveNotes()}
+              </select>
+            </div>
+            <div className="small-10 columns">
+              <select value={selectedScaleKey} onChange={this.changeScale} ref="scaleChooser">
+                {renderScales()}
+              </select>
+            </div>
+          </div>
+
           <h4>Choose Chord</h4>
-          <select value={selectedChordKey} onChange={this.changeChord} ref="chordChooser">
-            {renderChords()}
-          </select>
+          <div className="row">
+            <div className="small-2 columns">
+              <select value={selectedChordNoteIndex} onChange={this.changeSelectedChordNote} ref="chordNoteChooser">
+               {renderTwelveNotes()}
+              </select>
+            </div>
+            <div className="small-10 columns">
+              <select value={selectedChordKey} onChange={this.changeChord} ref="chordChooser">
+                {renderChords()}
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     )

@@ -10,6 +10,8 @@ const notesNameTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G",
                         "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
                         "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"];
 
+export const twelveNotesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"];
+
 module.exports.getNoteNameFromMIDINumber = function( number ) {
   if (number < 0 ) return notesNameTable[0];
   if( number >= notesNameTable.length) return notesNameTable[notesNameTable.length - 1];
