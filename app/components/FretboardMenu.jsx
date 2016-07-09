@@ -3,27 +3,27 @@ var {twelveNotesTable} = require('../utils');
 
 var FretboardMenu = React.createClass({
 
-  changeScale: function (e) {
+  handleChangeScale: function (e) {
     var key = e.target.value;
     this.props.onChangeScale(key);
   },
 
-  changeTuning: function(e) {
+  handleChangeTuning: function(e) {
     var key = e.target.value;
     this.props.onChangeTuning(key);
   },
 
-  changeChord: function(e) {
+  handleChangeChord: function(e) {
     var key = e.target.value;
     this.props.onChangeChord(key);
   },
 
-  changeSelectedChordNote: function(e) {
+  handleChangeSelectedChordNote: function(e) {
     var note = e.target.value;
     this.props.onChangeSelectedChordNote(note);
   },
 
-  changeSelectedScaleNote: function(e) {
+  handleChangeSelectedScaleNote: function(e) {
     var note = e.target.value;
     this.props.onChangeSelectedScaleNote(note);
   },
@@ -76,19 +76,19 @@ var FretboardMenu = React.createClass({
         <div className="column small-centered large-8 medium-8 small-10 gray">
 
           <h4>Choose Tuning</h4>
-          <select value={selectedTuningKey} onChange={this.changeTuning} ref="tuningChooser">
+          <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref="tuningChooser">
             {renderTunings()}
           </select>
 
           <h4>Choose Scale</h4>
           <div className="row">
             <div className="small-4 medium-2 columns">
-              <select value={selectedScaleNoteIndex} onChange={this.changeSelectedScaleNote} ref="scaleNoteChooser">
+              <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote} ref="scaleNoteChooser">
                 {renderTwelveNotes()}
               </select>
             </div>
             <div className="small-8 medium-10 columns">
-              <select value={selectedScaleKey} onChange={this.changeScale} ref="scaleChooser">
+              <select value={selectedScaleKey} onChange={this.handleChangeScale} ref="scaleChooser">
                 {renderScales()}
               </select>
             </div>
@@ -97,12 +97,12 @@ var FretboardMenu = React.createClass({
           <h4>Choose Chord</h4>
           <div className="row">
             <div className="small-4 medium-2 columns">
-              <select value={selectedChordNoteIndex} onChange={this.changeSelectedChordNote} ref="chordNoteChooser">
+              <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote} ref="chordNoteChooser">
                {renderTwelveNotes()}
               </select>
             </div>
             <div className="small-8 medium-10 columns">
-              <select value={selectedChordKey} onChange={this.changeChord} ref="chordChooser">
+              <select value={selectedChordKey} onChange={this.handleChangeChord} ref="chordChooser">
                 {renderChords()}
               </select>
             </div>
