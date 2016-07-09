@@ -82,12 +82,12 @@ var FretboardMenu = React.createClass({
 
           <h4>Choose Scale</h4>
           <div className="row">
-            <div className="small-2 columns">
+            <div className="small-4 medium-2 columns">
               <select value={selectedScaleNoteIndex} onChange={this.changeSelectedScaleNote} ref="scaleNoteChooser">
                 {renderTwelveNotes()}
               </select>
             </div>
-            <div className="small-10 columns">
+            <div className="small-8 medium-10 columns">
               <select value={selectedScaleKey} onChange={this.changeScale} ref="scaleChooser">
                 {renderScales()}
               </select>
@@ -96,12 +96,12 @@ var FretboardMenu = React.createClass({
 
           <h4>Choose Chord</h4>
           <div className="row">
-            <div className="small-2 columns">
+            <div className="small-4 medium-2 columns">
               <select value={selectedChordNoteIndex} onChange={this.changeSelectedChordNote} ref="chordNoteChooser">
                {renderTwelveNotes()}
               </select>
             </div>
-            <div className="small-10 columns">
+            <div className="small-8 medium-10 columns">
               <select value={selectedChordKey} onChange={this.changeChord} ref="chordChooser">
                 {renderChords()}
               </select>
