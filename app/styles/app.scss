@@ -7,6 +7,7 @@
 @import "foundation";
 @include foundation-everything;
 
+$fret-border: $black;
 
 // fretboard
 .fretboard-parent {
@@ -29,7 +30,7 @@
   }
 
   .header-open-string {
-
+    background-color: $body-background;
   }
 
   // blank row
@@ -40,15 +41,26 @@
   // string
   .string-row {
 
+    .top-string {
+      border-bottom: thin solid $fret-border;
+      border-top: thin solid $fret-border;
+    }
+
+    .non-top-string {
+      border-bottom: thin solid $fret-border;
+    }
+
     .fret {
-      border-left: thin solid black;
+      border-left: thin solid $fret-border;
       font-size: 0.80rem;
     }
 
     // changes to .fret class for open strings
     .fret-open {
+      border-top: none;
+      border-bottom:  none;
       border-left: none;
-      border-right: thick solid black;
+      border-right: thick solid $fret-border;
       font-size: 100%;
       text-align: center;
     }
