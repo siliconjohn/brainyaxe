@@ -73,7 +73,7 @@ var FretboardMenu = React.createClass({
 
     return (
       <div className="row">
-        <div className="column small-centered large-8 medium-8 small-10 gray">
+        <div className="column small-centered large-8 medium-8 small-10">
 
           <h4>Choose Tuning</h4>
           <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref="tuningChooser">
