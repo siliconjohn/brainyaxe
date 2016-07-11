@@ -55,6 +55,11 @@ var initialState = {
 
 module.exports.getInitialState = function () {
   var result = initialState;
-  result.selectedTuning= { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[40,45,50,55,59,64], key:"d"};
+
+  // get the tuning from the key
+  result.selectedTuning = result.tunings.find(function( object ) {
+      return object.key === result.selectedTuningKey ? true : false
+    },this);
+  //result.selectedTuning = { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[40,45,50,55,59,64], key:"d"};
   return result;
 }
