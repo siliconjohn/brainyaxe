@@ -2,6 +2,12 @@ var React = require('react');
 var FretboardString = require('FretboardString');
 
 var Fretboard = React.createClass({
+  propTypes: {
+      tuning: React.PropTypes.object.isRequired,
+      numberOfNotesOnFretboard: React.PropTypes.number.isRequired,
+      selectedNotesForScale: React.PropTypes.array.isRequired,
+      selectedNotesForChord: React.PropTypes.array.isRequired
+    },
 
   render: function() {
     var {tuning, numberOfNotesOnFretboard, selectedNotesForScale,
