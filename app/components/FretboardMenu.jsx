@@ -69,11 +69,11 @@ var FretboardMenu = React.createClass({
       })
     };
 
-    var selectedChordNoteIndex = twelveNotesTable.find( function(ref){
-      return ref === selectedChordNote ? true :false },this);
+    var selectedChordNoteIndex = twelveNotesTable.find( function(noteName){
+      return noteName === selectedChordNote ? true :false },this);
 
-    var selectedScaleNoteIndex = twelveNotesTable.find( function(ref){
-        return ref === selectedScaleNote ? true :false },this);
+    var selectedScaleNoteIndex = twelveNotesTable.find( function(noteName){
+        return noteName === selectedScaleNote ? true :false },this);
 
     return (
       <div className="row">
@@ -87,12 +87,12 @@ var FretboardMenu = React.createClass({
           <h4>Choose Scale</h4>
           <div className="row">
             <div className="small-4 medium-2 columns">
-              <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote} ref="scaleNoteChooser">
+              <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote}>
                 {renderTwelveNotes()}
               </select>
             </div>
             <div className="small-8 medium-10 columns">
-              <select value={selectedScaleKey} onChange={this.handleChangeScale} ref="scaleChooser">
+              <select value={selectedScaleKey} onChange={this.handleChangeScale}>
                 {renderScales()}
               </select>
             </div>
@@ -101,12 +101,12 @@ var FretboardMenu = React.createClass({
           <h4>Choose Chord</h4>
           <div className="row">
             <div className="small-4 medium-2 columns">
-              <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote} ref="chordNoteChooser">
+              <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote}>
                {renderTwelveNotes()}
               </select>
             </div>
             <div className="small-8 medium-10 columns">
-              <select value={selectedChordKey} onChange={this.handleChangeChord} ref="chordChooser">
+              <select value={selectedChordKey} onChange={this.handleChangeChord}>
                 {renderChords()}
               </select>
             </div>
