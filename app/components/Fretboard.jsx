@@ -29,25 +29,12 @@ var Fretboard = React.createClass({
     };
 
     var renderTableHeader = () => {
-      var fretCount = new Array(numberOfNotesOnFretboard);
-
-      // TO do: use this to set the width of each fret
-      for(var i=0; i < fretCount.length; i++){
-        fretCount[i] = i+1;
+      var result = [];
+      result.push ( <th className="header-fret-number header-open-string" key={1}></th> );
+      for(var i = 2; i < numberOfNotesOnFretboard + 1; i++){
+        result.push ( <th className="header-fret-number" key={i}>{i - 1}</th> );
       }
-
-      // fret numbers
-      return fretCount.map((index) => {
-        if(index == 1) {
-          return (
-            <th className="header-fret-number header-open-string" key={index}></th>
-          )
-        } else {
-          return (
-            <th className="header-fret-number" key={index}>{index - 1}</th>
-          )
-        }
-      });
+      return result;
     };
 
     return (
