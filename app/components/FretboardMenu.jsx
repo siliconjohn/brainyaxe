@@ -3,6 +3,10 @@ var {twelveNotesTable} = require('../utils');
 
 var FretboardMenu = React.createClass({
 
+  componentDidMount: function() {
+    this._input.focus();
+  },
+
   handleChangeScale: function (e) {
     var key = e.target.value;
     this.props.onChangeScale(key);
@@ -76,7 +80,7 @@ var FretboardMenu = React.createClass({
         <div className="column small-centered large-8 medium-8 small-10 gray">
 
           <h4>Choose Tuning</h4>
-          <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref="tuningChooser">
+          <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref={(c) => this._input = c}>
             {renderTunings()}
           </select>
 
