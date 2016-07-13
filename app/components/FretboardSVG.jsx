@@ -81,15 +81,15 @@ var FretboardSVG = React.createClass({
     return (
       <div className="row">
         <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
-        <svg className="fretboard-svg" width={width} height={height}>
-          {renderBackground()}
-          {renderNut()}
-          {renderFrets()}
-          {renderStringLines()}
-          {renderOpenStrings()}
-        </svg>
+          <svg className="fretboard-svg" width={width} height={height}>
+            {renderBackground()}
+            {renderNut()}
+            {renderFrets()}
+            {renderStringLines()}
+            {renderOpenStrings()}
+          </svg>
+        </div>
       </div>
-    </div>
     )
   }
 })
