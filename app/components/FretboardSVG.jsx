@@ -1,5 +1,5 @@
 var React = require('react')
-var StringLine = require('StringLine')
+var FretboardString = require('FretboardString')
 var FretboardNut = require('FretboardNut')
 var FretboardFret = require('FretboardFret')
 var FretboardBackground = require('FretboardBackground')
@@ -44,11 +44,6 @@ var FretboardSVG = React.createClass({
       return result
     }
 
-    var renderStringLines = () => {
-      var tempProps = { width: openWidth, numStrings:numStrings, x:stringHeight}
-      return ( <FretboardOpenString {...tempProps}/> )
-    }
-
     var renderFrets = () => {
       var result = []
       var tempFretWidth = fretWidth
@@ -72,7 +67,7 @@ var FretboardSVG = React.createClass({
                             x: openWidth + nutWidth,
                             y:(i * stringHeight) - (stringHeight/2) }
 
-        result.push ( <StringLine {...tempProps}/> )
+        result.push ( <FretboardString {...tempProps}/> )
       }
 
       return result
