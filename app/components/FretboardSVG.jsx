@@ -1,14 +1,16 @@
-var React = require('react');
-var StringLine = require('StringLine');
-var FretboardNut = require('FretboardNut');
-var FretboardFret = require('FretboardFret');
-var FretboardBackground = require('FretboardBackground');
+var React = require('react')
+var StringLine = require('StringLine')
+var FretboardNut = require('FretboardNut')
+var FretboardFret = require('FretboardFret')
+var FretboardBackground = require('FretboardBackground')
+var FretboardOpenString = require('FretboardOpenString')
+var {getNoteNameFromMIDINumber} = require('../utils');
 
 var FretboardSVG = React.createClass({
 
   render: function () {
     var {tuning, numberOfNotesOnFretboard, selectedNotesForScale,
-         selectedNotesForChord} = this.props;
+         selectedNotesForChord} = this.props
 
     //calculate dimensions
     var numStrings = tuning.midiNotes.length
@@ -21,13 +23,30 @@ var FretboardSVG = React.createClass({
     var fretWidth = 70
 
     var renderBackground = () => {
-      var tempProps = { height: fretboardHeight, width: width - openWidth, x: openWidth, y:0 }
+      var tempProps = { height: fretboardHeight, width: width - openWidth, x: openWidth, y:0  }
       return ( <FretboardBackground {...tempProps}/> )
     }
 
     var renderNut = () => {
       var tempProps = { height: fretboardHeight, width:nutWidth, x:openWidth}
       return ( <FretboardNut {...tempProps}/> )
+    }
+
+    var renderOpenStrings = () => {
+      var result = []
+
+      for(var i = 0; i < numStrings; i++ ) {
+        var tempProps = { y:(stringHeight * i)+stringHeight/2, width: openWidth,
+                          note:getNoteNameFromMIDINumber(tuning.midiNotes[i]), key:i+1 }
+        result.push ( <FretboardOpenString {...tempProps}/> )
+      }
+
+      return result
+    }
+
+    var renderStringLines = () => {
+      var tempProps = { width: openWidth, numStrings:numStrings, x:stringHeight}
+      return ( <FretboardOpenString {...tempProps}/> )
     }
 
     var renderFrets = () => {
@@ -37,8 +56,8 @@ var FretboardSVG = React.createClass({
 
       for(var i = 1; i <= numberOfNotesOnFretboard; i++ ) {
         var tempProps = { height: fretboardHeight, width:2, x:fretx ,key:i }
-        result.push ( <FretboardFret {...tempProps}/> );
-        tempFretWidth--;
+        result.push ( <FretboardFret {...tempProps}/> )
+        tempFretWidth--
         fretx += tempFretWidth
       }
 
@@ -53,7 +72,7 @@ var FretboardSVG = React.createClass({
                             x: openWidth + nutWidth,
                             y:(i * stringHeight) - (stringHeight/2) }
 
-        result.push ( <StringLine {...tempProps}/> );
+        result.push ( <StringLine {...tempProps}/> )
       }
 
       return result
@@ -62,16 +81,12 @@ var FretboardSVG = React.createClass({
     return (
       <div className="row">
         <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
-
-        <svg width={width} height={height}>
-
+        <svg className="fretboard-svg" width={width} height={height}>
           {renderBackground()}
           {renderNut()}
           {renderFrets()}
           {renderStringLines()}
-
-
-
+          {renderOpenStrings()}
         </svg>
       </div>
     </div>

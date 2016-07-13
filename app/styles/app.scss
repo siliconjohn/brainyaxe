@@ -16,57 +16,26 @@ $fret-border: $black;
   //position:fixed; bottom:0; z-index:100000;
 }
 
-.fretboard-table {
-  margin-bottom: 0px;
-  table-layout: fixed;
-  width:2000px;
+.fretboard-svg {
 
-  .header-fret-number {
-    text-align: center;
+  .fretboard-bg {
+    fill:#C0C0C0;
   }
 
-  .header-open-string {
-    background-color: $body-background;
+  .nut {
+    fill: #000;
   }
 
-  // blank row
-  .seperator-row {
-    height:30px;
+  .fret {
+    fill: #fff;
   }
 
-  // string
-  .string-row {
+  .string-line {
+    stroke:#fff;
+  }
 
-    .top-string {
-      border-bottom: thin solid $fret-border;
-      border-top: thin solid $fret-border;
-    }
-
-    .non-top-string {
-      border-bottom: thin solid $fret-border;
-    }
-
-    .fret {
-      border-left: thin solid $fret-border;
-      font-size: 0.80rem;
-    }
-
-    // changes to .fret class for open strings
-    .fret-open {
-      border-top: none;
-      border-bottom:  none;
-      border-left: none;
-      border-right: thick solid $fret-border;
-      font-size: 100%;
-      text-align: center;
-    }
-
-    .fret-selected-scale {
-      background-color: #C0C0C0;
-    }
-
-    .fret-selected-chord {
-      background-color: #FFC0C0;
-    }
+  .open-string-text {
+    font-family:"Times";
+    font-size:18px;
   }
 }
