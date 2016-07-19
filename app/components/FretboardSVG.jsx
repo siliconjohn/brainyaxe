@@ -13,14 +13,14 @@ var FretboardSVG = React.createClass({
          selectedNotesForChord} = this.props
 
     //calculate dimensions
-    var numStrings = tuning.midiNotes.length
     var stringHeight = 40
-    var width = 1507
-    var height = (2 + numStrings) * stringHeight
-    var fretboardHeight = stringHeight * numStrings
     var nutWidth = 5
     var openWidth = 50
     var fretWidth = 70
+    var numStrings = tuning.midiNotes.length
+    var height = (2 + numStrings) * stringHeight
+    var fretboardHeight = stringHeight * numStrings
+    var width = (fretWidth * numberOfNotesOnFretboard) + nutWidth + openWidth
 
     var renderBackground = () => {
       var tempProps = { height: fretboardHeight, width: width - openWidth, x: openWidth, y:0  }
@@ -46,14 +46,14 @@ var FretboardSVG = React.createClass({
 
     var renderFrets = () => {
       var result = []
-      var tempFretWidth = fretWidth
+      //var tempFretWidth = fretWidth
       var fretx = openWidth + nutWidth + fretWidth
 
       for(var i = 1; i <= numberOfNotesOnFretboard; i++ ) {
         var tempProps = { height: fretboardHeight, width:2, x:fretx ,key:i }
         result.push ( <FretboardFret {...tempProps}/> )
-        tempFretWidth--
-        fretx += tempFretWidth
+        //tempFretWidth--
+        fretx += fretWidth //tempFretWidth
       }
 
       return result
