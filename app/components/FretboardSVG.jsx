@@ -4,6 +4,7 @@ var FretboardNut = require('FretboardNut')
 var FretboardFret = require('FretboardFret')
 var FretboardBackground = require('FretboardBackground')
 var FretboardOpenString = require('FretboardOpenString')
+var FretboardOpenNote = require('FretboardOpenNote');
 var {getNoteNameFromMIDINumber} = require('../utils');
 
 var FretboardSVG = React.createClass({
@@ -44,6 +45,41 @@ var FretboardSVG = React.createClass({
       return result
     }
 
+    var renderNotes = () => {
+      var result = []
+
+      // add open string notes
+      for(var i=1;i <= numStrings; i++ ){
+        var tempProps = { x: 0, y:(stringHeight * (i-1)), width: openWidth,
+                          midiNote: tuning.midiNotes[i], height: stringHeight,
+                          note:getNoteNameFromMIDINumber(tuning.midiNotes[i]), key:i+1 }
+        result.push ( <FretboardOpenNote {...tempProps}/> )
+      }
+
+      var tempfretWidth = fretWidth
+      var tempfretX = 2
+
+      // add notes on fretboard for each string
+      for(var i=1;i <= numStrings; i++ ){
+
+        var fretx = openWidth + nutWidth
+        var notey = (stringHeight * (i-1));
+
+        for(var a = 1; a <= numberOfNotesOnFretboard; a++ ) {
+          var xx = a == 1 ? 0 : tempfretX
+          var ww = a == 1 ? 0 : 2
+          var tempProps = { x: fretx + xx, y:notey, width: tempfretWidth - ww,
+                            midiNote: tuning.midiNotes[i+a], height: stringHeight,
+                            note:getNoteNameFromMIDINumber(tuning.midiNotes[i+a]), key: i + "-" + a + "-" + tuning.midiNotes[i+a] }
+          result.push ( <FretboardOpenNote {...tempProps}/> )
+
+          fretx+= fretWidth
+        }
+      }
+
+      return result
+    }
+
     var renderFrets = () => {
       var result = []
       var fretx = openWidth + nutWidth + fretWidth
@@ -79,7 +115,9 @@ var FretboardSVG = React.createClass({
             {renderNut()}
             {renderFrets()}
             {renderStringLines()}
+            {renderNotes()}
             {renderOpenStrings()}
+
           </svg>
         </div>
       </div>

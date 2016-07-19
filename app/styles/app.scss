@@ -34,6 +34,10 @@ $fret-border: $black;
     stroke:#fff;
   }
 
+  .open-string-note {
+    fill: rgba(255,0,0,0.3);
+  }
+
   .open-string-text {
     font-family:"Times";
     font-size:18px;
