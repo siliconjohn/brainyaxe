@@ -38,8 +38,18 @@ $fret-border: $black;
     fill: rgba(255,0,0,0.3);
   }
 
+  .note-circle {
+    fill: rgba(255,0,0,0.3);
+  }
+
   .open-string-text {
     font-family:"Times";
     font-size:18px;
+  }
+
+  .fret-note-name {
+    font-family:"Times";
+    font-size:14px;
+    fill: #000;
   }
 }

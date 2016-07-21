@@ -5,7 +5,7 @@ var FretboardFret = require('FretboardFret')
 var FretboardBackground = require('FretboardBackground')
 var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
-var {getNoteNameFromMIDINumber} = require('../utils');
+var {getNoteNameFromMIDINumber,isNoteInArray} = require('../utils');
 
 var FretboardSVG = React.createClass({
 
@@ -49,31 +49,42 @@ var FretboardSVG = React.createClass({
       var result = []
 
       // add open string notes
-      for(var i=1;i <= numStrings; i++ ){
-        var tempProps = { x: 0, y:(stringHeight * (i-1)), width: openWidth,
-                          midiNote: tuning.midiNotes[i], height: stringHeight,
-                          note:getNoteNameFromMIDINumber(tuning.midiNotes[i]), key:i+1 }
-        result.push ( <FretboardOpenNote {...tempProps}/> )
+      for(var i=0;i < numStrings;i++) {
+
+        var midiNote = tuning.midiNotes[i]
+        var noteY = stringHeight * i
+        var key = i + '-' + noteName + '-' + midiNote
+        var noteName = getNoteNameFromMIDINumber(midiNote)
+        var isNoteInScale = isNoteInArray(midiNote,selectedNotesForScale)
+
+        var newProps = { x:0, y:noteY, width:openWidth, scaleNote:isNoteInScale,
+                          midiNote:midiNote, height:stringHeight, note:noteName, key:key }
+
+        result.push ( <FretboardOpenNote {...newProps}/> )
       }
 
-      var tempfretWidth = fretWidth
-      var tempfretX = 2
-
       // add notes on fretboard for each string
-      for(var i=1;i <= numStrings; i++ ){
+      for(var i=0;i < numStrings;i++ ) {
 
-        var fretx = openWidth + nutWidth
-        var notey = (stringHeight * (i-1));
+        var noteY = stringHeight * i
+        var tempFretX = openWidth + nutWidth
+        var stringMidiNote = tuning.midiNotes[i]
 
-        for(var a = 1; a <= numberOfNotesOnFretboard; a++ ) {
-          var xx = a == 1 ? 0 : tempfretX
-          var ww = a == 1 ? 0 : 2
-          var tempProps = { x: fretx + xx, y:notey, width: tempfretWidth - ww,
-                            midiNote: tuning.midiNotes[i+a], height: stringHeight,
-                            note:getNoteNameFromMIDINumber(tuning.midiNotes[i+a]), key: i + "-" + a + "-" + tuning.midiNotes[i+a] }
+        for(var a=0; a < numberOfNotesOnFretboard; a++ ) {
+
+          var tempW = fretWidth - (a == 1 ? 0 : 2)
+          var midiNote = stringMidiNote + a + 1
+          var isNoteInScale = isNoteInArray(midiNote,selectedNotesForScale)
+          var noteName = getNoteNameFromMIDINumber(midiNote)
+          var key = 'fret-' + i + '-' + noteName + '-' + midiNote
+
+          var tempProps = { x:tempFretX, y:noteY, width: tempW, height: stringHeight,
+                            scaleNote:isNoteInScale, midiNote: midiNote,
+                            note:noteName,
+                            key: key }
           result.push ( <FretboardOpenNote {...tempProps}/> )
 
-          fretx+= fretWidth
+          tempFretX+= fretWidth
         }
       }
 
@@ -117,7 +128,6 @@ var FretboardSVG = React.createClass({
             {renderStringLines()}
             {renderNotes()}
             {renderOpenStrings()}
-
           </svg>
         </div>
       </div>
