@@ -24,7 +24,9 @@ var FKApp = React.createClass({
       ],
       tunings: [
         { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], key:"d"},
-        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[64,59,55,50,45,38], key:"dd"}
+        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[64,59,55,50,45,38], key:"dd"},
+        { name: 'Open G', notes:'D,G,D,G,B,D', midiNotes:[62,59,55,50,43,38], key:"tuning3"},
+        { name: 'Open A', notes:'E,A,E,A,C♯,E', midiNotes:[64,61,57,52,45,40], key:"tuning4"},
       ],
       chords: [
         { name: 'No Chord', degrees: '', intervals:[], key:"chord0"},
