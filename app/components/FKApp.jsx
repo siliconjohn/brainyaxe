@@ -23,8 +23,8 @@ var FKApp = React.createClass({
         { name: 'Locrian', degrees: '1,♭2,♭3,4,♭5,♭6,♭7', intervals:[1,3,5,6,8,10], key:"scale12"}
       ],
       tunings: [
-        { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[40,45,50,55,59,64], key:"d"},
-        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[38,45,50,55,59,64], key:"dd"}
+        { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], key:"d"},
+        { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[64,59,55,50,45,38], key:"dd"}
       ],
       chords: [
         { name: 'No Chord', degrees: '', intervals:[], key:"chord0"},
