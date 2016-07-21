@@ -1,5 +1,5 @@
 var React = require('react');
-var Fretboard = require('Fretboard');
+var FretboardSVG = require('FretboardSVG');
 var FretboardMenu = require('FretboardMenu');
 var {getObjectForKey, getNotesForArray} = require('../utils');
 
@@ -135,7 +135,7 @@ var FKApp = React.createClass({
           onChangeSelectedChordNote={this.handleChangeSelectedChordNote}
           onChangeSelectedScaleNote={this.handleChangeSelectedScaleNote}/>
         <br/>
-        <Fretboard tuning={selectedTuning} numberOfNotesOnFretboard={numberOfNotesOnFretboard}
+        <FretboardSVG tuning={selectedTuning} numberOfNotesOnFretboard={numberOfNotesOnFretboard}
           selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>
       </div>
     )

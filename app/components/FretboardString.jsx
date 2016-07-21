@@ -1,55 +1,11 @@
-var React = require('react');
-var {getNoteNameFromMIDINumber, isNoteInArray} = require('../utils');
+var React = require('react')
 
-var FretboardString = React.createClass({
+var FretboardString = (props) => {
+  var { key, x, y } = props
 
-  render:function () {
-    var {midiNote, note, numberOfNotesOnFretboard, selectedNotesForScale,
-         selectedNotesForChord, topString} = this.props;
+  return (
+    <line x1={x} y1={y} x2="100%" y2={y} className="string-line" key={"string-line-" + key}/>
+  )
+}
 
-    var fretCount = new Array(numberOfNotesOnFretboard);
-
-    // set the midi notes for each fret
-    var midiNoteInt = Number.parseInt(midiNote,10);
-    for(var i=0; i < fretCount.length; i++){
-      fretCount[i] = midiNoteInt + i;
-    }
-
-    var renderFrets = () => {
-      return fretCount.map((value, index) => {
-        var selectedScale = isNoteInArray(value,selectedNotesForScale)
-        var selectedChord = isNoteInArray(value,selectedNotesForChord)
-
-        // set classes for the fret
-        var tdClass =  'fret'
-
-        // set classes for the top and bottom borders
-        if( topString == true ) {
-          tdClass += ' top-string';
-        } else {
-          tdClass += ' non-top-string';
-        }
-
-        // if open fret
-        if(index == 0 ) tdClass += ' fret fret-open';
-
-        // selected chord or scale note
-        tdClass = selectedScale ? tdClass + ' fret-selected-scale': tdClass;
-        tdClass = selectedChord ? tdClass + ' fret-selected-chord': tdClass;
-
-        return (
-           <td className={tdClass}
-             key={value}>{getNoteNameFromMIDINumber(value)}</td>
-         )
-       });
-    };
-
-    return (
-      <tr className="string-row">
-        {renderFrets()}
-      </tr>
-    )
-  }
-});
-
-module.exports = FretboardString;
+module.exports = FretboardString
