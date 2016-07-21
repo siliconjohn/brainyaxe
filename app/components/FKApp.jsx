@@ -52,9 +52,9 @@ var FKApp = React.createClass({
         { name: 'Dominant 13th', degrees: 'R,3,5,♭7,9,11,13', intervals:[4,7,10,14,17,21], key:"chord22"}
       ],
       selectedTuningKey: "d",
-      selectedScaleKey: "scale0",
+      selectedScaleKey: "scale1",
       selectedScaleNote: "E",
-      selectedChordKey: "chord0",
+      selectedChordKey: "chord1",
       selectedChordNote: "D",
       numberOfNotesOnFretboard: 25,
       selectedNotesForScale: [],
