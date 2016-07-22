@@ -5,6 +5,7 @@ var FretboardFret = require('FretboardFret')
 var FretboardBackground = require('FretboardBackground')
 var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
+var FretboardFretNumber = require('FretboardFretNumber');
 var {getNoteNameFromMIDINumber,isNoteInArray} = require('../utils');
 
 var FretboardSVG = React.createClass({
@@ -118,11 +119,25 @@ var FretboardSVG = React.createClass({
       return result
     }
 
+    var renderFretNumbers = () => {
+      var result = []
+      var fretX = openWidth + nutWidth
+      var y = fretboardHeight + stringHeight
+      for(var i = 1; i <= numberOfNotesOnFretboard; i++ ) {
+        var tempProps = { x:fretX, y:y, number: i, fretWidth:fretWidth ,key:'fret-number-'+i }
+        result.push ( <FretboardFretNumber {...tempProps}/> )
+        fretX += fretWidth
+      }
+
+      return result
+    }
+
     return (
       <div className="row">
         <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
           <svg className="fretboard-svg" width={width} height={height}>
             {renderBackground()}
+            {renderFretNumbers()}
             {renderNut()}
             {renderFrets()}
             {renderStringLines()}

@@ -56,17 +56,29 @@ $fret-border: $black;
     stroke:#fff;
   }
 
+  .marker-bold-text {
+    font-family:"Arial Unicode MS";
+    font-weight: bold;
+    font-size:18px;
+    fill: #333;
+  }
+
+  .marker-normal-text {
+    font-family:"Arial Unicode MS";
+    font-size:18px;
+    fill: #999;
+  }
+
   .open-string-note {
     fill: rgba(255,0,0,0.3);
     stroke: rgba(255,0,0,0.3);
     stroke-width: 1;
   }
 
-
-
   .open-string-text {
     font-family:"Arial Unicode MS";
     font-size:18px;
+    fill: #000;
   }
 
   .fret-note-name {
