@@ -122,7 +122,7 @@ var FretboardSVG = React.createClass({
     var renderFretNumbers = () => {
       var result = []
       var fretX = openWidth + nutWidth
-      var y = fretboardHeight + stringHeight
+      var y = fretboardHeight + stringHeight / 2 + 10
       for(var i = 1; i <= numberOfNotesOnFretboard; i++ ) {
         var tempProps = { x:fretX, y:y, number: i, fretWidth:fretWidth ,key:'fret-number-'+i }
         result.push ( <FretboardFretNumber {...tempProps}/> )
