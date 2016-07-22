@@ -20,7 +20,7 @@ var FretboardSVG = React.createClass({
     var openWidth = 50
     var fretWidth = 70
     var numStrings = tuning.midiNotes.length
-    var height = (2 + numStrings) * stringHeight
+    var height = (1 + numStrings) * stringHeight
     var fretboardHeight = stringHeight * numStrings
     var width = (fretWidth * numberOfNotesOnFretboard) + nutWidth + openWidth
 
