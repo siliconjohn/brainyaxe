@@ -16,6 +16,28 @@ $fret-border: $black;
   //position:fixed; bottom:0; z-index:100000;
 }
 
+.no-horz-padding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.note-circle-scale {
+  fill: rgba(255,0,0,0.3);
+  stroke: rgba(255,0,0,0.7);
+  stroke-width: 1;
+}
+
+.note-circle-chord {
+  fill: rgba(255,255,0,0.6);
+  stroke: rgba(255,255,0,0.8);
+  stroke-width: 1;
+}
+
+.note-circle-scale-chord {
+  fill: rgba(255,0,0,0.3);
+  stroke: rgba(255,255,0,0.6);
+  stroke-width: 5;
+}
 .fretboard-svg {
 
   .fretboard-bg {
@@ -40,23 +62,7 @@ $fret-border: $black;
     stroke-width: 1;
   }
 
-  .note-circle-scale {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(255,0,0,0.7);
-    stroke-width: 1;
-  }
 
-  .note-circle-chord {
-    fill: rgba(255,255,0,0.6);
-    stroke: rgba(255,255,0,0.8);
-    stroke-width: 1;
-  }
-
-  .note-circle-scale-chord {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(255,255,0,0.6);
-    stroke-width: 5;
-  }
 
   .open-string-text {
     font-family:"Arial Unicode MS";
