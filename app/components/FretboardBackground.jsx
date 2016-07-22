@@ -9,3 +9,7 @@ var FretboardBackground = (props) => {
 }
 
 module.exports = FretboardBackground
+// <g>
+//   <rect x={x} y={y} width={width} height={height} className="fretboard-bg"/>
+//   <image href="/maple.jpg" x={x} y={y} height="225px" width="300px"/>
+// </g>
