@@ -58,7 +58,7 @@ var FKApp = React.createClass({
       selectedScaleNote: "E",
       selectedChordKey: "chord1",
       selectedChordNote: "E",
-      numberOfNotesOnFretboard: 25,
+      numberOfNotesOnFretboard: 24,
       selectedNotesForScale: [],
       selectedNotesForChord: []
     }
