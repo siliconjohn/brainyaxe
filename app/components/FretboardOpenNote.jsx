@@ -1,22 +1,34 @@
 var React = require('react')
 
 var FretboardOpenNote = (props) => {
-  var { x, y, width, height, midiNote, key, note, scaleNote, isOpenString} = props
+  var { x, y, width, height, midiNote, key, note, scaleNote,
+        chordNote, isOpenString} = props
 
   // adjustments used to center text
   var textYOffset = 6
   var textXOffset = -6
 
   var getCircle = () =>  {
-    if(scaleNote) {
+
+    if(scaleNote || chordNote) {
+      // get the className to use for the circle
+      var circleClass = ""
+      if(!scaleNote && chordNote) {
+         circleClass = "note-circle-chord"
+      } else if(scaleNote && !chordNote) {
+         circleClass = "note-circle-scale"
+      } else if(scaleNote && chordNote) {
+         circleClass = "note-circle-scale-chord"
+      }
+
       return (
-        <circle cx={ x + width /2 } cy={ y + height / 2} r="18" className="note-circle"/>
-      )
+        <circle cx={ x + width /2 } cy={ y + height / 2} r="18" className={circleClass}/>
+       )
     }
   }
 
   var getNoteName = () =>  {
-    if(!isOpenString && scaleNote) {
+    if(!isOpenString && (scaleNote || chordNote)) {
 
       // short notename so it fits in the circle
       var noteName = note.substring(0,2)

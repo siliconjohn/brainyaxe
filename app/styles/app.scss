@@ -36,10 +36,26 @@ $fret-border: $black;
 
   .open-string-note {
     fill: rgba(255,0,0,0.3);
+    stroke: rgba(255,0,0,0.3);
+    stroke-width: 1;
   }
 
-  .note-circle {
+  .note-circle-scale {
     fill: rgba(255,0,0,0.3);
+    stroke: rgba(255,0,0,0.7);
+    stroke-width: 1;
+  }
+
+  .note-circle-chord {
+    fill: rgba(255,255,0,0.6);
+    stroke: rgba(255,255,0,0.8);
+    stroke-width: 1;
+  }
+
+  .note-circle-scale-chord {
+    fill: rgba(255,0,0,0.3);
+    stroke: rgba(255,255,0,0.6);
+    stroke-width: 5;
   }
 
   .open-string-text {

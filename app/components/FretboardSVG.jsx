@@ -56,10 +56,10 @@ var FretboardSVG = React.createClass({
         var key = i + '-' + noteName + '-' + midiNote
         var noteName = getNoteNameFromMIDINumber(midiNote)
         var isNoteInScale = isNoteInArray(midiNote,selectedNotesForScale)
+        var isNoteInChord = isNoteInArray(midiNote,selectedNotesForChord)
 
         var newProps = { x:0, y:noteY, width:openWidth, scaleNote:isNoteInScale, isOpenString:true,
-                          midiNote:midiNote, height:stringHeight, note:noteName, key:key }
-
+                         chordNote:isNoteInChord, midiNote:midiNote, height:stringHeight, note:noteName, key:key }
         result.push ( <FretboardOpenNote {...newProps}/> )
       }
 
@@ -77,11 +77,12 @@ var FretboardSVG = React.createClass({
           var isNoteInScale = isNoteInArray(midiNote,selectedNotesForScale)
           var noteName = getNoteNameFromMIDINumber(midiNote)
           var key = 'fret-' + i + '-' + noteName + '-' + midiNote
+          var isNoteInChord = isNoteInArray(midiNote,selectedNotesForChord)
 
-          var tempProps = { x:tempFretX, y:noteY, width: tempW, height: stringHeight,
-                            scaleNote:isNoteInScale, midiNote: midiNote,
+          var newProps = { x:tempFretX, y:noteY, width: tempW, height: stringHeight,
+                            scaleNote:isNoteInScale, midiNote: midiNote, chordNote:isNoteInChord,
                             note:noteName, isOpenString:false, key: key }
-          result.push ( <FretboardOpenNote {...tempProps}/> )
+          result.push ( <FretboardOpenNote {...newProps}/> )
 
           tempFretX+= fretWidth
         }
