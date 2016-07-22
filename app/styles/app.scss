@@ -86,4 +86,9 @@ $fret-border: $black;
     font-size:18px;
     fill: #000;
   }
+
+  .fretboard-inlay-marker {
+    fill: #999;
+    stroke-width: 0;
+  }
 }

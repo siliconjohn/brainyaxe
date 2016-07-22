@@ -6,6 +6,7 @@ var FretboardBackground = require('FretboardBackground')
 var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
 var FretboardFretNumber = require('FretboardFretNumber');
+var FretboardInlayMarker = require('FretboardInlayMarker');
 var {getNoteNameFromMIDINumber,isNoteInArray} = require('../utils');
 
 var FretboardSVG = React.createClass({
@@ -132,11 +133,29 @@ var FretboardSVG = React.createClass({
       return result
     }
 
+    var renderFretInlayMarkers = () =>
+    {
+      var markers = [ 3, 5, 7, 9, 12, 15, 17, 19, 21, 24 ] // frets to place the markers
+      var y = fretboardHeight / 2
+
+      return markers.map((number) => {
+        var double = false;
+        if( number == 12 || number ==24 ) double = true
+        var fretX = (number * fretWidth) + openWidth + nutWidth  - fretWidth
+
+        var tempProps = { x:fretX, y:y, fretWidth:fretWidth, double:double,
+          stringHeight: stringHeight, key:'fret-inlay-'+ number }
+
+        return ( <FretboardInlayMarker {...tempProps}/> )
+      })
+    }
+
     return (
       <div className="row">
         <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
           <svg className="fretboard-svg" width={width} height={height}>
             {renderBackground()}
+            {renderFretInlayMarkers()}
             {renderFretNumbers()}
             {renderNut()}
             {renderFrets()}
