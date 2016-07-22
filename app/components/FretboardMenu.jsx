@@ -71,17 +71,19 @@ var FretboardMenu = React.createClass({
     };
 
     var renderNoteCircle = ( options ) => {
-      var newProps = { x:0, y:0, width:40, scaleNote:options.scaleNote, isOpenString:false,
-                       chordNote:options.chordNote , height:40,
+      var newProps = { x:0, y:0, width:40, height:40, scaleNote:options.scaleNote,
+                       isOpenString:false, chordNote:options.chordNote,
                        note:options.selectedScaleNote, key:"" }
-      return ( <svg width="40" height="40"><FretboardOpenNote {...newProps}/></svg> )
+      return (
+        <svg width="40" height="40"><FretboardOpenNote {...newProps}/></svg>
+      )
     }
 
     var selectedChordNoteIndex = twelveNotesTable.find( function(noteName){
       return noteName === selectedChordNote ? true :false },this);
 
     var selectedScaleNoteIndex = twelveNotesTable.find( function(noteName){
-        return noteName === selectedScaleNote ? true :false },this);
+      return noteName === selectedScaleNote ? true :false },this);
 
     return (
       <div className="row">
@@ -94,7 +96,6 @@ var FretboardMenu = React.createClass({
 
           <h4>Choose Scale</h4>
           <div className="row">
-
             <div className="small-4 medium-3 columns">
               <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote}>
                 {renderTwelveNotes()}
@@ -108,7 +109,6 @@ var FretboardMenu = React.createClass({
                 {renderScales()}
               </select>
             </div>
-
           </div>
 
           <h4>Choose Chord</h4>
