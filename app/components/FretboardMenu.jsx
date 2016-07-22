@@ -96,13 +96,13 @@ var FretboardMenu = React.createClass({
 
           <h4>Choose Scale</h4>
           <div className="row">
+            <div className="small-1 medium-1 columns no-horz-padding text-center">
+              {renderNoteCircle({selectedScaleNote:selectedScaleNote,scaleNote:true,chordNote:false})}
+            </div>
             <div className="small-4 medium-3 columns">
               <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote}>
                 {renderTwelveNotes()}
               </select>
-            </div>
-            <div className="small-1 medium-1 columns no-horz-padding text-center">
-              {renderNoteCircle({selectedScaleNote:selectedScaleNote,scaleNote:true,chordNote:false})}
             </div>
             <div className="small-7 medium-8 columns">
               <select value={selectedScaleKey} onChange={this.handleChangeScale}>
@@ -113,13 +113,13 @@ var FretboardMenu = React.createClass({
 
           <h4>Choose Chord</h4>
           <div className="row">
+            <div className="small-1 medium-1 columns no-horz-padding text-center">
+              {renderNoteCircle({selectedScaleNote:selectedChordNote,scaleNote:false,chordNote:true})}
+            </div>
             <div className="small-4 medium-3 columns">
               <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote}>
                {renderTwelveNotes()}
               </select>
-            </div>
-            <div className="small-1 medium-1 columns no-horz-padding text-center">
-              {renderNoteCircle({selectedScaleNote:selectedChordNote,scaleNote:false,chordNote:true})}
             </div>
             <div className="small-7 medium-8 columns">
               <select value={selectedChordKey} onChange={this.handleChangeChord}>
