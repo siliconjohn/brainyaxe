@@ -1,6 +1,6 @@
 var React = require('react');
 var FretboardOpenNote = require('FretboardOpenNote');
-var {twelveNotesTable} = require('../utils');
+var {twelveNotesTable, getObjectForKey} = require('../utils');
 
 var FretboardMenu = React.createClass({
 
@@ -37,6 +37,20 @@ var FretboardMenu = React.createClass({
     var {scales, tunings, chords, selectedTuningKey,
       selectedChordKey, selectedScaleKey, selectedChordNote,
       selectedScaleNote} = this.props;
+
+    var renderScaleDegrees = () => {
+      var scale = getObjectForKey(scales, selectedScaleKey);
+      return (
+        <p>{scale.degrees}</p>
+      )
+    }
+
+    var renderChordDegrees = () => {
+      var chord = getObjectForKey(chords, selectedChordKey);
+      return (
+        <p>{chord.degrees}</p>
+      )
+    }
 
     var renderScales = () => {
       return scales.map((scale) => {
@@ -108,6 +122,8 @@ var FretboardMenu = React.createClass({
               <select value={selectedScaleKey} onChange={this.handleChangeScale}>
                 {renderScales()}
               </select>
+              <br/>
+              {renderScaleDegrees()}
             </div>
           </div>
 
@@ -125,6 +141,8 @@ var FretboardMenu = React.createClass({
               <select value={selectedChordKey} onChange={this.handleChangeChord}>
                 {renderChords()}
               </select>
+              <br/>
+              {renderChordDegrees()}
             </div>
           </div>
         </div>
