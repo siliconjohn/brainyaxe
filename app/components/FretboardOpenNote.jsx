@@ -2,7 +2,7 @@ var React = require('react')
 
 var FretboardOpenNote = (props) => {
   var { x, y, width, height, midiNote, key, note, scaleNote,
-        chordNote, isOpenString} = props
+        chordNote, isOpenString, degree} = props
 
   // adjustments used to center text
   var textYOffset = 6
@@ -43,8 +43,35 @@ var FretboardOpenNote = (props) => {
     }
   }
 
+  var getNoteDegree = () =>  {
+    if(degree && !isOpenString && (scaleNote || chordNote)) {
+
+      var globalXOffset = 4
+      var textXOffset = 21
+      if(degree.length > 1) textXOffset = 24
+
+      var addOnClass = "degree-circle"
+
+      if( degree.indexOf("1") > -1 ) {
+        addOnClass += " degree-circle-1"
+      } else if( degree.indexOf("3") > -1 ) {
+        addOnClass += " degree-circle-3"
+      } else if( degree.indexOf("5") > -1 ) {
+        addOnClass += " degree-circle-5"
+      }
+
+      return (
+        <g>
+          <circle cx={ globalXOffset + x + width - 18 } cy={ y + height - 8} r="9" className={addOnClass}/>
+          <text x={ globalXOffset + x + width - textXOffset } y={ y + height - 4  } className="fret-note-degree">{degree}</text>
+        </g>
+      )
+    }
+  }
+
   return (
     <g key={key}>
+      {getNoteDegree()}
       {getCircle()}
       {getNoteName()}
     </g>

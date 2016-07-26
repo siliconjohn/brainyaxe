@@ -13,7 +13,9 @@ var FretboardSVG = React.createClass({
 
   render: function () {
     var {tuning, numberOfNotesOnFretboard, selectedNotesForScale,
-         selectedNotesForChord} = this.props
+         selectedNotesForChord, scale} = this.props
+
+    var scaleDegrees = scale.degrees.split(',')
 
     //calculate dimensions
     var stringHeight = 40
@@ -81,9 +83,11 @@ var FretboardSVG = React.createClass({
           var key = 'fret-' + i + '-' + noteName + '-' + midiNote
           var isNoteInChord = isNoteInArray(midiNote,selectedNotesForChord)
 
+          var degree = scaleDegrees[selectedNotesForScale.indexOf(noteName)]
+
           var newProps = { x:tempFretX, y:noteY, width: tempW, height: stringHeight,
                             scaleNote:isNoteInScale, midiNote: midiNote, chordNote:isNoteInChord,
-                            note:noteName, isOpenString:false, key: key }
+                            note:noteName, isOpenString:false, degree: degree, key: key }
           result.push ( <FretboardOpenNote {...newProps}/> )
 
           tempFretX+= fretWidth

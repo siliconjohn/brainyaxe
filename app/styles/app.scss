@@ -87,6 +87,32 @@ $fret-border: $black;
     fill: #000;
   }
 
+  .fret-note-degree {
+    font-family:"Arial Unicode MS";
+    font-size:12px;
+    fill: #000;
+  }
+
+  .degree-circle {
+    fill: rgba(255,255,255,0.8);
+    stroke-width: 0px;
+  }
+
+  .degree-circle-1 {
+    stroke: #0000FF;
+    stroke-width: 1px;
+  }
+
+  .degree-circle-3 {
+    stroke: #00FF00;
+    stroke-width: 1px;
+  }
+
+  .degree-circle-5 {
+    stroke: #FF0000;
+    stroke-width: 1px;
+  }
+
   .fretboard-inlay-marker {
     fill: #999;
     stroke-width: 0;
