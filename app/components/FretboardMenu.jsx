@@ -100,49 +100,64 @@ var FretboardMenu = React.createClass({
       return noteName === selectedScaleNote ? true :false },this);
 
     return (
-      <div className="row">
-        <div className="column small-centered large-8 medium-8 small-10 gray">
-
-          <h4>Choose Tuning</h4>
-          <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref={(component) => this._tuningChooser = component}>
-            {renderTunings()}
-          </select>
-
-          <h4>Choose Scale</h4>
-          <div className="row">
-            <div className="small-1 medium-1 columns no-horz-padding text-center">
-              {renderNoteCircle({selectedScaleNote:selectedScaleNote,scaleNote:true,chordNote:false})}
+      <div>
+        <div className="row">
+          <div className="column small-centered large-8 medium-8 small-10">
+            <div className="row fb-header shadow">
+              <h5 className="tuning-header-text">Choose Tuning</h5>
             </div>
-            <div className="small-4 medium-3 columns">
-              <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote}>
-                {renderTwelveNotes()}
+            <div className="row menu-parent shadow">
+              <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref={(component) => this._tuningChooser = component}>
+                {renderTunings()}
               </select>
-            </div>
-            <div className="small-7 medium-8 columns">
-              <select value={selectedScaleKey} onChange={this.handleChangeScale}>
-                {renderScales()}
-              </select>
-              <br/>
-              {renderScaleDegrees()}
             </div>
           </div>
+        </div>
+        <br/>
 
-          <h4>Choose Chord</h4>
-          <div className="row">
-            <div className="small-1 medium-1 columns no-horz-padding text-center">
-              {renderNoteCircle({selectedScaleNote:selectedChordNote,scaleNote:false,chordNote:true})}
+        <div className="row">
+          <div className="column small-centered large-8 medium-8 small-10">
+            <h5>Choose Scale</h5>
+            <div className="row menu-parent shadow">
+              <div className="small-1 medium-1 columns no-horz-padding text-center">
+                {renderNoteCircle({selectedScaleNote:selectedScaleNote,scaleNote:true,chordNote:false})}
+              </div>
+              <div className="small-4 medium-3 columns">
+                <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote}>
+                  {renderTwelveNotes()}
+                </select>
+              </div>
+              <div className="small-7 medium-8 columns">
+                <select value={selectedScaleKey} onChange={this.handleChangeScale}>
+                  {renderScales()}
+                </select>
+                <br/>
+                {renderScaleDegrees()}
+              </div>
             </div>
-            <div className="small-4 medium-3 columns">
-              <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote}>
-               {renderTwelveNotes()}
-              </select>
-            </div>
-            <div className="small-7 medium-8 columns">
-              <select value={selectedChordKey} onChange={this.handleChangeChord}>
-                {renderChords()}
-              </select>
-              <br/>
-              {renderChordDegrees()}
+          </div>
+        </div>
+        <br/>
+
+        <div className="row">
+          <div className="column small-centered large-8 medium-8 small-10">
+            <h5>Choose Chord</h5>
+            <div className="row menu-parent shadow">
+              <div className="small-1 medium-1 columns no-horz-padding text-center">
+                {renderNoteCircle({selectedScaleNote:selectedChordNote,scaleNote:false,chordNote:true})}
+              </div>
+              <div className="small-4 medium-3 columns">
+                <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote}>
+                 {renderTwelveNotes()}
+                </select>
+              </div>
+              <div className="small-7 medium-8 columns">
+                <select value={selectedChordKey} onChange={this.handleChangeChord}>
+                  {renderChords()}
+                </select>
+                <br/>
+                {renderChordDegrees()}
+              </div>
             </div>
           </div>
         </div>
