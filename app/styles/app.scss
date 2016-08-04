@@ -12,9 +12,27 @@ $fret-border: $black;
   overflow-y: hidden;
   padding-left:0px;
   padding-right: 0px;
-
-  //position:fixed; bottom:0; z-index:100000;
+  background-color: #fff;
+  padding-top: 30px;
 }
+
+.fb-header {
+  background-color: #1583cc;
+
+  .fb-header-text {
+    margin-top: 8px;
+    color:#fff;
+  }
+}
+
+.shadow {
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+.fretboard-parent::-webkit-scrollbar {
+  display: none;
+}
+
 
 .no-horz-padding {
   padding-left: 0px;

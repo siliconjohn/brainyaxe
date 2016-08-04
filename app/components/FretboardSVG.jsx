@@ -154,19 +154,38 @@ var FretboardSVG = React.createClass({
       })
     }
 
+    var renderHeaderText = () => {
+      var scaleText = scale.intervals.length > 0 ? scale.name + " Scale" : ""
+
+      return (
+        <div>
+          <h5 className="fb-header-text float-left">{scaleText}</h5>
+          <h5 className="fb-header-text float-right">{tuning.name} Tuning</h5>
+        </div>
+      )
+    }
+
+
     return (
-      <div className="row">
-        <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
-          <svg className="fretboard-svg" width={width} height={height}>
-            {renderBackground()}
-            {renderFretInlayMarkers()}
-            {renderFretNumbers()}
-            {renderNut()}
-            {renderFrets()}
-            {renderStringLines()}
-            {renderNotes()}
-            {renderOpenStrings()}
-          </svg>
+      <div>
+        <div className="row fb-header shadow">
+          <div className="column small-centered large-12 medium-12 small-12">
+            {renderHeaderText()}
+          </div>
+        </div>
+        <div className="row shadow">
+          <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
+            <svg className="fretboard-svg" width={width} height={height}>
+              {renderBackground()}
+              {renderFretInlayMarkers()}
+              {renderFretNumbers()}
+              {renderNut()}
+              {renderFrets()}
+              {renderStringLines()}
+              {renderNotes()}
+              {renderOpenStrings()}
+            </svg>
+          </div>
         </div>
       </div>
     )
