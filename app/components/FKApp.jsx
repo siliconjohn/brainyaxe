@@ -127,7 +127,7 @@ var FKApp = React.createClass({
 
     var selectedTuning = getObjectForKey(tunings,selectedTuningKey)
     var selectedScale = getObjectForKey(scales,selectedScaleKey)
-    
+
     return (
       <div>
         <br/>
@@ -136,7 +136,8 @@ var FKApp = React.createClass({
           selectedChordKey={selectedChordKey} onChangeScale={this.handleChangeScale}
           onChangeTuning={this.handleChangeTuning}  onChangeChord={this.handleChangeChord}
           onChangeSelectedChordNote={this.handleChangeSelectedChordNote}
-          onChangeSelectedScaleNote={this.handleChangeSelectedScaleNote}/>
+          onChangeSelectedScaleNote={this.handleChangeSelectedScaleNote}
+          selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>
         <br/>
         <FretboardSVG tuning={selectedTuning} scale={selectedScale} numberOfNotesOnFretboard={numberOfNotesOnFretboard}
           selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>

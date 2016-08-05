@@ -5,6 +5,66 @@
 
 $fret-border: $black;
 
+.main-menu {
+
+  .menu-section {
+    padding-left:10px;
+    padding-right: 10px;
+    background-color: #fff;
+    padding-top: 20px;
+  }
+
+  .menu-bottom-row {
+    padding-left:10px;
+    padding-right: 10px;
+    background-color: #fff;
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+
+  .tuning-header-text {
+    margin-top: 8px;
+    margin-left: 8px;
+    color:#fff;
+  }
+
+  .degrees {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: x-large;
+  }
+
+  .note-circle-menu-degree {
+    font-family:"Arial Unicode MS";
+    font-size:12px;
+    fill: #333;
+  }
+
+  .shadow {
+      box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  }
+}
+
+// note circles
+
+.note-circle-scale {
+  fill: rgba(255,0,0,0.3);
+  stroke: rgba(255,0,0,0.7);
+  stroke-width: 1;
+}
+
+.note-circle-chord {
+  fill: rgba(255,255,0,0.6);
+  stroke: rgba(255,255,0,0.8);
+  stroke-width: 1;
+}
+
+.note-circle-scale-chord {
+  fill: rgba(255,0,0,0.3);
+  stroke: rgba(255,255,0,0.6);
+  stroke-width: 5;
+}
+
 // fretboard
 .fretboard-parent {
   overflow: scroll;
@@ -25,45 +85,7 @@ $fret-border: $black;
   }
 }
 
-.menu-parent {
-  padding-left:10px;
-  padding-right: 10px;
-  background-color: #fff;
-  padding-top: 20px;
-}
-
-.tuning-header-text {
-  margin-top: 8px;
-  margin-left: 8px;
-  color:#fff;
-}
-
-.shadow {
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-}
-
-.no-horz-padding {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.note-circle-scale {
-  fill: rgba(255,0,0,0.3);
-  stroke: rgba(255,0,0,0.7);
-  stroke-width: 1;
-}
-
-.note-circle-chord {
-  fill: rgba(255,255,0,0.6);
-  stroke: rgba(255,255,0,0.8);
-  stroke-width: 1;
-}
-
-.note-circle-scale-chord {
-  fill: rgba(255,0,0,0.3);
-  stroke: rgba(255,255,0,0.6);
-  stroke-width: 5;
-}
+// fretboard svg
 .fretboard-svg {
 
   .fretboard-bg {
