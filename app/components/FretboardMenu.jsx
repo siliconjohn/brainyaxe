@@ -127,7 +127,7 @@ var FretboardMenu = React.createClass({
             <div className="row fb-header shadow">
               <h5 className="tuning-header-text">Choose Tuning</h5>
             </div>
-            <div className="row menu-section shadow">
+            <div className="row menu-section tuning-section shadow">
               <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref={(component) => this._tuningChooser = component}>
                 {renderTunings()}
               </select>
