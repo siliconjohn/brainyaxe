@@ -6,7 +6,7 @@ var FKApp = require('FKApp');
 //require('style!css!foundation-sites/dist/foundation.min.css');
 require('style!css!sass!applicationStyles');
 
-// not needed unless using foundation js 
+// not needed unless using foundation js
 // require('script!foundation-sites/dist/foundation.js');
 // $(document).foundation();
 
@@ -14,3 +14,6 @@ ReactDOM.render(
   <FKApp/>,
   document.getElementById("app")
 );
+
+
+require('./redx.jsx')
