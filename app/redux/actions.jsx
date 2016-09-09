@@ -16,11 +16,29 @@ export var changeScale = ( key ) => {
   }
 }
 
+export const CHANGE_SCALE_NOTE = 'CHANGE_SCALE_NOTE'
+
+export var changeScaleNote = ( note ) => {
+  return {
+    type: CHANGE_SCALE_NOTE,
+    note
+  }
+}
+
 export const CHANGE_CHORD = 'CHANGE_CHORD'
 
 export var changeChord = ( key ) => {
   return {
     type: CHANGE_CHORD,
     key
+  }
+}
+
+export const CHANGE_CHORD_NOTE = 'CHANGE_CHORD_NOTE'
+
+export var changeChordNote = ( note ) => {
+  return {
+    type: CHANGE_CHORD_NOTE,
+    note
   }
 }
