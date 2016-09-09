@@ -1,7 +1,7 @@
 var redux = require('redux')
 var actions = require('./actions')
 
-export var tuningReducer = ( state = 'tuning1', action ) => {
+export var tuningReducer = ( state = 'default', action ) => {
 
   if ( action.type == actions.CHANGE_TUNING ) {
     return action.key
@@ -10,7 +10,7 @@ export var tuningReducer = ( state = 'tuning1', action ) => {
   }
 }
 
-export var scaleReducer = ( state = 'scale0', action ) => {
+export var scaleReducer = ( state = 'default', action ) => {
 
   if ( action.type == actions.CHANGE_SCALE ) {
     return action.key

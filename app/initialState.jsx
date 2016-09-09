@@ -1,6 +1,6 @@
 export var initialState = {
   scales: [
-    { name: 'No Scale', degrees: '', intervals:[], key:"scale0"},
+    { name: 'No Scale', degrees: '', intervals:[], key:"default"},
     { name: 'Major', degrees: '1,2,3,4,5,6,7', intervals:[2,4,5,7,9,11], key:"scale1"},
     { name: 'Blues', degrees: '1,♭3,4,5,♭7', intervals:[3,5,7,10], key:"scale2"},
     { name: 'Natural Minor', degrees: '1,2,♭3,4,5,♭6,♭7', intervals:[2,3,5,7,8,10], key:"scale3"},
@@ -15,7 +15,7 @@ export var initialState = {
     { name: 'Locrian', degrees: '1,♭2,♭3,4,♭5,♭6,♭7', intervals:[1,3,5,6,8,10], key:"scale12"}
   ],
   tunings: [
-    { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], instrument: "guitar", key:"tuning1"},
+    { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], instrument: "guitar", key:"default"},
     { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[64,59,55,50,45,38], instrument: "guitar", key:"tuning2"},
     { name: 'Open G', notes:'D,G,D,G,B,D', midiNotes:[62,59,55,50,43,38], instrument: "guitar", key:"tuning3"},
     { name: 'Open A', notes:'E,A,E,A,C♯,E', midiNotes:[64,61,57,52,45,40], instrument: "guitar", key:"tuning4"},
@@ -26,7 +26,7 @@ export var initialState = {
 
   ],
   chords: [
-    { name: 'No Chord', degrees: '', intervals:[], key:"chord0"},
+    { name: 'No Chord', degrees: '', intervals:[], key:"default"},
     { name: 'Major', degrees: '1,3,5', intervals:[4,7], key:"chord1"},
     { name: 'Minor', degrees: '1,♭3,5', intervals:[3,7], key:"chord2"},
     { name: 'Augmented', degrees: '1,3,♯5', intervals:[4,8], key:"chord3"},
@@ -50,10 +50,10 @@ export var initialState = {
     { name: 'Minor 13th', degrees: '1,♭3,5,♭7,9,11,13', intervals:[3,7,10,14,17,21], key:"chord21"},
     { name: 'Dominant 13th', degrees: '1,3,5,♭7,9,11,13', intervals:[4,7,10,14,17,21], key:"chord22"}
   ],
-  selectedTuningKey: "tuning1",
-  selectedScaleKey: "scale2",
+  selectedTuningKey: "default",
+  selectedScaleKey: "default",
   selectedScaleNote: "A",
-  selectedChordKey: "chord0",
+  selectedChordKey: "default",
   selectedChordNote: "A",
   numberOfNotesOnFretboard: 24,
   selectedNotesForScale: [],
