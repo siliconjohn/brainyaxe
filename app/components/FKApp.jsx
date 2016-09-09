@@ -2,7 +2,7 @@ var React = require('react');
 var FretboardSVG = require('FretboardSVG');
 var FretboardMenu = require('FretboardMenu');
 var {getObjectForKey, getNotesForArray} = require('../utils');
-var {gg} = require('../redx.jsx')
+var {gg} = require('../redux/store.jsx')
 var FKApp = React.createClass({
 
   getInitialState: function() {

@@ -16,4 +16,4 @@ ReactDOM.render(
 );
 
 
-require('./redx.jsx')
+//equire('./redux/store.jsx')

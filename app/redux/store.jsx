@@ -1,4 +1,6 @@
 var redux = require('redux');
+var actions = require('./actions');
+var reducers = require('./reducers');
 
 var initialState = {
   scales: [
@@ -62,13 +64,14 @@ var initialState = {
   selectedNotesForChord: []
 }
 
-var reducer = ( state = initialState, action ) => {
-  return state
-}
+var store = redux.createStore(reducers.appReducers, initialState, redux.compose(
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+))
 
-var store = redux.createStore(reducer)
+// test change tuning
+store.dispatch(actions.changeTuning("basstuning1"))
 
-var state = store.getState();
+store.dispatch(actions.changeScale("scale7"))
 
 module.exports.gg = function() {
   return store.getState();
