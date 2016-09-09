@@ -15,3 +15,12 @@ export var changeScale = ( key ) => {
     key
   }
 }
+
+export const CHANGE_CHORD = 'CHANGE_CHORD'
+
+export var changeChord = ( key ) => {
+  return {
+    type: CHANGE_CHORD,
+    key
+  }
+}

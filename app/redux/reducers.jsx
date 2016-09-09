@@ -19,12 +19,21 @@ export var scaleReducer = ( state = 'default', action ) => {
   }
 }
 
+export var chordReducer = ( state = 'default', action ) => {
+
+  if ( action.type == actions.CHANGE_CHORD ) {
+    return action.key
+  } else {
+    return state
+  }
+}
+
 // all app reducers compined into one
 export const appReducers = redux.combineReducers({
   selectedTuningKey:tuningReducer,
   selectedScaleKey:scaleReducer,
   selectedScaleNote: (state = {}) => state,
-  selectedChordKey: (state = {}) => state,
+  selectedChordKey: chordReducer,
   selectedChordNote: (state = {}) => state,
   numberOfNotesOnFretboard: (state = {}) => state,
   selectedNotesForScale: (state = {}) => state,
