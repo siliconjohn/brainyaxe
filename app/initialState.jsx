@@ -51,7 +51,7 @@ export var initialState = {
     { name: 'Dominant 13th', degrees: '1,3,5,♭7,9,11,13', intervals:[4,7,10,14,17,21], key:"chord22"}
   ],
   selectedTuningKey: "default",
-  selectedScaleKey: "default",
+  selectedScaleKey: "scale2",
   selectedScaleNote: "A",
   selectedChordKey: "default",
   selectedChordNote: "A",
