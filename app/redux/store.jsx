@@ -1,6 +1,6 @@
-var redux = require('redux');
-var actions = require('./actions');
-var reducers = require('./reducers');
+var redux = require('redux')
+var actions = require('./actions')
+var reducers = require('./reducers')
 var { initialState } = require('../initialState')
 
 
@@ -14,5 +14,5 @@ store.dispatch(actions.changeTuning("basstuning1"))
 store.dispatch(actions.changeScale("scale7"))
 
 module.exports.gg = function() {
-  return store.getState();
+  return store.getState()
 }

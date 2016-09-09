@@ -1,5 +1,5 @@
-var redux = require('redux');
-var actions = require('./actions');
+var redux = require('redux')
+var actions = require('./actions')
 
 export var tuningReducer = ( state = 'tuning1', action ) => {
 
