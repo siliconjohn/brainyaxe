@@ -1,8 +1,10 @@
 var React = require('react');
 var FretboardOpenNote = require('FretboardOpenNote');
 var {twelveNotesTable, getObjectForKey} = require('../utils');
+var {connect} = require('react-redux')
+var actions = require('../redux/actions')
 
-var FretboardMenu = React.createClass({
+export var FretboardMenu = React.createClass({
 
   componentDidMount: function() {
     this._tuningChooser.focus();
@@ -14,8 +16,12 @@ var FretboardMenu = React.createClass({
   },
 
   handleChangeTuning: function(e) {
+    var {dispatch} = this.props;
+
     var key = e.target.value;
-    this.props.onChangeTuning(key);
+    dispatch(actions.changeTuning(key));
+
+// this.props.onChangeTuning(key);
   },
 
   handleChangeChord: function(e) {
@@ -203,4 +209,11 @@ var FretboardMenu = React.createClass({
   }
 });
 
-module.exports = FretboardMenu;
+//module.exports = FretboardMenu;
+export default connect(
+  (state) => {
+    return {
+      selectedTuningKey: state.selectedTuningKey
+    }
+  }
+)(FretboardMenu);

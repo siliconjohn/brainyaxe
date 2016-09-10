@@ -1,19 +1,20 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var FKApp = require('FKApp');
-//var { Route, Router, IndexRoute, hashHistory } = require('react-router');
+var React = require('react')
+var ReactDOM = require('react-dom')
+var { Provider } = require('react-redux')
+var store = require('./redux/store')
 
-//require('style!css!foundation-sites/dist/foundation.min.css');
+//var FKApp = require('FKApp');
+import FKApp from 'FKApp';
 require('style!css!sass!applicationStyles');
 
-// not needed unless using foundation js
-// require('script!foundation-sites/dist/foundation.js');
-// $(document).foundation();
+var newStore = store.createStore();
+newStore.subscribe(() => {
+  console.log('New state', newStore.getState());
+});
 
 ReactDOM.render(
-  <FKApp/>,
+  <Provider store={newStore}>
+    <FKApp/>
+  </Provider>,
   document.getElementById("app")
 );
-
-
-//equire('./redux/store.jsx')
