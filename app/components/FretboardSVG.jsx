@@ -8,7 +8,7 @@ var FretboardOpenNote = require('FretboardOpenNote');
 var FretboardFretNumber = require('FretboardFretNumber');
 var FretboardInlayMarker = require('FretboardInlayMarker');
 var { getNoteNameFromMIDINumber, isNoteInArray, getObjectForKey, getNotesForArray } = require('../utils');
-var {connect} = require('react-redux')
+var { connect } = require('react-redux')
 
 export var FretboardSVG = React.createClass({
 
