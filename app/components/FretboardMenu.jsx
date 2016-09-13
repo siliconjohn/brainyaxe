@@ -10,23 +10,6 @@ export var FretboardMenu = React.createClass({
     this._tuningChooser.focus();
   },
 
-  handleChangeScale: function (e) {
-    var {dispatch} = this.props;
-    var key = e.target.value;
-    dispatch(actions.changeScale(key));
-  },
-
-  handleChangeTuning: function(e) {
-    var {dispatch} = this.props;
-    var key = e.target.value;
-    dispatch(actions.changeTuning(key));
-  },
-
-  handleChangeChord: function(e) {
-    var {dispatch} = this.props;
-    var key = e.target.value;
-    dispatch(actions.changeChord(key));
-  },
 
   render: function() {
 
@@ -130,7 +113,8 @@ export var FretboardMenu = React.createClass({
               <h5 className="tuning-header-text">Choose Tuning</h5>
             </div>
             <div className="row menu-section tuning-section shadow">
-              <select value={selectedTuningKey} onChange={this.handleChangeTuning} ref={(component) => this._tuningChooser = component}>
+              <select value={selectedTuningKey} onChange={ (e) => dispatch( actions.changeTuning( e.target.value ))}
+                ref={(component) => this._tuningChooser = component}>
                 {renderTunings()}
               </select>
             </div>
@@ -153,7 +137,7 @@ export var FretboardMenu = React.createClass({
                 </select>
               </div>
               <div className="small-7 medium-8 columns">
-                <select value={ selectedScaleKey } onChange={this.handleChangeScale}>
+                <select value={ selectedScaleKey } onChange={ (e) => dispatch( actions.changeScale( e.target.value ))}>
                   {renderScales()}
                 </select>
               </div>
@@ -185,7 +169,7 @@ export var FretboardMenu = React.createClass({
                 </select>
               </div>
               <div className="small-7 medium-8 columns">
-                <select value={ selectedChordKey } onChange={this.handleChangeChord}>
+                <select value={ selectedChordKey } onChange={ (e) => dispatch( actions.changeChord( e.target.value ))}>
                   {renderChords()}
                 </select>
               </div>
