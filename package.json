@@ -19,6 +19,7 @@
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-redux": "^4.4.5",
     "react-router": "^2.0.0"
   },
   "devDependencies": {
@@ -38,9 +39,12 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.8.0",
+    "redux": "^3.3.1",
     "sass-loader": "^4.0.0",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.13",
+    "webpack-error-notification": "^0.1.6",
+    "webpack-notifier": "^1.4.1"
   }
 }

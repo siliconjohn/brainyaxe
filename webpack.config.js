@@ -1,5 +1,6 @@
 var webpack = require('webpack');
-var BeepPlugin = require('webpack-beep-plugin');
+var WebpackErrorNotificationPlugin = require('webpack-error-notification');
+var WebpackNotifierPlugin = require('webpack-notifier');
 var path = require('path');
 
 // if -p (production) build  mimimized files: webpack -p
@@ -29,7 +30,8 @@ module.exports = {
         minimize: true
     }),
     new webpack.optimize.DedupePlugin(),
-    new BeepPlugin()
+    new WebpackErrorNotificationPlugin(),
+    new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true}),
   ],
   output: {
     path: __dirname,
