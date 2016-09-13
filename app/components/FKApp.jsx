@@ -25,43 +25,6 @@ export var FKApp = React.createClass({
     })
   },
 
-  handleChangeScale: function (key) {
-    var {scales, selectedScaleNote} = this.state;
-
-    this.setState({
-      selectedScaleKey: key,
-      selectedNotesForScale : getNotesForArray(getObjectForKey(scales, key), selectedScaleNote)
-    })
-  },
-
-
-  handleChangeChord: function (key) {
-    var {chords, selectedChordNote} = this.state;
-
-    this.setState({
-      selectedChordKey: key,
-      selectedNotesForChord : getNotesForArray(getObjectForKey(chords, key), selectedChordNote)
-    })
-  },
-
-  handleChangeSelectedChordNote: function ( note ) {
-    var {chords, selectedChordKey} = this.state;
-
-    this.setState({
-      selectedChordNote: note,
-      selectedNotesForChord : getNotesForArray(getObjectForKey(chords, selectedChordKey), note)
-    })
-  },
-
-  handleChangeSelectedScaleNote: function ( note ) {
-    var {scales, selectedScaleKey} = this.state;
-
-    this.setState({
-      selectedScaleNote: note,
-      selectedNotesForScale : getNotesForArray(getObjectForKey(scales, selectedScaleKey), note)
-    })
-  },
-
   render: function() {
     var {scales, tunings, selectedTuningKey, selectedScaleKey,
         chords, selectedChordKey, selectedNotesForScale, selectedNotesForChord,
@@ -72,10 +35,7 @@ export var FKApp = React.createClass({
         <br/>
         <FretboardMenu scales={scales} tunings={tunings} chords={chords} selectedChordNote={selectedChordNote}
           selectedTuningKey={selectedTuningKey} selectedScaleKey={selectedScaleKey} selectedScaleNote={selectedScaleNote}
-          selectedChordKey={selectedChordKey} onChangeScale={this.handleChangeScale}
-          onChangeChord={this.handleChangeChord}
-          onChangeSelectedChordNote={this.handleChangeSelectedChordNote}
-          onChangeSelectedScaleNote={this.handleChangeSelectedScaleNote}
+          selectedChordKey={selectedChordKey} 
           selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>
         <br/>
         <FretboardSVG/>
