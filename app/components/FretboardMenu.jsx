@@ -1,6 +1,6 @@
 var React = require('react');
 var FretboardOpenNote = require('FretboardOpenNote');
-var {twelveNotesTable, getObjectForKey} = require('../utils');
+var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils');
 var {connect} = require('react-redux')
 var actions = require('../redux/actions')
 
@@ -28,20 +28,17 @@ export var FretboardMenu = React.createClass({
     dispatch(actions.changeChord(key));
   },
 
-  handleChangeSelectedChordNote: function(e) {
-    var note = e.target.value;
-    this.props.onChangeSelectedChordNote(note);
-  },
-
-  handleChangeSelectedScaleNote: function(e) {
-    var note = e.target.value;
-    this.props.onChangeSelectedScaleNote(note);
-  },
-
   render: function() {
+
     var {scales, tunings, chords, selectedTuningKey,
       selectedChordKey, selectedScaleKey, selectedChordNote,
       selectedScaleNote, selectedNotesForScale, selectedNotesForChord} = this.props;
+
+    // derived data
+    var selectedNotesForScale = getNotesForArray(getObjectForKey(scales, selectedScaleKey), selectedScaleNote)
+    var selectedNotesForChord = getNotesForArray(getObjectForKey(chords, selectedChordKey), selectedChordNote)
+
+    var {dispatch} = this.props;
 
     var renderScaleDegrees = () => {
       var scale = getObjectForKey(scales, selectedScaleKey);
@@ -151,12 +148,12 @@ export var FretboardMenu = React.createClass({
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
-                <select value={selectedScaleNoteIndex} onChange={this.handleChangeSelectedScaleNote}>
+                <select value={ selectedScaleNoteIndex } onChange={ (e) => dispatch( actions.changeScaleNote( e.target.value ))}>
                   {renderTwelveNotes()}
                 </select>
               </div>
               <div className="small-7 medium-8 columns">
-                <select value={selectedScaleKey} onChange={this.handleChangeScale}>
+                <select value={ selectedScaleKey } onChange={this.handleChangeScale}>
                   {renderScales()}
                 </select>
               </div>
@@ -183,12 +180,12 @@ export var FretboardMenu = React.createClass({
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
-                <select value={selectedChordNoteIndex} onChange={this.handleChangeSelectedChordNote}>
+                <select value={ selectedChordNoteIndex } onChange={ (e) => dispatch( actions.changeChordNote( e.target.value ))}>
                  {renderTwelveNotes()}
                 </select>
               </div>
               <div className="small-7 medium-8 columns">
-                <select value={selectedChordKey} onChange={this.handleChangeChord}>
+                <select value={ selectedChordKey } onChange={this.handleChangeChord}>
                   {renderChords()}
                 </select>
               </div>
@@ -215,8 +212,11 @@ export default connect(
       selectedTuningKey: state.selectedTuningKey,
       selectedScaleKey: state.selectedScaleKey,
       selectedChordKey: state.selectedChordKey,
+      selectedChordNote: state.selectedChordNote,
+      selectedScaleNote: state.selectedScaleNote,
       tunings: state.tunings,
-
+      scales: state.scales,
+      chords: state.chords,
     }
   }
 )(FretboardMenu);
