@@ -11,22 +11,21 @@ export var FretboardMenu = React.createClass({
   },
 
   handleChangeScale: function (e) {
+    var {dispatch} = this.props;
     var key = e.target.value;
-    this.props.onChangeScale(key);
+    dispatch(actions.changeScale(key));
   },
 
   handleChangeTuning: function(e) {
     var {dispatch} = this.props;
-
     var key = e.target.value;
     dispatch(actions.changeTuning(key));
-
-// this.props.onChangeTuning(key);
   },
 
   handleChangeChord: function(e) {
+    var {dispatch} = this.props;
     var key = e.target.value;
-    this.props.onChangeChord(key);
+    dispatch(actions.changeChord(key));
   },
 
   handleChangeSelectedChordNote: function(e) {
@@ -214,7 +213,10 @@ export default connect(
   (state) => {
     return {
       selectedTuningKey: state.selectedTuningKey,
-      tunings: state.tunings
+      selectedScaleKey: state.selectedScaleKey,
+      selectedChordKey: state.selectedChordKey,
+      tunings: state.tunings,
+
     }
   }
 )(FretboardMenu);

@@ -63,11 +63,9 @@ export var FKApp = React.createClass({
   },
 
   render: function() {
-    var {scales, tunings, selectedTuningKey, selectedScaleKey,numberOfNotesOnFretboard,
+    var {scales, tunings, selectedTuningKey, selectedScaleKey,
         chords, selectedChordKey, selectedNotesForScale, selectedNotesForChord,
         selectedChordNote, selectedScaleNote} = this.state;
-
-    var selectedScale = getObjectForKey(scales,selectedScaleKey)
 
     return (
       <div>
@@ -80,8 +78,7 @@ export var FKApp = React.createClass({
           onChangeSelectedScaleNote={this.handleChangeSelectedScaleNote}
           selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>
         <br/>
-        <FretboardSVG scale={selectedScale} numberOfNotesOnFretboard={numberOfNotesOnFretboard}
-          selectedNotesForScale={selectedNotesForScale} selectedNotesForChord={selectedNotesForChord}/>
+        <FretboardSVG/>
       </div>
     )
   }
