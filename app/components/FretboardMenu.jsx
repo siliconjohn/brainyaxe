@@ -10,7 +10,6 @@ export var FretboardMenu = React.createClass({
     this._tuningChooser.focus();
   },
 
-
   render: function() {
 
     var {scales, tunings, chords, selectedTuningKey,
@@ -21,7 +20,7 @@ export var FretboardMenu = React.createClass({
     var selectedNotesForScale = getNotesForArray(getObjectForKey(scales, selectedScaleKey), selectedScaleNote)
     var selectedNotesForChord = getNotesForArray(getObjectForKey(chords, selectedChordKey), selectedChordNote)
 
-    var {dispatch} = this.props;
+    var { dispatch } = this.props;
 
     var renderScaleDegrees = () => {
       var scale = getObjectForKey(scales, selectedScaleKey);
