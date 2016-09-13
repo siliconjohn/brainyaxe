@@ -22,9 +22,9 @@ export var FretboardSVG = React.createClass({
     var { numberOfNotesOnFretboard, selectedScaleKey, selectedChordKey }  = this.props
 
     // calculate derived data
-    var tuning = getObjectForKey( this.props.tunings,this.props.selectedTuningKey )
-    var scale = getObjectForKey( this.props.scales,this.props.selectedScaleKey )
-    var chord = getObjectForKey( this.props.chords,this.props.selectedChordKey )
+    var tuning = getObjectForKey( this.props.tunings, this.props.selectedTuningKey )
+    var scale = getObjectForKey( this.props.scales, this.props.selectedScaleKey )
+    var chord = getObjectForKey( this.props.chords, this.props.selectedChordKey )
     var selectedNotesForScale = getNotesForArray( scale, this.props.selectedScaleNote )
     var selectedNotesForChord = getNotesForArray( chord, this.props.selectedChordNote )
     var scaleDegrees = scale.degrees.split(',')
