@@ -168,6 +168,7 @@ export var FretboardSVG = React.createClass({
       })
     }
 
+    // TODO: make into component
     var renderHeaderText = () => {
       var scaleText = scale.intervals.length > 0 ? scale.name + " Scale" : ""
 
