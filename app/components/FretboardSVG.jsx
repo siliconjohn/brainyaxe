@@ -7,6 +7,7 @@ var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
 var FretboardFretNumber = require('FretboardFretNumber');
 var FretboardInlayMarker = require('FretboardInlayMarker');
+var FretboardHeader = require('FretboardHeader')
 var { getNoteNameFromMIDINumber, isNoteInArray, getObjectForKey, getNotesForArray } = require('../utils');
 var { connect } = require('react-redux')
 
@@ -168,24 +169,11 @@ export var FretboardSVG = React.createClass({
       })
     }
 
-    // TODO: make into component
-    var renderHeaderText = () => {
-      var scaleText = scale.intervals.length > 0 ? scale.name + " Scale" : ""
-
-      return (
-        <div>
-          <h5 className="fb-header-text float-left">{scaleText}</h5>
-          <h5 className="fb-header-text float-right">{tuning.name} Tuning</h5>
-        </div>
-      )
-    }
-
-
     return (
       <div>
         <div className="row fb-header shadow">
           <div className="column small-centered large-12 medium-12 small-12">
-            {renderHeaderText()}
+            <FretboardHeader scale={ scale } tuning={ tuning }/>
           </div>
         </div>
         <div className="row shadow">
