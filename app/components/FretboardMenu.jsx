@@ -20,7 +20,7 @@ export var FretboardMenu = React.createClass({
     // derived data
     var selectedNotesForScale = getNotesForArray(getObjectForKey(scales, selectedScaleKey), selectedScaleNote)
     var selectedNotesForChord = getNotesForArray(getObjectForKey(chords, selectedChordKey), selectedChordNote)
-
+     
     var {dispatch} = this.props;
 
     var renderScaleDegrees = () => {
@@ -98,12 +98,6 @@ export var FretboardMenu = React.createClass({
       })
     }
 
-    var selectedChordNoteIndex = twelveNotesTable.find( function(noteName){
-      return noteName === selectedChordNote ? true :false },this);
-
-    var selectedScaleNoteIndex = twelveNotesTable.find( function(noteName){
-      return noteName === selectedScaleNote ? true :false },this);
-
     return (
       <div className="main-menu">
 
@@ -132,7 +126,7 @@ export var FretboardMenu = React.createClass({
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
-                <select value={ selectedScaleNoteIndex } onChange={ (e) => dispatch( actions.changeScaleNote( e.target.value ))}>
+                <select value={ selectedScaleNote } onChange={ (e) => dispatch( actions.changeScaleNote( e.target.value ))}>
                   {renderTwelveNotes()}
                 </select>
               </div>
@@ -164,7 +158,7 @@ export var FretboardMenu = React.createClass({
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
-                <select value={ selectedChordNoteIndex } onChange={ (e) => dispatch( actions.changeChordNote( e.target.value ))}>
+                <select value={ selectedScaleNote } onChange={ (e) => dispatch( actions.changeChordNote( e.target.value ))}>
                  {renderTwelveNotes()}
                 </select>
               </div>
