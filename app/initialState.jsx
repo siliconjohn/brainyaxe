@@ -55,7 +55,5 @@ export var initialState = {
   selectedScaleNote: "A",
   selectedChordKey: "default",
   selectedChordNote: "A",
-  numberOfNotesOnFretboard: 24,
-  selectedNotesForScale: [],
-  selectedNotesForChord: []
+  numberOfNotesOnFretboard: 24
 }
