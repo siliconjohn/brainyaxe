@@ -7,14 +7,15 @@ var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
 var FretboardFretNumber = require('FretboardFretNumber');
 var FretboardInlayMarker = require('FretboardInlayMarker');
-var {getNoteNameFromMIDINumber,isNoteInArray} = require('../utils');
+var {getNoteNameFromMIDINumber, isNoteInArray, getObjectForKey} = require('../utils');
 var {connect} = require('react-redux')
 
 export var FretboardSVG = React.createClass({
 
   render: function () {
-    console.log(this.props.selectedTuningKey);
-    var {tuning, numberOfNotesOnFretboard, selectedNotesForScale,
+
+    var tuning = getObjectForKey(this.props.tunings,this.props.selectedTuningKey)
+    var { numberOfNotesOnFretboard, selectedNotesForScale,
          selectedNotesForChord, scale} = this.props
 
     var scaleDegrees = scale.degrees.split(',')
@@ -196,6 +197,7 @@ export var FretboardSVG = React.createClass({
 
 export default connect((state) => {
   return {
-    selectedTuningKey: state.selectedTuningKey
+    selectedTuningKey: state.selectedTuningKey,
+    tunings: state.tunings
   }
 })(FretboardSVG)

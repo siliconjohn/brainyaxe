@@ -213,7 +213,8 @@ export var FretboardMenu = React.createClass({
 export default connect(
   (state) => {
     return {
-      selectedTuningKey: state.selectedTuningKey
+      selectedTuningKey: state.selectedTuningKey,
+      tunings: state.tunings
     }
   }
 )(FretboardMenu);
