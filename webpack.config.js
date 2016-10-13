@@ -42,6 +42,7 @@ module.exports = {
     modulesDirectories: [
       'node_modules',
       './app/components',
+      './app/components/fretboard',
       './app/api'
     ],
     alias: {

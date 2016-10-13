@@ -4,7 +4,7 @@ var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils');
 var {connect} = require('react-redux')
 var actions = require('../redux/actions')
 
-export var FretboardMenu = React.createClass({
+export var MenuContainer = React.createClass({
 
   componentDidMount: function() {
     this._tuningChooser.focus();
@@ -182,7 +182,7 @@ export var FretboardMenu = React.createClass({
   }
 });
 
-//module.exports = FretboardMenu;
+//module.exports = MenuContainer;
 export default connect(
   (state) => {
     return {
@@ -196,4 +196,4 @@ export default connect(
       chords: state.chords,
     }
   }
-)(FretboardMenu);
+)(MenuContainer);

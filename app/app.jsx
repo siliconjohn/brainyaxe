@@ -3,8 +3,8 @@ var ReactDOM = require('react-dom')
 var { Provider } = require('react-redux')
 var store = require('./redux/store')
 
-//var FKApp = require('FKApp');
-import FKApp from 'FKApp';
+//var AppContainer = require('AppContainer');
+import AppContainer from 'AppContainer';
 require('style!css!sass!applicationStyles');
 
 var newStore = store.createStore();
@@ -14,7 +14,7 @@ newStore.subscribe(() => {
 
 ReactDOM.render(
   <Provider store={newStore}>
-    <FKApp/>
+    <AppContainer/>
   </Provider>,
   document.getElementById("app")
 );

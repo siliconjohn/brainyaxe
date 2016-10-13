@@ -3,7 +3,7 @@ var expect = require('expect');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 
-var FKApp = require('FKApp');
+var AppContainer = require('AppContainer');
 
 describe('App', () => {
 
@@ -12,7 +12,7 @@ describe('App', () => {
   });
 
   it("loads without error", function () {
-    var fkApp = TestUtils.renderIntoDocument(<FKApp/>);
-    expect(FKApp).toExist();
+    var AppContainer = TestUtils.renderIntoDocument(<AppContainer/>);
+    expect(AppContainer).toExist();
   });
 });

@@ -11,7 +11,7 @@ var FretboardHeader = require('FretboardHeader')
 var { getNoteNameFromMIDINumber, isNoteInArray, getObjectForKey, getNotesForArray } = require('../utils');
 var { connect } = require('react-redux')
 
-export var FretboardSVG = React.createClass({
+export var FretboardContainer = React.createClass({
 
   render: function () {
 
@@ -208,4 +208,4 @@ export default connect((state) => {
     selectedChordNote: state.selectedChordNote,
     numberOfNotesOnFretboard: state.numberOfNotesOnFretboard
   }
-})(FretboardSVG)
+})(FretboardContainer)
