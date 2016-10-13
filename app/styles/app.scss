@@ -19,7 +19,7 @@ $fret-border: $black;
     padding-right: 25px;
     padding-bottom: 10px;
   }
-  
+
   .menu-bottom-row {
     padding-left:10px;
     padding-right: 10px;
@@ -171,4 +171,9 @@ $fret-border: $black;
     fill: #999;
     stroke-width: 0;
   }
+}
+
+.custom-tuning-select {
+  width:5rem;
+  margin-right: 1rem;
 }
