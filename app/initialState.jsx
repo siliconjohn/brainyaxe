@@ -15,6 +15,7 @@ export var initialState = {
     { name: 'Locrian', degrees: '1,♭2,♭3,4,♭5,♭6,♭7', intervals:[1,3,5,6,8,10], key:"scale12"}
   ],
   tunings: [
+    { name: 'Custom', notes:'E,A,D,G,B,E,E,E', midiNotes:[64,59,55,50,45,40,40,40], instrument: "Custom", key:"custom"},
     { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], instrument: "guitar", key:"default"},
     { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[64,59,55,50,45,38], instrument: "guitar", key:"tuning2"},
     { name: 'Open G', notes:'D,G,D,G,B,D', midiNotes:[62,59,55,50,43,38], instrument: "guitar", key:"tuning3"},
@@ -23,7 +24,6 @@ export var initialState = {
     { name: 'Bass', notes:'E,A,D,G', midiNotes:[43,38,33,28], instrument: "bass", key:"basstuning1"},
     { name: 'Bass 5 String', notes:'B,E,A,D,G', midiNotes:[43,38,33,28,23], instrument: "bass", key:"basstuning2"},
     { name: 'Bass 6 String', notes:'B,E,A,D,G,C', midiNotes:[48,43,38,33,28,23], instrument: "bass", key:"basstuning3"},
-
   ],
   chords: [
     { name: 'No Chord', degrees: '', intervals:[], key:"default"},

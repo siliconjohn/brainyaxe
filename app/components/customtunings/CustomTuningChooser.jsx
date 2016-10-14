@@ -1,19 +1,24 @@
 const React = require('react')
 const { connect } = require('react-redux')
 const actions = require('../../redux/actions')
-const { notesNameTable } = require('../../utils')
+const utils = require('../../utils')
 
 export var CustomTuningChooser = React.createClass({
 
   render: function() {
-    var { dispatch, keyid } = this.props
-
+    var { dispatch, keyid, tunings } = this.props
+    var customTuning = utils.getObjectForKey( tunings, "custom")
+    var selectedMidiNote = customTuning.midiNotes[keyid].toString()
+   
     return (
-      <select className="custom-tuning-select" key={keyid}
-        onChange={ (e) => dispatch( actions.changeChord( "chord2" ))}>
+      <select value={ selectedMidiNote } className="custom-tuning-select" key={keyid}
+        onChange={ (e) => {
+          dispatch( actions.changeCustomTuningNote( keyid, parseInt(e.target.value)))
+          dispatch( actions.changeTuning( "custom" ))
+        }}>
 
-        { notesNameTable.map(( note, index ) => (
-          <option key={ index + 1 } value={ note }>{ note } - { index + 1 }</option>))
+        { utils.notesNameTable.map(( note, index ) => (
+          <option key={ index } value={ index }>{ note } - { index }</option>))
         }
 
       </select>
@@ -23,7 +28,6 @@ export var CustomTuningChooser = React.createClass({
 
 export default connect((state) => {
   return {
-    tunings: state.tunings,
-    selectedTuningKey: state.selectedTuningKey
+    tunings: state.tunings
   }
 })(CustomTuningChooser)

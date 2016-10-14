@@ -7,6 +7,7 @@ export var CustomTuningContainer = React.createClass({
     return (
       <div>
         <p>Or Create a Custom Tuning</p>
+        <CustomTuningChooser keyid="0"/>
         <CustomTuningChooser keyid="1"/>
         <CustomTuningChooser keyid="2"/>
         <CustomTuningChooser keyid="3"/>

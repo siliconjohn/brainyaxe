@@ -42,3 +42,13 @@ export var changeChordNote = ( note ) => {
     note
   }
 }
+
+export const CHANGE_CUSTOM_TUNING_NOTE = 'CHANGE_CUSTOM_TUNING_NOTE'
+
+export var changeCustomTuningNote = ( stringKey, midiNote ) => {
+  return {
+    type: CHANGE_CUSTOM_TUNING_NOTE,
+    stringKey,
+    midiNote
+  }
+}
