@@ -1,5 +1,5 @@
-const React = require('react');
-var CustomTuningChooser = require('CustomTuningChooser')
+const React = require('react')
+import CustomTuningChooser from 'CustomTuningChooser'
 
 export var CustomTuningContainer = React.createClass({
 
@@ -7,13 +7,13 @@ export var CustomTuningContainer = React.createClass({
     return (
       <div>
         <p>Or Create a Custom Tuning</p>
-        <CustomTuningChooser key="1"/>
-        <CustomTuningChooser key="2"/>
-        <CustomTuningChooser key="3"/>
-        <CustomTuningChooser key="4"/>
-        <CustomTuningChooser key="5"/>
-        <CustomTuningChooser key="6"/>
-        <CustomTuningChooser key="7"/> 
+        <CustomTuningChooser keyid="1"/>
+        <CustomTuningChooser keyid="2"/>
+        <CustomTuningChooser keyid="3"/>
+        <CustomTuningChooser keyid="4"/>
+        <CustomTuningChooser keyid="5"/>
+        <CustomTuningChooser keyid="6"/>
+        <CustomTuningChooser keyid="7"/>
       </div>
     )
   }
