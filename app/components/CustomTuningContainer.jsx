@@ -7,14 +7,14 @@ export var CustomTuningContainer = React.createClass({
     return (
       <div>
         <p>Or Create a Custom Tuning</p>
-        <CustomTuningChooser keyid="0"/>
-        <CustomTuningChooser keyid="1"/>
-        <CustomTuningChooser keyid="2"/>
-        <CustomTuningChooser keyid="3"/>
-        <CustomTuningChooser keyid="4"/>
-        <CustomTuningChooser keyid="5"/>
-        <CustomTuningChooser keyid="6"/>
-        <CustomTuningChooser keyid="7"/>
+        <CustomTuningChooser key="0" stringNumber="0"/>
+        <CustomTuningChooser key="1" stringNumber="1"/>
+        <CustomTuningChooser key="2" stringNumber="2"/>
+        <CustomTuningChooser key="3" stringNumber="3"/>
+        <CustomTuningChooser key="4" stringNumber="4"/>
+        <CustomTuningChooser key="5" stringNumber="5"/>
+        <CustomTuningChooser key="6" stringNumber="6"/>
+        <CustomTuningChooser key="7" stringNumber="7"/>
       </div>
     )
   }
