@@ -49,10 +49,75 @@ export var chordNoteReducer = ( state = 'E', action ) => {
 
 export var numberOfCustomTuningStringsReducer = ( state = 7, action ) => {
 
+  if ( action.type == actions.INCREMENT_CUSTOM_TUNING_STRINGS ) {
+    return state + 1
+  }
+
+  if ( action.type == actions.DECREMENT_CUSTOM_TUNING_STRINGS ) {
+    if ( state - 1 > 0 ) {
+      return state - 1
+    }
+  }
+
   return state
 }
 
 export var changeCustomTuningNoteReducer = ( state = [], action ) => {
+
+  if ( action.type == actions.INCREMENT_CUSTOM_TUNING_DATA ) {
+
+    // duplicate state object
+    var newState = Object.assign([], state);
+
+    // find custom tuning
+    var customTuning = utils.getObjectForKey( newState, "custom")
+
+    if( customTuning ) {
+      // get highest not in tuning to use as new note
+      var newMidiNote = customTuning.midiNotes[ customTuning.midiNotes.length - 1 ]
+
+      // make 5 notes higher
+      if(newMidiNote + 5 < utils.notesNameTable.length ) {
+        newMidiNote += 5
+      }
+      
+      // Add new note name
+      var newNoteName = "," + utils.getNoteNameFromMIDINumber( newMidiNote )
+      customTuning.notes = customTuning.notes + newNoteName
+
+      // update midi notes
+      customTuning.midiNotes.push(newMidiNote)
+    }
+
+    return newState
+  }
+
+  if ( action.type == actions.DECREMENT_CUSTOM_TUNING_DATA ) {
+
+    // duplicate state object
+    var newState = Object.assign([], state);
+
+    // find custom tuning
+    var customTuning = utils.getObjectForKey( newState, "custom")
+
+    if( customTuning ) {
+
+      // return if not enough notes
+      if ( customTuning.midiNotes.length < 2 ) {
+        return newState
+      }
+
+      // remove last note
+      var notes = customTuning.notes.split(',')
+      notes.pop()
+      customTuning.notes = notes.toString()
+
+      // remove last midi notes
+      customTuning.midiNotes.pop()
+    }
+
+    return newState
+  }
 
   if ( action.type == actions.CHANGE_CUSTOM_TUNING_NOTE ) {
 

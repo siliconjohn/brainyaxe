@@ -52,3 +52,35 @@ export var changeCustomTuningNote = ( stringKey, midiNote ) => {
     midiNote
   }
 }
+
+export const INCREMENT_CUSTOM_TUNING_STRINGS = 'INCREMENT_CUSTOM_TUNING_STRINGS'
+
+export var incrementCustomTuningStrings = () => {
+  return {
+    type: INCREMENT_CUSTOM_TUNING_STRINGS
+  }
+}
+
+export const DECREMENT_CUSTOM_TUNING_STRINGS = 'DECREMENT_CUSTOM_TUNING_STRINGS'
+
+export var decrementCustomTuningStrings = () => {
+  return {
+    type: DECREMENT_CUSTOM_TUNING_STRINGS
+  }
+}
+
+export const INCREMENT_CUSTOM_TUNING_DATA = 'INCREMENT_CUSTOM_TUNING_DATA'
+
+export var incrementCustomTuningData = () => {
+  return {
+    type: INCREMENT_CUSTOM_TUNING_DATA
+  }
+}
+
+export const DECREMENT_CUSTOM_TUNING_DATA = 'DECREMENT_CUSTOM_TUNING_DATA'
+
+export var decrementCustomTuningData = () => {
+  return {
+    type: DECREMENT_CUSTOM_TUNING_DATA
+  }
+}
