@@ -55,5 +55,6 @@ export var initialState = {
   selectedScaleNote: "A",
   selectedChordKey: "default",
   selectedChordNote: "A",
-  numberOfNotesOnFretboard: 24
+  numberOfNotesOnFretboard: 24,
+  numberOfCustomTuningStrings: 7
 }
