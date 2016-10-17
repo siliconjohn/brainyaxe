@@ -47,6 +47,11 @@ export var chordNoteReducer = ( state = 'E', action ) => {
   }
 }
 
+export var numberOfCustomTuningStringsReducer = ( state = 7, action ) => {
+
+  return state
+}
+
 export var changeCustomTuningNoteReducer = ( state = [], action ) => {
 
   if ( action.type == actions.CHANGE_CUSTOM_TUNING_NOTE ) {
@@ -80,6 +85,7 @@ export const appReducers = redux.combineReducers({
   selectedScaleNote: scaleNoteReducer,
   selectedChordKey: chordReducer,
   selectedChordNote: chordNoteReducer,
+  numberOfCustomTuningStrings: numberOfCustomTuningStringsReducer,
   numberOfNotesOnFretboard: (state = {}) => state,
   selectedNotesForScale: (state = {}) => state,
   selectedNotesForChord: (state = {}) => state,
