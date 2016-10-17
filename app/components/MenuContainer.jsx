@@ -1,7 +1,7 @@
-var React = require('react');
-var FretboardOpenNote = require('FretboardOpenNote');
-var CustomTuningContainer = require('CustomTuningContainer');
-var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils');
+var React = require('react')
+var FretboardOpenNote = require('FretboardOpenNote')
+import CustomTuningContainer from 'CustomTuningContainer'
+var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils')
 var {connect} = require('react-redux')
 var actions = require('../redux/actions')
 
