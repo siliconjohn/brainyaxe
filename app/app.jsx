@@ -8,10 +8,7 @@ import AppContainer from 'AppContainer';
 require('style!css!sass!applicationStyles');
 
 var newStore = store.createStore();
-newStore.subscribe(() => {
-  console.log('New state', newStore.getState());
-});
-
+ 
 ReactDOM.render(
   <Provider store={newStore}>
     <AppContainer/>
