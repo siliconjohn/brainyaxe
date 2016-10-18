@@ -95,7 +95,7 @@ export var customTuningReducer = ( state = [], action ) => {
 
     if( customTuning ) {
       // get highest not in tuning to use as new note
-      var newMidiNote = customTuning.midiNotes[ customTuning.midiNotes.length - 1 ]
+      var newMidiNote = customTuning.midiNotes[ 0 ]
 
       // make 5 notes higher
       if(newMidiNote + 5 < utils.notesNameTable.length ) {
@@ -107,7 +107,7 @@ export var customTuningReducer = ( state = [], action ) => {
       customTuning.notes = customTuning.notes + newNoteName
 
       // update midi notes
-      customTuning.midiNotes.push(newMidiNote)
+      customTuning.midiNotes.unshift(newMidiNote)
     }
 
     return newState
@@ -134,7 +134,7 @@ export var customTuningReducer = ( state = [], action ) => {
       customTuning.notes = notes.toString()
 
       // remove last midi notes
-      customTuning.midiNotes.pop()
+      customTuning.midiNotes.shift()
     }
 
     return newState
