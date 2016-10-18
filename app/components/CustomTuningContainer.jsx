@@ -8,6 +8,7 @@ export var CustomTuningContainer = React.createClass({
 
   render: function () {
     var num = this.props.numberOfCustomTuningStrings
+    var result = []
 
     return (
       <div  >
@@ -25,7 +26,7 @@ export var CustomTuningContainer = React.createClass({
             return (
               <CustomTuningChooser key={ i } stringNumber={ i }/>
             )
-          })
+          }).reverse()
         }
       </div>
     )
