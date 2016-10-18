@@ -179,5 +179,6 @@ export const appReducers = redux.combineReducers({
   selectedNotesForScale: (state = {}) => state,
   selectedNotesForChord: (state = {}) => state,
   scales: (state = {}) => state,
-  chords: (state = {}) => state
+  chords: (state = {}) => state,
+  references : (state = {}) => state
 })
