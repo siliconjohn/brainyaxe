@@ -5,6 +5,22 @@ var path = require('path');
 
 // if -p (production) build  mimimized files: webpack -p
 var production = process.argv.indexOf("-p") != -1 ? true : false
+var definePlugin = null
+
+if ( production ){
+  definePlugin = new webpack.DefinePlugin({
+    'process.env':{
+      'NODE_ENV': JSON.stringify('production')
+    }
+  })
+} else {
+  // this is a blank DefinePlugin that does nothing
+  definePlugin = new webpack.DefinePlugin({
+    '_emptybs':{
+      '_emptybs': JSON.stringify('_emptybs')
+    }
+  })
+}
 
 module.exports = {
   entry: [
@@ -32,6 +48,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new WebpackErrorNotificationPlugin(),
     new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true}),
+    definePlugin
   ],
   output: {
     path: __dirname,
