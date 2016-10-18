@@ -15,6 +15,7 @@ export var initialState = {
     { name: 'Locrian', degrees: '1,♭2,♭3,4,♭5,♭6,♭7', intervals:[1,3,5,6,8,10], key:"scale12"}
   ],
   tunings: [
+    { name: 'Custom', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], instrument: "Custom", key:"custom"},
     { name: 'Standard', notes:'E,A,D,G,B,E', midiNotes:[64,59,55,50,45,40], instrument: "guitar", key:"default"},
     { name: 'Drop D', notes:'D,A,D,G,B,E', midiNotes:[64,59,55,50,45,38], instrument: "guitar", key:"tuning2"},
     { name: 'Open G', notes:'D,G,D,G,B,D', midiNotes:[62,59,55,50,43,38], instrument: "guitar", key:"tuning3"},
@@ -23,7 +24,6 @@ export var initialState = {
     { name: 'Bass', notes:'E,A,D,G', midiNotes:[43,38,33,28], instrument: "bass", key:"basstuning1"},
     { name: 'Bass 5 String', notes:'B,E,A,D,G', midiNotes:[43,38,33,28,23], instrument: "bass", key:"basstuning2"},
     { name: 'Bass 6 String', notes:'B,E,A,D,G,C', midiNotes:[48,43,38,33,28,23], instrument: "bass", key:"basstuning3"},
-
   ],
   chords: [
     { name: 'No Chord', degrees: '', intervals:[], key:"default"},
@@ -50,10 +50,28 @@ export var initialState = {
     { name: 'Minor 13th', degrees: '1,♭3,5,♭7,9,11,13', intervals:[3,7,10,14,17,21], key:"chord21"},
     { name: 'Dominant 13th', degrees: '1,3,5,♭7,9,11,13', intervals:[4,7,10,14,17,21], key:"chord22"}
   ],
+  references: [
+    { key: 60, message:"Middle C"},
+    { key: 0, message:"Lowest Note"},
+    { key: 131, message:"Highest Note"},
+    { key: 28, message:"Bass E"},
+    { key: 33, message:"Bass A"},
+    { key: 38, message:"Bass D"},
+    { key: 43, message:"Bass G"},
+    { key: 40, message:"Guitar Low E"},
+    { key: 45, message:"Guitar A"},
+    { key: 50, message:"Guitar D"},
+    { key: 55, message:"Guitar G"},
+    { key: 59, message:"Guitar B"},
+    { key: 64, message:"Guitar High E"},
+    { key: 69, message:"A 440"},
+  ],
   selectedTuningKey: "default",
   selectedScaleKey: "scale2",
   selectedScaleNote: "A",
   selectedChordKey: "default",
   selectedChordNote: "A",
-  numberOfNotesOnFretboard: 24
+  numberOfNotesOnFretboard: 24,
+  numberOfCustomTuningStrings: 6,
+  showCustomTuningMidiNote: false
 }

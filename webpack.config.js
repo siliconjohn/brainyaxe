@@ -43,6 +43,7 @@ module.exports = {
       'node_modules',
       './app/components',
       './app/components/fretboard',
+      './app/components/customtunings',
       './app/api'
     ],
     alias: {

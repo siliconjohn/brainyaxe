@@ -1,6 +1,7 @@
-var React = require('react');
-var FretboardOpenNote = require('FretboardOpenNote');
-var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils');
+var React = require('react')
+var FretboardOpenNote = require('FretboardOpenNote')
+import CustomTuningContainer from 'CustomTuningContainer'
+var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils')
 var {connect} = require('react-redux')
 var actions = require('../redux/actions')
 
@@ -110,8 +111,11 @@ export var MenuContainer = React.createClass({
                 ref={(component) => this._tuningChooser = component}>
                 {renderTunings()}
               </select>
+              <CustomTuningContainer/>
             </div>
+
           </div>
+
         </div>
 
         <br/>
