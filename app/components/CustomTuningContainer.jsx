@@ -13,7 +13,7 @@ export var CustomTuningContainer = React.createClass({
       <div  >
         <div className="row">
           <div className="small-7 medium-7 columns">
-            <strong>Or Create a Custom Tuning</strong>
+            <p><strong>Or Create a Custom Tuning</strong></p>
           </div>
           <div className="small-5 medium-5 columns">
             <CustomTuningButtons/>

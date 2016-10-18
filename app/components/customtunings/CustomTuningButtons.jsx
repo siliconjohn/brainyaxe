@@ -9,13 +9,13 @@ export var CustomTuningButtons = React.createClass({
 
     return (
       <div className="float-right">
-        <a className="button tiny success"
+        <a className="button tiny success btn-wide"
          onClick={ (e) => {
            dispatch( actions.incrementCustomTuningStrings())
           }}>
          Add String
         </a>
-        <a className="button tiny alert"
+        <a className="button tiny alert btn-wide"
           onClick={ (e) => {
             dispatch( actions.decrementCustomTuningStrings())
           }}>
