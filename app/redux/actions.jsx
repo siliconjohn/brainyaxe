@@ -68,19 +68,3 @@ export var decrementCustomTuningStrings = () => {
     type: DECREMENT_CUSTOM_TUNING_STRINGS
   }
 }
-
-export const INCREMENT_CUSTOM_TUNING_DATA = 'INCREMENT_CUSTOM_TUNING_DATA'
-
-export var incrementCustomTuningData = () => {
-  return {
-    type: INCREMENT_CUSTOM_TUNING_DATA
-  }
-}
-
-export const DECREMENT_CUSTOM_TUNING_DATA = 'DECREMENT_CUSTOM_TUNING_DATA'
-
-export var decrementCustomTuningData = () => {
-  return {
-    type: DECREMENT_CUSTOM_TUNING_DATA
-  }
-}

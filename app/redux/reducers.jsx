@@ -6,9 +6,21 @@ export var tuningReducer = ( state = 'default', action ) => {
 
   if ( action.type == actions.CHANGE_TUNING ) {
     return action.key
-  } else {
-    return state
   }
+
+  if ( action.type == actions.INCREMENT_CUSTOM_TUNING_STRINGS ) {
+    return "custom"
+  }
+
+  if ( action.type == actions.DECREMENT_CUSTOM_TUNING_STRINGS ) {
+    return "custom"
+  }
+
+  if ( action.type == actions.CHANGE_CUSTOM_TUNING_NOTE ) {
+    return "custom"
+  }
+
+  return state
 }
 
 export var scaleReducer = ( state = 'default', action ) => {
@@ -47,7 +59,7 @@ export var chordNoteReducer = ( state = 'E', action ) => {
   }
 }
 
-export var numberOfCustomTuningStringsReducer = ( state = 7, action ) => {
+export var numberOfCustomTuningStringsReducer = ( state = 6, action ) => {
 
   if ( action.type == actions.INCREMENT_CUSTOM_TUNING_STRINGS ) {
     return state + 1
@@ -62,9 +74,9 @@ export var numberOfCustomTuningStringsReducer = ( state = 7, action ) => {
   return state
 }
 
-export var changeCustomTuningNoteReducer = ( state = [], action ) => {
+export var customTuningReducer = ( state = [], action ) => {
 
-  if ( action.type == actions.INCREMENT_CUSTOM_TUNING_DATA ) {
+  if ( action.type == actions.INCREMENT_CUSTOM_TUNING_STRINGS ) {
 
     // duplicate state object
     var newState = Object.assign([], state);
@@ -80,7 +92,7 @@ export var changeCustomTuningNoteReducer = ( state = [], action ) => {
       if(newMidiNote + 5 < utils.notesNameTable.length ) {
         newMidiNote += 5
       }
-      
+
       // Add new note name
       var newNoteName = "," + utils.getNoteNameFromMIDINumber( newMidiNote )
       customTuning.notes = customTuning.notes + newNoteName
@@ -92,7 +104,7 @@ export var changeCustomTuningNoteReducer = ( state = [], action ) => {
     return newState
   }
 
-  if ( action.type == actions.DECREMENT_CUSTOM_TUNING_DATA ) {
+  if ( action.type == actions.DECREMENT_CUSTOM_TUNING_STRINGS ) {
 
     // duplicate state object
     var newState = Object.assign([], state);
@@ -150,11 +162,11 @@ export const appReducers = redux.combineReducers({
   selectedScaleNote: scaleNoteReducer,
   selectedChordKey: chordReducer,
   selectedChordNote: chordNoteReducer,
+  tunings: customTuningReducer,
   numberOfCustomTuningStrings: numberOfCustomTuningStringsReducer,
   numberOfNotesOnFretboard: (state = {}) => state,
   selectedNotesForScale: (state = {}) => state,
   selectedNotesForChord: (state = {}) => state,
   scales: (state = {}) => state,
-  tunings: changeCustomTuningNoteReducer,
   chords: (state = {}) => state
 })

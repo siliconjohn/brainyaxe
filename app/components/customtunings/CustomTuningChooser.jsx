@@ -15,7 +15,6 @@ export var CustomTuningChooser = React.createClass({
       <select value={ selectedMidiNote } className="custom-tuning-select"
         onChange={ (e) => {
           dispatch( actions.changeCustomTuningNote( stringNumber, parseInt( e.target.value )))
-          dispatch( actions.changeTuning( "custom" ))
         }}>
 
         {
