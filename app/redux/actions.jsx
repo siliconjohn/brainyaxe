@@ -68,3 +68,11 @@ export var decrementCustomTuningStrings = () => {
     type: DECREMENT_CUSTOM_TUNING_STRINGS
   }
 }
+
+export const TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE = 'TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE'
+
+export var toggleShowCustomTuningMidiNote = () => {
+  return {
+    type: TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE
+  }
+}

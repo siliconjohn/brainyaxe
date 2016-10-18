@@ -59,6 +59,15 @@ export var chordNoteReducer = ( state = 'E', action ) => {
   }
 }
 
+export var showCustomTuningMidiNoteReducer = ( state = false, action) => {
+
+  if ( action.type == actions.TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE ) {
+    return !state
+  } else {
+    return state
+  }
+}
+
 export var numberOfCustomTuningStringsReducer = ( state = 6, action ) => {
 
   if ( action.type == actions.INCREMENT_CUSTOM_TUNING_STRINGS ) {
@@ -155,6 +164,7 @@ export var customTuningReducer = ( state = [], action ) => {
   return state
 }
 
+
 // all app reducers compined into one
 export const appReducers = redux.combineReducers({
   selectedTuningKey:tuningReducer,
@@ -164,6 +174,7 @@ export const appReducers = redux.combineReducers({
   selectedChordNote: chordNoteReducer,
   tunings: customTuningReducer,
   numberOfCustomTuningStrings: numberOfCustomTuningStringsReducer,
+  showCustomTuningMidiNote: showCustomTuningMidiNoteReducer,
   numberOfNotesOnFretboard: (state = {}) => state,
   selectedNotesForScale: (state = {}) => state,
   selectedNotesForChord: (state = {}) => state,

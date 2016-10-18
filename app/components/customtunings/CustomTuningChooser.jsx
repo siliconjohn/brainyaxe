@@ -7,7 +7,7 @@ var CustomTuningOption = require('CustomTuningOption')
 export var CustomTuningChooser = React.createClass({
 
   render: function() {
-    var { dispatch, stringNumber, tunings } = this.props
+    var { dispatch, stringNumber, tunings, showCustomTuningMidiNote } = this.props
     var customTuning = utils.getObjectForKey( tunings, "custom")
     var selectedMidiNote = customTuning.midiNotes[ stringNumber ].toString()
 
@@ -19,7 +19,7 @@ export var CustomTuningChooser = React.createClass({
 
         {
           utils.notesNameTable.map(( note, index ) => {
-            var tempProps = { note:note, index:index }
+            var tempProps = { note:note, index:index, showMidiNote: showCustomTuningMidiNote }
 
             return (
               <CustomTuningOption key={ index } { ...tempProps }/>
@@ -34,6 +34,7 @@ export var CustomTuningChooser = React.createClass({
 
 export default connect(( state ) => {
   return {
-    tunings: state.tunings
+    tunings: state.tunings,
+    showCustomTuningMidiNote: state.showCustomTuningMidiNote
   }
 })(CustomTuningChooser)

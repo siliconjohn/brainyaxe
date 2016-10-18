@@ -56,5 +56,6 @@ export var initialState = {
   selectedChordKey: "default",
   selectedChordNote: "A",
   numberOfNotesOnFretboard: 24,
-  numberOfCustomTuningStrings: 6
+  numberOfCustomTuningStrings: 6,
+  showCustomTuningMidiNote: false
 }
