@@ -2,7 +2,7 @@ var webpackConfig = require('./webpack.config.js');
 
 module.exports = function (config) {
   config.set({
-    browsers: ['Chrome'],
+    browsers: ['Chrome','Firefox'],
     singleRun: true,
     frameworks: ['mocha'],
     files: [
