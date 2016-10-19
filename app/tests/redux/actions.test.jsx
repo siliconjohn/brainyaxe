@@ -6,7 +6,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change the tuning", () => {
     var action = {
-      type: "CHANGE_TUNING",
+      type: actions.CHANGE_TUNING,
       key: "custom"
     }
     var generatedAction = actions.changeTuning( "custom" )
@@ -15,7 +15,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change the scale", () => {
     var action = {
-      type: "CHANGE_SCALE",
+      type: actions.CHANGE_SCALE,
       key: "major"
     }
     var generatedAction = actions.changeScale( "major" )
@@ -24,7 +24,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change the scale", () => {
     var action = {
-      type: "CHANGE_SCALE",
+      type: actions.CHANGE_SCALE,
       key: "major"
     }
     var generatedAction = actions.changeScale( "major" )
@@ -33,7 +33,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change the scale note", () => {
     var action = {
-      type: "CHANGE_SCALE_NOTE",
+      type: actions.CHANGE_SCALE_NOTE,
       note: "D"
     }
     var generatedAction = actions.changeScaleNote( "D" )
@@ -42,7 +42,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change the chord", () => {
     var action = {
-      type: "CHANGE_CHORD",
+      type: actions.CHANGE_CHORD,
       key: "major"
     }
     var generatedAction = actions.changeChord( "major" )
@@ -51,7 +51,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change the chord note", () => {
     var action = {
-      type: "CHANGE_CHORD_NOTE",
+      type: actions.CHANGE_CHORD_NOTE,
       note: "D"
     }
     var generatedAction = actions.changeChordNote( "D" )
@@ -60,7 +60,7 @@ describe( "Redux Actions", () => {
 
   it( "Should change a custom tuning note", () => {
     var action = {
-      type: "CHANGE_CUSTOM_TUNING_NOTE",
+      type: actions.CHANGE_CUSTOM_TUNING_NOTE,
       stringKey: 1,
       midiNote: 60
     }
@@ -70,7 +70,7 @@ describe( "Redux Actions", () => {
 
   it( "Should increment custom tuning strings", () => {
     var action = {
-      type: "INCREMENT_CUSTOM_TUNING_STRINGS"
+      type: actions.INCREMENT_CUSTOM_TUNING_STRINGS
     }
     var generatedAction = actions.incrementCustomTuningStrings()
     expect( action ).toEqual( generatedAction )
@@ -78,7 +78,7 @@ describe( "Redux Actions", () => {
 
   it( "Should decrement custom tuning strings", () => {
     var action = {
-      type: "DECREMENT_CUSTOM_TUNING_STRINGS"
+      type: actions.DECREMENT_CUSTOM_TUNING_STRINGS
     }
     var generatedAction = actions.decrementCustomTuningStrings()
     expect( action ).toEqual( generatedAction )
@@ -86,9 +86,10 @@ describe( "Redux Actions", () => {
 
   it( "Should toggle show custom tuning midi note", () => {
     var action = {
-      type: "TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE"
+      type: actions.TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE
     }
     var generatedAction = actions.toggleShowCustomTuningMidiNote()
     expect( action ).toEqual( generatedAction )
   })
+  
 })
