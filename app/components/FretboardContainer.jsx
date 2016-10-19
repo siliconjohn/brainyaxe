@@ -178,7 +178,7 @@ export var FretboardContainer = React.createClass({
         </div>
         <div className="row shadow">
           <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
-            <svg className="fretboard-svg" width={width} height={height}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="fretboard-svg" width={width} height={height}>
               {renderBackground()}
               {renderFretInlayMarkers()}
               {renderFretNumbers()}

@@ -74,7 +74,7 @@ export var MenuContainer = React.createClass({
                        isOpenString:false, chordNote:options.chordNote,
                        note:options.selectedScaleNote, menuDegree:options.degree, key:options.key }
       return (
-        <svg width="50" height="50" key={options.key}><FretboardOpenNote {...newProps}/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" key={options.key}><FretboardOpenNote {...newProps}/></svg>
       )
     }
 
