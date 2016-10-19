@@ -1,6 +1,6 @@
 var redux = require('redux')
-var actions = require('./actions')
-var utils = require('../utils')
+var actions = require('actions')
+var utils = require('utils')
 
 export var tuningReducer = ( state = 'default', action ) => {
 

@@ -1,7 +1,7 @@
 var React = require('react')
 var { connect } = require('react-redux')
-var actions = require('../../redux/actions')
-var utils = require('../../utils')
+var actions = require('actions')
+var utils = require('utils')
 var CustomTuningOption = require('CustomTuningOption')
 
 export var CustomTuningChooser = React.createClass({

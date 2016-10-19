@@ -1,9 +1,9 @@
 var React = require('react')
 var FretboardOpenNote = require('FretboardOpenNote')
 import CustomTuningContainer from 'CustomTuningContainer'
-var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('../utils')
+var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('utils')
 var {connect} = require('react-redux')
-var actions = require('../redux/actions')
+var actions = require('actions')
 
 export var MenuContainer = React.createClass({
 

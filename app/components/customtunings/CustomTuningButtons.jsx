@@ -1,6 +1,6 @@
 var React = require("react")
 var { connect } = require('react-redux')
-var actions = require('../../redux/actions')
+var actions = require('actions')
 
 export var CustomTuningButtons = React.createClass({
 
