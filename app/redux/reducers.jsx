@@ -159,11 +159,10 @@ export var customTuningReducer = ( state = [], action ) => {
       } catch (e) {
         return state
       }
+      return newState
     }
-
-    return newState
+    return state
   }
-
   return state
 }
 
