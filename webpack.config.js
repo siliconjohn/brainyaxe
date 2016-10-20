@@ -59,6 +59,7 @@ module.exports = {
     root: __dirname,
     modulesDirectories: [
       'node_modules',
+      './app/redux',
       './app/components',
       './app/components/fretboard',
       './app/components/customtunings',
@@ -66,7 +67,6 @@ module.exports = {
     ],
     alias: {
       applicationStyles: 'app/styles/app.scss',
-      actions: 'app/redux/actions.jsx',
       utils: 'app/utils.jsx'
     },
     extensions:[ '','.js','.jsx']
