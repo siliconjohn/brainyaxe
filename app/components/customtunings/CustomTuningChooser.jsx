@@ -9,7 +9,12 @@ export var CustomTuningChooser = React.createClass({
   render: function() {
     var { dispatch, stringNumber, tunings, showCustomTuningMidiNote, references } = this.props
     var customTuning = utils.getObjectForKey( tunings, "custom")
-    var selectedMidiNote = customTuning.midiNotes[ stringNumber ].toString()
+    
+    try {
+      var selectedMidiNote = customTuning.midiNotes[ stringNumber ].toString()
+    } catch (e) {
+      return (<div></div>)
+    }
 
     return (
       <select value={ selectedMidiNote } className="custom-tuning-select"
