@@ -2,17 +2,17 @@ var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
 var utils = require('utils')
-var ScaleNoteChooserOption = require('ScaleNoteChooserOption')
+var ChordNoteChooserOption = require('ChordNoteChooserOption')
 
-export var ScaleNoteChooser = React.createClass({
+export var ChordNoteChooser = React.createClass({
 
   render: function() {
-    var { dispatch, selectedScaleNote } = this.props
+    var { dispatch, selectedChordNote } = this.props
 
     return (
-      <select value={ selectedScaleNote } className="scale-note-select"
+      <select value={ selectedChordNote } className="chord-note-select"
         onChange={ (e) => {
-          dispatch( actions.changeScaleNote( e.target.value ))
+          dispatch( actions.changeChordNote( e.target.value ))
         }}>
 
         {
@@ -20,7 +20,7 @@ export var ScaleNoteChooser = React.createClass({
             var tempProps = { note:note }
 
             return (
-              <ScaleNoteChooserOption key={ index } { ...tempProps }/>
+              <ChordNoteChooserOption key={ index } { ...tempProps }/>
             )
           })
         }
@@ -32,6 +32,6 @@ export var ScaleNoteChooser = React.createClass({
 
 export default connect(( state ) => {
   return {
-    selectedScaleNote: state.selectedScaleNote
+    selectedChordNote: state.selectedChordNote
   }
-})(ScaleNoteChooser)
+})(ChordNoteChooser)

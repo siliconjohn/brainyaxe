@@ -1,7 +1,7 @@
 var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
-var ChordOption = require('ChordOption')
+var ChordChooserOption = require('ChordChooserOption')
 
 export var ChordChooser = React.createClass({
 
@@ -19,7 +19,7 @@ export var ChordChooser = React.createClass({
             var tempProps = { chordKey:chord.key, name:chord.name }
 
             return (
-              <ChordOption key={ index } { ...tempProps }/>
+              <ChordChooserOption key={ index } { ...tempProps }/>
             )
           })
         }

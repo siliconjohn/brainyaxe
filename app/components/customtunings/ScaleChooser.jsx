@@ -1,7 +1,7 @@
 var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
-var ScaleOption = require('ScaleOption')
+var ScaleChooserOption = require('ScaleChooserOption')
 
 export var ScaleChooser = React.createClass({
 
@@ -19,7 +19,7 @@ export var ScaleChooser = React.createClass({
             var tempProps = { scaleKey:scale.key, name:scale.name }
 
             return (
-              <ScaleOption key={ index } { ...tempProps }/>
+              <ScaleChooserOption key={ index } { ...tempProps }/>
             )
           })
         }

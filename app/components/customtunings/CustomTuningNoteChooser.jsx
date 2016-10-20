@@ -2,14 +2,14 @@ var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
 var utils = require('utils')
-var CustomTuningOption = require('CustomTuningOption')
+var CustomTuningNoteChooserOption = require('CustomTuningNoteChooserOption')
 
-export var CustomTuningChooser = React.createClass({
+export var CustomTuningNoteChooser = React.createClass({
 
   render: function() {
     var { dispatch, stringNumber, tunings, showCustomTuningMidiNote, references } = this.props
     var customTuning = utils.getObjectForKey( tunings, "custom")
-    
+
     try {
       var selectedMidiNote = customTuning.midiNotes[ stringNumber ].toString()
     } catch (e) {
@@ -28,7 +28,7 @@ export var CustomTuningChooser = React.createClass({
                               showMidiNote: showCustomTuningMidiNote }
 
             return (
-              <CustomTuningOption key={ index } { ...tempProps }/>
+              <CustomTuningNoteChooserOption key={ index } { ...tempProps }/>
             )
           })
         }
@@ -44,4 +44,4 @@ export default connect(( state ) => {
     references: state.references,
     showCustomTuningMidiNote: state.showCustomTuningMidiNote
   }
-})(CustomTuningChooser)
+})(CustomTuningNoteChooser)

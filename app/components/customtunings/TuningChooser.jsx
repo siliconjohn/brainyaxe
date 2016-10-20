@@ -1,7 +1,7 @@
 var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
-var TuningOption = require('TuningOption')
+var TuningChooserOption = require('TuningChooserOption')
 
 export var TuningChooser = React.createClass({
 
@@ -19,7 +19,7 @@ export var TuningChooser = React.createClass({
             var tempProps = { tuningKey:tuning.key, name:tuning.name, notes:tuning.notes }
 
             return (
-              <TuningOption key={ index } { ...tempProps }/>
+              <TuningChooserOption key={ index } { ...tempProps }/>
             )
           })
         }

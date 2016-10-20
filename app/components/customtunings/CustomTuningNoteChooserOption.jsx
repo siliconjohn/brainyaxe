@@ -1,7 +1,7 @@
 var React = require('react')
 var utils = require('utils')
 
-var CustomTuningOption = ( props ) => {
+var CustomTuningNoteChooserOption = ( props ) => {
 
   // setup midi note string
   var midiNote = ""
@@ -21,4 +21,4 @@ var CustomTuningOption = ( props ) => {
   )
 }
 
-module.exports = CustomTuningOption
+module.exports = CustomTuningNoteChooserOption

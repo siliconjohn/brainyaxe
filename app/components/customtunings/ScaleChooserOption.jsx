@@ -1,10 +1,10 @@
 var React = require('react')
 
-var ScaleOption = ( props ) => {
+var ScaleChooserOption = ( props ) => {
 
   return (
     <option value={ props.scaleKey }>{ props.name }</option>
   )
 }
 
-module.exports = ScaleOption
+module.exports = ScaleChooserOption

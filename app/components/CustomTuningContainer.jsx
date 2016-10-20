@@ -2,7 +2,7 @@ var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
 import CustomTuningButtons from 'CustomTuningButtons'
-import CustomTuningChooser from 'CustomTuningChooser'
+import CustomTuningNoteChooser from 'CustomTuningNoteChooser'
 
 export var CustomTuningContainer = React.createClass({
 
@@ -24,7 +24,7 @@ export var CustomTuningContainer = React.createClass({
         {
           Array( num ).fill().map(( _, i ) => {
             return (
-              <CustomTuningChooser key={ i } stringNumber={ i }/>
+              <CustomTuningNoteChooser key={ i } stringNumber={ i }/>
             )
           }).reverse()
         }
