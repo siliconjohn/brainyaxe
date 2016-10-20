@@ -62,7 +62,7 @@ module.exports = {
       './app/redux',
       './app/components',
       './app/components/fretboard',
-      './app/components/customtunings',
+      './app/components/menus',
       './app/api'
     ],
     alias: {
