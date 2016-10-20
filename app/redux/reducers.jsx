@@ -149,13 +149,16 @@ export var customTuningReducer = ( state = [], action ) => {
     var customTuning = utils.getObjectForKey( newState, "custom")
 
     if( customTuning ) {
-      // update note names
-      var notes = customTuning.notes.split(',')
-      notes[ action.stringKey ] = utils.getNoteNameFromMIDINumber( action.midiNote )
-      customTuning.notes = notes.toString()
-
-      // update midi notes
-      customTuning.midiNotes [action.stringKey] = action.midiNote
+      try {
+        // update note names
+        var notes = customTuning.notes.split(',')
+        notes[ notes.length - 1 - action.stringKey ] = utils.getNoteNameFromMIDINumber( action.midiNote )
+        customTuning.notes = notes.toString()
+        // update midi notes
+        customTuning.midiNotes [action.stringKey] = action.midiNote
+      } catch (e) {
+        return state
+      }
     }
 
     return newState
