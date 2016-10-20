@@ -81,13 +81,13 @@ describe( 'Reducers', () => {
     })
   })
 
-  describe( 'showCustomTuningMidiNoteReducer', () => {
+  describe( 'toggleShowCustomTuningMidiNoteReducer', () => {
 
     it( 'Should toggle showCustomTuningMidiNote', () => {
       var action = {
         type: "TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE"
       }
-      var response = reducers.showCustomTuningMidiNoteReducer( deepFreeze( true ), deepFreeze( action ))
+      var response = reducers.toggleShowCustomTuningMidiNoteReducer( deepFreeze( true ), deepFreeze( action ))
       expect( response ).toEqual( false )
     })
   })
