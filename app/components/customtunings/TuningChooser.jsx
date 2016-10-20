@@ -1,7 +1,6 @@
 var React = require('react')
 var { connect } = require('react-redux')
 var actions = require('actions')
-var utils = require('utils')
 var TuningOption = require('TuningOption')
 
 export var TuningChooser = React.createClass({
@@ -28,7 +27,7 @@ export var TuningChooser = React.createClass({
       </select>
     )
   }
-});
+})
 
 export default connect(( state ) => {
   return {
