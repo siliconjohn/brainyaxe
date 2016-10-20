@@ -53,6 +53,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: './public/bundle.js',
+    sourceMapFilename: '[file].map'
   },
   resolve: {
     root: __dirname,
@@ -87,5 +88,5 @@ module.exports = {
       path.resolve(__dirname, './node_modules/foundation-sites/scss'),
     ]
   },
-  devtool: production ? null : 'cheap-module-eval-source-map'
+  devtool: production ? 'source-map' : 'cheap-module-eval-source-map'
 };
