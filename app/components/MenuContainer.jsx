@@ -4,12 +4,19 @@ import CustomTuningContainer from 'CustomTuningContainer'
 var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('utils')
 var {connect} = require('react-redux')
 var actions = require('actions')
+import ScaleIntervals from 'ScaleIntervals'
+import ChordIntervals from 'ChordIntervals'
+import TuningChooser from 'TuningChooser'
+import ChordNoteChooser from 'ChordNoteChooser'
+import ScaleNoteChooser from 'ScaleNoteChooser'
+import ScaleChooser from 'ScaleChooser'
+import ChordChooser from 'ChordChooser'
 
 export var MenuContainer = React.createClass({
 
-  componentDidMount: function() {
-    this._tuningChooser.focus();
-  },
+  // componentDidMount: function() {
+  //   this._tuningChooser.focus();
+  // },
 
   render: function() {
 
@@ -22,52 +29,6 @@ export var MenuContainer = React.createClass({
     var selectedNotesForChord = getNotesForArray(getObjectForKey(chords, selectedChordKey), selectedChordNote)
 
     var { dispatch } = this.props;
-
-    var renderScaleDegrees = () => {
-      var scale = getObjectForKey(scales, selectedScaleKey);
-      return (
-        <p className="degrees text-center">{scale.degrees}</p>
-      )
-    }
-
-    var renderChordDegrees = () => {
-      var chord = getObjectForKey(chords, selectedChordKey);
-      return (
-        <p className="degrees text-center">{chord.degrees}</p>
-      )
-    }
-
-    var renderScales = () => {
-      return scales.map((scale) => {
-        return (
-          <option key={scale.key} value={scale.key}>{scale.name}</option>
-        )
-      })
-    };
-
-    var renderTunings = () => {
-      return tunings.map((tuning) => {
-        return (
-          <option key={tuning.key} value={tuning.key}>{tuning.name} - {tuning.notes}</option>
-        )
-      })
-    };
-
-    var renderChords = () => {
-      return chords.map((chord) => {
-        return (
-          <option key={chord.key} value={chord.key}>{chord.name}</option>
-        )
-      })
-    };
-
-    var renderTwelveNotes = () => {
-      return twelveNotesTable.map((tone,index) => {
-        return (
-          <option key={index} value={tone}>{tone}</option>
-        )
-      })
-    };
 
     var renderNoteCircle = ( options ) => {
       var newProps = { x:0, y:0, width:40, height:50, scaleNote:options.scaleNote,
@@ -100,26 +61,18 @@ export var MenuContainer = React.createClass({
 
     return (
       <div className="main-menu">
-
         <div className="row">
           <div className="column small-centered large-8 medium-8 small-10">
             <div className="row fb-header shadow">
               <h5 className="tuning-header-text">Choose Tuning</h5>
             </div>
             <div className="row menu-section tuning-section shadow">
-              <select value={selectedTuningKey} onChange={ (e) => dispatch( actions.changeTuning( e.target.value ))}
-                ref={(component) => this._tuningChooser = component}>
-                {renderTunings()}
-              </select>
+              <TuningChooser/>
               <CustomTuningContainer/>
             </div>
-
           </div>
-
         </div>
-
         <br/>
-
         <div className="row">
           <div className="column small-centered large-8 medium-8 small-10">
             <h5>Choose Scale</h5>
@@ -129,19 +82,15 @@ export var MenuContainer = React.createClass({
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
-                <select value={ selectedScaleNote } onChange={ (e) => dispatch( actions.changeScaleNote( e.target.value ))}>
-                  {renderTwelveNotes()}
-                </select>
+                <ScaleNoteChooser/>
               </div>
               <div className="small-7 medium-8 columns">
-                <select value={ selectedScaleKey } onChange={ (e) => dispatch( actions.changeScale( e.target.value ))}>
-                  {renderScales()}
-                </select>
+                <ScaleChooser/>
               </div>
             </div>
             <div className="row menu-bottom-row">
               <div className="small-5 medium-4 columns">
-                {renderScaleDegrees()}
+                <ScaleIntervals/>
               </div>
               <div className="small-7 medium-8 columns">
                 {renderScaleNoteCircles()}
@@ -149,9 +98,7 @@ export var MenuContainer = React.createClass({
             </div>
           </div>
         </div>
-
         <br/>
-
         <div className="row">
           <div className="column small-centered large-8 medium-8 small-10">
             <h5>Choose Chord</h5>
@@ -161,19 +108,15 @@ export var MenuContainer = React.createClass({
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
-                <select value={ selectedChordNote } onChange={ (e) => dispatch( actions.changeChordNote( e.target.value ))}>
-                 {renderTwelveNotes()}
-                </select>
+                <ChordNoteChooser/>
               </div>
               <div className="small-7 medium-8 columns">
-                <select value={ selectedChordKey } onChange={ (e) => dispatch( actions.changeChord( e.target.value ))}>
-                  {renderChords()}
-                </select>
+                <ChordChooser/>
               </div>
             </div>
             <div className="row menu-bottom-row">
               <div className="small-5 medium-4 columns">
-                {renderChordDegrees()}
+                <ChordIntervals/>
               </div>
               <div className="small-7 medium-8 columns">
                 {renderChordNoteCircles()}
