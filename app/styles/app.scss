@@ -185,3 +185,30 @@ $fret-border: $black;
 .btn-wide {
   width:6rem;
 }
+
+
+.note-circle {
+
+  .note-circle-bg {
+    fill: rgba(255,0,0,0.3);
+    stroke: rgba(255,0,0,0.7);
+    stroke-width: 1;
+  }
+
+  .note-circle-name {
+    font-family:"Arial Unicode MS";
+    font-size:18px;
+    fill: #000;
+  }
+
+  .note-circle-degree {
+    font-family:"Arial Unicode MS";
+    font-size:12px;
+    fill: #000;
+  }
+
+  .note-circle-yellow-bg {
+    fill: rgba(255,255,0,0.6);
+    stroke: rgba(255,255,0,0.8);
+  }
+}
