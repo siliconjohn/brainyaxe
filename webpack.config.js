@@ -63,7 +63,7 @@ module.exports = {
       './app/components',
       './app/components/fretboard',
       './app/components/menus',
-      './app/components/stateinfo',
+      './app/components/presentational',
       './app/api'
     ],
     alias: {
