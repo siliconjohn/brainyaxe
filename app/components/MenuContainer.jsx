@@ -1,4 +1,5 @@
 var React = require('react')
+var ReactDOM = require('react-dom')
 var FretboardOpenNote = require('FretboardOpenNote')
 import CustomTuningContainer from 'CustomTuningContainer'
 var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('utils')
@@ -14,9 +15,9 @@ import ChordChooser from 'ChordChooser'
 
 export var MenuContainer = React.createClass({
 
-  // componentDidMount: function() {
-  //   this._tuningChooser.focus();
-  // },
+  componentDidMount(){
+    ReactDOM.findDOMNode(this.refs.tuningChooser).focus();
+  },
 
   render: function() {
 
@@ -67,7 +68,7 @@ export var MenuContainer = React.createClass({
               <h5 className="tuning-header-text">Choose Tuning</h5>
             </div>
             <div className="row menu-section tuning-section shadow">
-              <TuningChooser/>
+              <TuningChooser ref="tuningChooser"/>
               <CustomTuningContainer/>
             </div>
           </div>
