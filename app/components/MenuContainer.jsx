@@ -1,10 +1,6 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
-var FretboardOpenNote = require('FretboardOpenNote')
 import CustomTuningContainer from 'CustomTuningContainer'
-var {twelveNotesTable, getObjectForKey, getNotesForArray} = require('utils')
-var {connect} = require('react-redux')
-var actions = require('actions')
 import ScaleIntervals from 'ScaleIntervals'
 import ChordIntervals from 'ChordIntervals'
 import TuningChooser from 'TuningChooser'
@@ -12,54 +8,16 @@ import ChordNoteChooser from 'ChordNoteChooser'
 import ScaleNoteChooser from 'ScaleNoteChooser'
 import ScaleChooser from 'ScaleChooser'
 import ChordChooser from 'ChordChooser'
+import NoteCirclesScale from 'NoteCirclesScale'
+import NoteCirclesChord from 'NoteCirclesChord'
 
-export var MenuContainer = React.createClass({
+var MenuContainer = React.createClass({
 
   componentDidMount(){
     ReactDOM.findDOMNode(this.refs.tuningChooser).focus();
   },
 
   render: function() {
-
-    var {scales, tunings, chords, selectedTuningKey,
-      selectedChordKey, selectedScaleKey, selectedChordNote,
-      selectedScaleNote, selectedNotesForScale, selectedNotesForChord} = this.props;
-
-    // derived data
-    var selectedNotesForScale = getNotesForArray(getObjectForKey(scales, selectedScaleKey), selectedScaleNote)
-    var selectedNotesForChord = getNotesForArray(getObjectForKey(chords, selectedChordKey), selectedChordNote)
-
-    var { dispatch } = this.props;
-
-    var renderNoteCircle = ( options ) => {
-      var newProps = { x:0, y:0, width:40, height:50, scaleNote:options.scaleNote,
-                       isOpenString:false, chordNote:options.chordNote,
-                       note:options.selectedScaleNote, menuDegree:options.degree, key:options.key }
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" key={options.key}><FretboardOpenNote {...newProps}/></svg>
-      )
-    }
-
-    var renderScaleNoteCircles = () => {
-      var scale = getObjectForKey(scales, selectedScaleKey);
-      var scaleDegrees = scale.degrees.split(',')
-
-      return selectedNotesForScale.map((note,index) => {
-        return renderNoteCircle({ selectedScaleNote:note, scaleNote:true, chordNote:false,
-                                  degree:scaleDegrees[index], key:index })
-      })
-    }
-
-    var renderChordNoteCircles = () => {
-      var chord = getObjectForKey(chords, selectedChordKey);
-      var chordDegrees = chord.degrees.split(',')
-
-      return selectedNotesForChord.map((note,index) => {
-        return renderNoteCircle({ selectedScaleNote:note, scaleNote:false, chordNote:true,
-                                  degree:chordDegrees[index], key:index })
-      })
-    }
-
     return (
       <div className="main-menu">
         <div className="row">
@@ -94,7 +52,7 @@ export var MenuContainer = React.createClass({
                 <ScaleIntervals/>
               </div>
               <div className="small-7 medium-8 columns">
-                {renderScaleNoteCircles()}
+                <NoteCirclesScale/>
               </div>
             </div>
           </div>
@@ -120,7 +78,7 @@ export var MenuContainer = React.createClass({
                 <ChordIntervals/>
               </div>
               <div className="small-7 medium-8 columns">
-                {renderChordNoteCircles()}
+                <NoteCirclesChord/>
               </div>
             </div>
           </div>
@@ -130,18 +88,4 @@ export var MenuContainer = React.createClass({
   }
 });
 
-//module.exports = MenuContainer;
-export default connect(
-  (state) => {
-    return {
-      selectedTuningKey: state.selectedTuningKey,
-      selectedScaleKey: state.selectedScaleKey,
-      selectedChordKey: state.selectedChordKey,
-      selectedChordNote: state.selectedChordNote,
-      selectedScaleNote: state.selectedScaleNote,
-      tunings: state.tunings,
-      scales: state.scales,
-      chords: state.chords,
-    }
-  }
-)(MenuContainer);
+module.exports = MenuContainer;
