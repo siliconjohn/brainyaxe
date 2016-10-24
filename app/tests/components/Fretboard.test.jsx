@@ -16,7 +16,7 @@
 //     var initialState = getInitialState();
 //
 //     var fretboard = TestUtils.renderIntoDocument(<Fretboard tuning={initialState.selectedTuning}
-//       numberOfNotesOnFretboard={initialState.numberOfNotesOnFretboard}
+//       fretboardNumberOfNotes={initialState.fretboardNumberOfNotes}
 //       selectedNotesForScale={initialState.selectedNotesForScale}
 //       selectedNotesForChord={initialState.selectedNotesForChord}/>)
 //

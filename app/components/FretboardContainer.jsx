@@ -20,7 +20,7 @@ export var FretboardContainer = React.createClass({
     ///////////////////
 
     // retrieve props
-    var { numberOfNotesOnFretboard, selectedScaleKey, selectedChordKey }  = this.props
+    var { fretboardNumberOfNotes, selectedScaleKey, selectedChordKey }  = this.props
 
     // calculate derived data
     var tuning = getObjectForKey( this.props.tunings, this.props.selectedTuningKey )
@@ -38,7 +38,7 @@ export var FretboardContainer = React.createClass({
     var numStrings = tuning.midiNotes.length
     var height = (1 + numStrings) * stringHeight
     var fretboardHeight = stringHeight * numStrings
-    var width = (fretWidth * numberOfNotesOnFretboard) + nutWidth + openWidth
+    var width = (fretWidth * fretboardNumberOfNotes) + nutWidth + openWidth
 
     ///////////////////
     ///////////////////
@@ -90,7 +90,7 @@ export var FretboardContainer = React.createClass({
         var tempFretX = openWidth + nutWidth
         var stringMidiNote = tuning.midiNotes[i]
 
-        for(var a=0; a < numberOfNotesOnFretboard; a++ ) {
+        for(var a=0; a < fretboardNumberOfNotes; a++ ) {
 
           var tempW = fretWidth - (a == 1 ? 0 : 2)
           var midiNote = stringMidiNote + a + 1
@@ -117,7 +117,7 @@ export var FretboardContainer = React.createClass({
       var result = []
       var fretx = openWidth + nutWidth + fretWidth
 
-      for(var i = 1; i <= numberOfNotesOnFretboard; i++ ) {
+      for(var i = 1; i <= fretboardNumberOfNotes; i++ ) {
         var tempProps = { height: fretboardHeight, width:2, x:fretx ,key:i }
         result.push ( <FretboardFret {...tempProps}/> )
         fretx += fretWidth
@@ -144,7 +144,7 @@ export var FretboardContainer = React.createClass({
       var result = []
       var fretX = openWidth + nutWidth
       var y = fretboardHeight + stringHeight / 2 + 10
-      for(var i = 1; i <= numberOfNotesOnFretboard; i++ ) {
+      for(var i = 1; i <= fretboardNumberOfNotes; i++ ) {
         var tempProps = { x:fretX, y:y, number: i, fretWidth:fretWidth ,key:'fret-number-'+i }
         result.push ( <FretboardFretNumber {...tempProps}/> )
         fretX += fretWidth
@@ -206,6 +206,6 @@ export default connect((state) => {
     selectedTuningKey: state.selectedTuningKey,
     selectedScaleNote: state.selectedScaleNote,
     selectedChordNote: state.selectedChordNote,
-    numberOfNotesOnFretboard: state.numberOfNotesOnFretboard
+    fretboardNumberOfNotes: state.fretboardNumberOfNotes
   }
 })(FretboardContainer)
