@@ -2,7 +2,6 @@ var React = require('react')
 var FretboardString = require('FretboardString')
 var FretboardNut = require('FretboardNut')
 var FretboardFret = require('FretboardFret')
-var FretboardBackground = require('FretboardBackground')
 var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
 var FretboardFretNumber = require('FretboardFretNumber');
@@ -10,6 +9,8 @@ var FretboardInlayMarker = require('FretboardInlayMarker');
 var FretboardHeader = require('FretboardHeader')
 var { getNoteNameFromMIDINumber, isNoteInArray, getObjectForKey, getNotesForArray } = require('utils');
 var { connect } = require('react-redux')
+
+import FretboardBackground from 'FretboardBackground'
 
 export var FretboardContainer = React.createClass({
 
@@ -42,11 +43,7 @@ export var FretboardContainer = React.createClass({
 
     ///////////////////
     ///////////////////
-
-    var renderBackground = () => {
-      var tempProps = { height: fretboardHeight, width: width - openWidth, x: openWidth, y:0  }
-      return ( <FretboardBackground {...tempProps}/> )
-    }
+     
 
     var renderNut = () => {
       var tempProps = { height: fretboardHeight, width:nutWidth, x:openWidth}
@@ -179,7 +176,7 @@ export var FretboardContainer = React.createClass({
         <div className="row shadow">
           <div className="fretboard-parent column small-centered large-12 medium-12 small-12">
             <svg xmlns="http://www.w3.org/2000/svg" className="fretboard-svg" width={width} height={height}>
-              {renderBackground()}
+              <FretboardBackground/>
               {renderFretInlayMarkers()}
               {renderFretNumbers()}
               {renderNut()}
