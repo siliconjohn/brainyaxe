@@ -3,7 +3,7 @@ var React = require('react')
 var ScaleNoteChooserOption = ( props ) => {
 
   return (
-    <option value={ props.note }>{ props.note }</option>
+    <option className="scale-note-chooser-option"  value={ props.note }>{ props.note }</option>
   )
 }
 

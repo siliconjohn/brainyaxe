@@ -3,7 +3,9 @@ var React = require('react')
 var TuningChooserOption = ( props ) => {
 
   return (
-    <option value={ props.tuningKey }>{ props.name } - { props.notes }</option>
+    <option className="tuning-chooser-option" value={ props.tuningKey }>
+      { props.name } - { props.notes }
+    </option>
   )
 }
 

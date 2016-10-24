@@ -3,7 +3,7 @@ var React = require('react')
 var ScaleChooserOption = ( props ) => {
 
   return (
-    <option value={ props.scaleKey }>{ props.name }</option>
+    <option className="scale-chooser-option" value={ props.scaleKey }>{ props.name }</option>
   )
 }
 
