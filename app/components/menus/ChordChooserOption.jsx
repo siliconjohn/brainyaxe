@@ -3,7 +3,7 @@ var React = require('react')
 var ChordChooserOption = ( props ) => {
 
   return (
-    <option value={ props.chordKey }>{ props.name }</option>
+    <option className="chord-chooser-option" value={ props.chordKey }>{ props.name }</option>
   )
 }
 
