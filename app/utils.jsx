@@ -21,9 +21,13 @@ module.exports.getNoteNameFromMIDINumber = function( number ) {
 
 // TODO maybe move to AppContainer
 module.exports.getObjectForKey = function( array, key ) {
-  return array.find(function( object ) {
-    return object.key === key ? true : false
-  },this);
+  try {
+    return array.find(function( object ) {
+      return object.key === key ? true : false
+    },this);
+  } catch (e) {
+    return undefined
+  } 
 }
 
 module.exports.isNoteInArray = function( midiNumber, noteArray ) {
