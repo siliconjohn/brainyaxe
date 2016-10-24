@@ -1,11 +1,37 @@
 var React = require('react')
+var { connect } = require('react-redux')
+var utils = require('utils')
 
-var FretboardNut = (props) => {
-  var { x, height, width } = props
+var FretboardNut = ( props ) => {
+
+  var numberOfStrings
+
+  // get the number of strings from the selected tuning
+  try {
+    var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
+    numberOfStrings = tuning.midiNotes.length
+  } catch (e) {
+    numberOfStrings = 1
+  }
+
+  // calculate the size
+  var newProps = {}
+  newProps.x = props.fretboardOpenNoteWidth
+  newProps.y = 0
+  newProps.height = props.fretboardStringHeight * numberOfStrings
+  newProps.width = props.fretboardNutWidth
 
   return (
-    <rect x={x} y="0" width={width} height={height} className="nut"/>
+    <rect { ...newProps } className="nut"/>
   )
 }
 
-module.exports = FretboardNut
+export default connect(( state ) => {
+  return {
+    tunings: state.tunings,
+    selectedTuningKey: state.selectedTuningKey,
+    fretboardStringHeight: state.fretboardStringHeight,
+    fretboardNutWidth: state.fretboardNutWidth,
+    fretboardOpenNoteWidth: state.fretboardOpenNoteWidth
+  }
+})( FretboardNut )

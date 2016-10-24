@@ -1,6 +1,5 @@
 var React = require('react')
 var FretboardString = require('FretboardString')
-var FretboardNut = require('FretboardNut')
 var FretboardFret = require('FretboardFret')
 var FretboardOpenString = require('FretboardOpenString')
 var FretboardOpenNote = require('FretboardOpenNote');
@@ -11,6 +10,7 @@ var { getNoteNameFromMIDINumber, isNoteInArray, getObjectForKey, getNotesForArra
 var { connect } = require('react-redux')
 
 import FretboardBackground from 'FretboardBackground'
+import FretboardNut from 'FretboardNut'
 
 export var FretboardContainer = React.createClass({
 
@@ -43,12 +43,8 @@ export var FretboardContainer = React.createClass({
 
     ///////////////////
     ///////////////////
-     
 
-    var renderNut = () => {
-      var tempProps = { height: fretboardHeight, width:nutWidth, x:openWidth}
-      return ( <FretboardNut {...tempProps}/> )
-    }
+
 
     var renderOpenStrings = () => {
       var result = []
@@ -179,7 +175,7 @@ export var FretboardContainer = React.createClass({
               <FretboardBackground/>
               {renderFretInlayMarkers()}
               {renderFretNumbers()}
-              {renderNut()}
+              <FretboardNut/>
               {renderFrets()}
               {renderStringLines()}
               {renderNotes()}
