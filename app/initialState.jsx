@@ -74,5 +74,8 @@ export var initialState = {
   numberOfCustomTuningStrings: 6,
   showCustomTuningMidiNote: false,
   fretboardNumberOfNotes: 24,
-  
+  fretboardStringHeight:40,
+  fretboardNutWidth:5,
+  fretboardOpenNoteWidth:50,
+  fretboardFretWidth:70,
 }
