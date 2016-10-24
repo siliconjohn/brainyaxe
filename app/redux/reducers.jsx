@@ -177,10 +177,14 @@ export const appReducers = redux.combineReducers({
   tunings: customTuningReducer,
   numberOfCustomTuningStrings: numberOfCustomTuningStringsReducer,
   showCustomTuningMidiNote: toggleShowCustomTuningMidiNoteReducer,
-  fretboardNumberOfNotes: (state = {}) => state,
   selectedNotesForScale: (state = {}) => state,
   selectedNotesForChord: (state = {}) => state,
   scales: (state = {}) => state,
   chords: (state = {}) => state,
-  references : (state = {}) => state
+  references : (state = {}) => state,
+  fretboardNumberOfNotes: (state = {}) => state,
+  fretboardStringHeight: (state = {}) => state,
+  fretboardNutWidth: (state = {}) => state,
+  fretboardOpenNoteWidth: (state = {}) => state,
+  fretboardFretWidth: (state = {}) => state,
 })
