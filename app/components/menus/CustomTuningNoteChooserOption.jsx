@@ -12,12 +12,14 @@ var CustomTuningNoteChooserOption = ( props ) => {
   // get the reference message if there is one
   var refMessage = ""
   var ref = utils.getObjectForKey( props.references, props.index)
-  if ( ref) {
+  if ( ref ) {
     refMessage = " - " + ref.message
   }
 
   return (
-    <option value={ props.index }>{ props.note }{ midiNote }{refMessage}</option>
+    <option className="custom-tuning-note-chooser-option" value={ props.index }>
+      { props.note }{ midiNote }{refMessage}
+    </option>
   )
 }
 

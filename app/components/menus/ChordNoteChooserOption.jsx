@@ -3,7 +3,9 @@ var React = require('react')
 var ChordNoteChooserOption = ( props ) => {
 
   return (
-    <option value={ props.note }>{ props.note }</option>
+    <option className="chord-note-chooser-option" value={ props.note }>
+      { props.note }
+    </option>
   )
 }
 
