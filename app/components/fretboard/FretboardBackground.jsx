@@ -4,17 +4,16 @@ var utils = require('utils')
 
 var FretboardBackground = ( props ) => {
 
-  var numberOfStrings
-
   // get the number of strings from the selected tuning
+  var numberOfStrings
   try {
     var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
     numberOfStrings = tuning.midiNotes.length
-  } catch (e) {
+  } catch ( e ) {
     numberOfStrings = 1
   }
 
-  // calculate the size 
+  // calculate the size
   var newProps = {}
   newProps.x = props.fretboardOpenNoteWidth
   newProps.y = 0
@@ -23,7 +22,7 @@ var FretboardBackground = ( props ) => {
                      props.fretboardOpenNoteWidth + props.fretboardNutWidth
 
   return (
-    <rect { ...newProps } className="fretboard-bg"/>
+    <rect { ...newProps } className="background"/>
   )
 }
 

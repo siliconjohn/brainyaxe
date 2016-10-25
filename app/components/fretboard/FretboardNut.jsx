@@ -4,13 +4,12 @@ var utils = require('utils')
 
 var FretboardNut = ( props ) => {
 
-  var numberOfStrings
-
   // get the number of strings from the selected tuning
+  var numberOfStrings
   try {
     var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
     numberOfStrings = tuning.midiNotes.length
-  } catch (e) {
+  } catch ( e ) {
     numberOfStrings = 1
   }
 

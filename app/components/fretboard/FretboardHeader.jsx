@@ -1,8 +1,22 @@
 var React = require('react')
+var { connect } = require('react-redux')
+var utils = require('utils')
 
 var FretboardHeader = ( props ) => {
-  var { scale, tuning } = props
 
+  // get selected tuning
+  try {
+    var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
+  } catch ( e ) {
+   return ( <div></div> )
+  }
+
+  // get selected scale
+  try {
+    var scale = utils.getObjectForKey( props.scales, props.selectedScaleKey )
+  } catch (e) {
+   return ( <div></div>)
+  }
   var scaleText = scale.intervals.length > 0 ? scale.name + " Scale" : ""
 
   return (
@@ -13,4 +27,11 @@ var FretboardHeader = ( props ) => {
   )
 }
 
-module.exports = FretboardHeader
+export default connect(( state ) => {
+  return {
+    tunings: state.tunings,
+    selectedTuningKey: state.selectedTuningKey,
+    scales: state.scales,
+    selectedScaleKey: state.selectedScaleKey,
+  }
+})( FretboardHeader )

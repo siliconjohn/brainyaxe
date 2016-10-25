@@ -1,9 +1,12 @@
 var React = require('react')
 
-var FretboardFret = (props) => {
-  var {x, height, width, key} = props
+var FretboardFret = ( props ) => {
 
-  return (<rect x={x} y="0" width={width} height={height} key={"fret-" + key} className="fret"/>)
+  var { x, height, width } = props
+
+  return (
+    <rect x={ x } y="0" width={ width } height={ height }  className="fret"/>
+  )
 }
 
 module.exports = FretboardFret

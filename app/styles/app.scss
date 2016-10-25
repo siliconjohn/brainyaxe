@@ -92,9 +92,9 @@ $fret-border: $black;
 }
 
 // fretboard svg
-.fretboard-svg {
+.fretboard {
 
-  .fretboard-bg {
+  .background {
     fill:#C0C0C0;
   }
 
@@ -106,7 +106,7 @@ $fret-border: $black;
     fill: #fff;
   }
 
-  .string-line {
+  .string {
     stroke:#fff;
   }
 
@@ -167,7 +167,7 @@ $fret-border: $black;
     stroke-width: 1px;
   }
 
-  .fretboard-inlay-marker {
+  .inlay-marker {
     fill: #999;
     stroke-width: 0;
   }
