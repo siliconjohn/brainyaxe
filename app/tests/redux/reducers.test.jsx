@@ -3,7 +3,7 @@ var expect = require('expect')
 var reducers = require('reducers')
 var deepFreeze = require('deep-freeze-strict')
 
-describe( 'Reducers', () => {
+describe( 'Redux Reducers', () => {
 
   describe( 'tuningReducer', () => {
 
