@@ -4,9 +4,9 @@ var expect = require('expect')
 var TestUtils = require('react-addons-test-utils')
 var $ = require('jquery')
 var store = require('store')
-var ScaleNoteChooser = require( 'ScaleNoteChooser' )
-var {Provider} = require('react-redux');
-
+var { Provider } = require('react-redux')
+var utils = require('utils')
+import ScaleNoteChooser from 'ScaleNoteChooser'
 
 describe( 'ScaleNoteChooser', () => {
 
@@ -17,25 +17,35 @@ describe( 'ScaleNoteChooser', () => {
   it( 'should render with correct props', () => {
     var initialState = { selectedScaleNote: "A"  }
     var newStore = store.createStore( initialState )
-    //
-    // var provider = TestUtils.renderIntoDocument(
-    //   <Provider store={ newStore }>
-    //     <ScaleNoteChooser/>
-    //   </Provider>
-    // )
-    // var todoList = TestUtils.scryRenderedComponentsWithType(provider, ScaleNoteChooser)[0];
 
-    //
-    // var component = TestUtils.renderIntoDocument(
-    //   <div><ScaleNoteChooser { ...tempProps }/></div>
-    // )
-    //
-    // var $el = $( ReactDOM.findDOMNode( component )).find( '.scale-note-select' )
-    //
-    // var value = $el.val();
-    // expect( value ).toBe( tempProps.tuningKey )
-    //
-    // var text = $el.text();
-    // expect( text ).toBe( tempProps.name + " - " + tempProps.notes  )
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={ newStore }>
+        <ScaleNoteChooser/>
+      </Provider>
+    )
+
+    var scaleNoteChooser = TestUtils.scryRenderedComponentsWithType( provider, ScaleNoteChooser )[0]
+    var $el = $( ReactDOM.findDOMNode( scaleNoteChooser ))
+
+    // check for correct value
+    var value = $el.val()
+    expect( value ).toBe( initialState.selectedScaleNote )
+  })
+
+  it( 'should render the correct number of children', () => {
+    var initialState = { selectedScaleNote: "A"  }
+
+    var newStore = store.createStore( initialState )
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={ newStore }>
+        <ScaleNoteChooser/>
+      </Provider>
+    )
+
+    var scaleNoteChooser = TestUtils.scryRenderedComponentsWithType( provider, ScaleNoteChooser )[0]
+    var $el = $( ReactDOM.findDOMNode( scaleNoteChooser ))
+
+    // check number of children (<ScaleNoteChooserOption/>)
+    expect( $el.children().length ).toBe( utils.twelveNotesTable.length )
   })
 })
