@@ -1,7 +1,8 @@
 var React = require("react")
+var { connect } = require('react-redux')
 var actions = require('actions')
 
-var CustomTuningButtons = React.createClass({
+export var CustomTuningButtons = React.createClass({
 
   render: function() {
     var { dispatch } = this.props
@@ -25,4 +26,8 @@ var CustomTuningButtons = React.createClass({
   }
 })
 
-module.exports = CustomTuningButtons
+export default connect(( state ) => {
+  return {
+    numberOfCustomTuningStrings: state.numberOfCustomTuningStrings
+  }
+})( CustomTuningButtons )
