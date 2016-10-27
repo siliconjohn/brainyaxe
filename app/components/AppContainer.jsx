@@ -4,10 +4,15 @@ import MenuContainer from 'MenuContainer';
 
 export var AppContainer = React.createClass({
 
+  componentDidMount: function(){
+    $(document).foundation()
+  },
+
   render: function() {
 
     return (
       <div>
+
         <br/>
         <MenuContainer/>
         <FretboardContainer/>
