@@ -212,3 +212,10 @@ $fret-border: $black;
     stroke: rgba(255,255,0,0.8);
   }
 }
+
+.fixed-bottom-bar {
+  margin-bottom: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
