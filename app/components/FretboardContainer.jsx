@@ -30,22 +30,22 @@ export var FretboardContainer = React.createClass({
                   this.props.fretboardOpenNoteWidth + this.props.fretboardNutWidth
 
     return (
-      <div className="fixed-bottom-bar">
-            <FretboardHeader/>
+      <div className="fretboard-parent">
+        <div className="fretboard-header-parent">
+          <FretboardHeader/>
+        </div>
 
-
-        <div className=" ">
-             <svg xmlns="http://www.w3.org/2000/svg" className="fretboard" width={ width } height={ height }>
-              <FretboardBackground/>
-              <FretboardInlayMarkers/>
-              <FretboardFretNumbers/>
-              <FretboardNut/>
-              <FretboardFrets/>
-              <FretboardStrings/>
-              <FretboardNotes/>
-              <FretboardOpenStrings/>
-            </svg>
-
+        <div className="fretboard-svg-parent">
+           <svg xmlns="http://www.w3.org/2000/svg" className="fretboard-svg" width={ width } height={ height }>
+            <FretboardBackground/>
+            <FretboardInlayMarkers/>
+            <FretboardFretNumbers/>
+            <FretboardNut/>
+            <FretboardFrets/>
+            <FretboardStrings/>
+            <FretboardNotes/>
+            <FretboardOpenStrings/>
+          </svg>
         </div>
       </div>
     )

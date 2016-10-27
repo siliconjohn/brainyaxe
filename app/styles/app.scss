@@ -71,28 +71,9 @@ $fret-border: $black;
   stroke-width: 5;
 }
 
-// fretboard
-.fretboard-parent {
-  overflow: scroll;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding-left:0px;
-  padding-right: 0px;
-  background-color: #fff;
-  padding-top: 30px;
-}
-
-.fb-header {
-  background-color: #1583cc;
-
-  .fb-header-text {
-    margin-top: 8px;
-    color:#fff;
-  }
-}
 
 // fretboard svg
-.fretboard {
+.fretboard-svg {
 
   .background {
     fill:#C0C0C0;
@@ -213,9 +194,39 @@ $fret-border: $black;
   }
 }
 
-.fixed-bottom-bar {
-  margin-bottom: 0;
+.header {
+  background-color: #1583cc;
+
+  .header-text {
+    margin-top: 8px;
+    color:#fff;
+  }
+}
+
+// fretboard
+.fretboard-parent {
+  width: 100%;
   bottom: 0;
   position: fixed;
-  width: 100%;
+  margin-bottom: 0;
+  background-color: #fff;
+
+  .fretboard-header-parent {
+    width:100%;
+    height: 43.75px;
+    background-color: #1583cc;
+  }
+
+  .fretboard-header-text {
+    color:#fff;
+    padding-top: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .fretboard-svg-parent {
+    width: 100%;
+    padding-top: 20px;
+    overflow-x: auto;
+  }
 }

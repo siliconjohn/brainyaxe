@@ -22,7 +22,7 @@ var MenuContainer = React.createClass({
       <div className="main-menu">
         <div className="row">
           <div className="column small-centered large-8 medium-8 small-10">
-            <div className="row fb-header shadow">
+            <div className="row header shadow">
               <h5 className="tuning-header-text">Choose Tuning</h5>
             </div>
             <div className="row menu-section tuning-section shadow">

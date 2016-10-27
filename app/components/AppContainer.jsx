@@ -10,7 +10,6 @@ export var AppContainer = React.createClass({
       <div>
         <br/>
         <MenuContainer/>
-        <br/>
         <FretboardContainer/>
       </div>
     )
