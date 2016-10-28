@@ -46,11 +46,11 @@ $fret-border: $black;
     fill: #333;
   }
 
-  .shadow {
-      box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-  }
-}
 
+}
+.shadow {
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
 // note circles
 
 .note-circle-scale {
@@ -236,4 +236,22 @@ $fret-border: $black;
   height: 43.75px;
   background-color: #1583cc;
 }
- 
+
+.toolbar-tabs {
+  border-width: 0px;
+  margin-top: 18px;
+//  height: 40px;
+  .tabs-title {
+    display: inline-block;
+    float: none;
+    width:33.33%;
+  }
+
+  .tabs-title a {
+    color: #333;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
