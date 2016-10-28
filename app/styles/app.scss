@@ -248,10 +248,16 @@ $fret-border: $black;
   }
 
   .tabs-title a {
-    color: #4e4e4e;
+    color: #6f6f6f;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     font-size: 1rem;
     font-weight: bold;
   }
+
+  .tabs-title>a[aria-selected=true] {
+    background: #ffb4b4;
+    color: #000;
+  }
+
 }
