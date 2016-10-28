@@ -7,7 +7,7 @@ var Toolbar = React.createClass({
     return (
       <div className="title-bar">
         <div className="title-bar-left">
-          <h5>Fret Kit</h5>
+          <h5>BrainyAxe</h5>
         </div>
         <div className="title-bar-right">
           <button className="menu-icon" type="button"></button>
