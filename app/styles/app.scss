@@ -48,11 +48,18 @@ $fret-border: $black;
     fill: #333;
   }
 
-
+  .custom-tuning-select {
+    font-size: small;
+    height: 30px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
 }
+
 .shadow {
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
+
 // note circles
 
 .note-circle-scale {
@@ -157,7 +164,7 @@ $fret-border: $black;
 }
 
 .custom-tuning-select {
-  width: 14.5rem;
+  width: 8rem;
   margin-right: 1rem;
 }
 
@@ -204,6 +211,7 @@ $fret-border: $black;
     color:#fff;
   }
 }
+ 
 
 // fretboard
 .fretboard-parent {

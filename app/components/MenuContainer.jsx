@@ -22,7 +22,7 @@ var MenuContainer = React.createClass({
       <div className="main-menu" data-tabs-content="toolbar-tabs-div">
 
         <div className="row tabs-panel is-active" id="tunings-panel">
-          <div className="column small-centered large-8 medium-8 small-10">
+          <div className="column small-centered large-10 medium-12 small-12">
             <div className="row header shadow">
               <h5 className="menu-header-text">Choose Tuning</h5>
             </div>
