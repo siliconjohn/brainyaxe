@@ -7,14 +7,13 @@ export var AppContainer = React.createClass({
   componentDidMount: function(){
     $(document).foundation()
   },
-  //<MenuContainer/>
+
   render: function() {
 
     return (
       <div>
-
-         <Toolbar/>
-
+        <Toolbar/>
+        <MenuContainer/>
         <FretboardContainer/>
       </div>
     )
