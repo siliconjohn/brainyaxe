@@ -5,6 +5,10 @@
 
 $fret-border: $black;
 
+body{
+  margin-bottom: 100px;
+}
+
 .main-menu {
 
   margin-top: 1.5rem;
@@ -211,7 +215,7 @@ $fret-border: $black;
     color:#fff;
   }
 }
- 
+
 
 // fretboard
 .fretboard-parent {
