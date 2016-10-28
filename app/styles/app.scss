@@ -159,7 +159,7 @@ $fret-border: $black;
   margin-right: 1rem;
 }
 
-.button.tiny{
+.button.tiny {
   font-weight: bold;
 }
 
@@ -230,3 +230,10 @@ $fret-border: $black;
     overflow-x: auto;
   }
 }
+
+// foundation override
+.title-bar {
+  height: 43.75px;
+  background-color: #1583cc;
+}
+ 
