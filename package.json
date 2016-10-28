@@ -30,8 +30,8 @@
     "css-loader": "^0.23.1",
     "deep-freeze-strict": "^1.1.1",
     "expect": "^1.14.0",
-    "foundation-sites": "^6.2.0",
-    "jquery": "^2.2.1",
+    "foundation-sites": "6.2.4",
+    "jquery": "2.2.4",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.2",
     "karma-firefox-launcher": "^1.0.0",
@@ -47,6 +47,7 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13",
     "webpack-error-notification": "^0.1.6",
-    "webpack-notifier": "^1.4.1"
+    "webpack-notifier": "^1.4.1",
+    "what-input": "^4.0.0"
   }
 }

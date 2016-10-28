@@ -5,7 +5,13 @@
 
 $fret-border: $black;
 
+body{
+  margin-bottom: 100px;
+}
+
 .main-menu {
+
+  margin-top: 1.5rem;
 
   .menu-section {
     padding-left:10px;
@@ -28,7 +34,7 @@ $fret-border: $black;
     padding-bottom: 10px;
   }
 
-  .tuning-header-text {
+  .menu-header-text {
     margin-top: 8px;
     margin-left: 8px;
     color:#fff;
@@ -46,9 +52,16 @@ $fret-border: $black;
     fill: #333;
   }
 
-  .shadow {
-      box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  .custom-tuning-select {
+    font-size: small;
+    height: 30px;
+    padding-bottom: 0px;
+    padding-top: 0px;
   }
+}
+
+.shadow {
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 // note circles
@@ -71,28 +84,9 @@ $fret-border: $black;
   stroke-width: 5;
 }
 
-// fretboard
-.fretboard-parent {
-  overflow: scroll;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding-left:0px;
-  padding-right: 0px;
-  background-color: #fff;
-  padding-top: 30px;
-}
-
-.fb-header {
-  background-color: #1583cc;
-
-  .fb-header-text {
-    margin-top: 8px;
-    color:#fff;
-  }
-}
 
 // fretboard svg
-.fretboard {
+.fretboard-svg {
 
   .background {
     fill:#C0C0C0;
@@ -174,11 +168,11 @@ $fret-border: $black;
 }
 
 .custom-tuning-select {
-  width: 14.5rem;
+  width: 8rem;
   margin-right: 1rem;
 }
 
-.button.tiny{
+.button.tiny {
   font-weight: bold;
 }
 
@@ -211,4 +205,72 @@ $fret-border: $black;
     fill: rgba(255,255,0,0.6);
     stroke: rgba(255,255,0,0.8);
   }
+}
+
+.header {
+  background-color: #1583cc;
+
+  .header-text {
+    margin-top: 8px;
+    color:#fff;
+  }
+}
+
+
+// fretboard
+.fretboard-parent {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  margin-bottom: 0;
+  background-color: #fff;
+
+  .fretboard-header-parent {
+    width:100%;
+    height: 43.75px;
+    background-color: #1583cc;
+  }
+
+  .fretboard-header-text {
+    color:#fff;
+    padding-top: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .fretboard-svg-parent {
+    width: 100%;
+    padding-top: 20px;
+    overflow-x: auto;
+  }
+}
+
+// foundation override
+.title-bar {
+  height: 43.75px;
+  background-color: #1583cc;
+}
+
+.toolbar-tabs {
+  border-width: 0px;
+  margin-top: -20px;
+
+  .tabs-title {
+    display: inline-block;
+    float: none;
+    width:33.33%;
+  }
+
+  .tabs-title a {
+    color: #6f6f6f;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .tabs-title>a[aria-selected=true] {
+     color: #000;
+  }
+
 }

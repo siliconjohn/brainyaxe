@@ -19,11 +19,12 @@ var MenuContainer = React.createClass({
 
   render: function() {
     return (
-      <div className="main-menu">
-        <div className="row">
-          <div className="column small-centered large-8 medium-8 small-10">
-            <div className="row fb-header shadow">
-              <h5 className="tuning-header-text">Choose Tuning</h5>
+      <div className="main-menu" data-tabs-content="toolbar-tabs-div">
+
+        <div className="row tabs-panel is-active" id="tunings-panel">
+          <div className="column small-centered large-10 medium-12 small-12">
+            <div className="row header shadow">
+              <h5 className="menu-header-text">Choose Tuning</h5>
             </div>
             <div className="row menu-section tuning-section shadow">
               <TuningChooser ref="tuningChooser"/>
@@ -31,14 +32,12 @@ var MenuContainer = React.createClass({
             </div>
           </div>
         </div>
-        <br/>
-        <div className="row">
-          <div className="column small-centered large-8 medium-8 small-10">
-            <h5>Choose Scale</h5>
-          </div>
-        </div>
-        <div className="row">
+
+        <div className="row tabs-panel" id="scales-panel">
           <div className="column small-centered large-8 medium-8 small-10 shadow">
+            <div className="row header shadow">
+              <h5 className="menu-header-text">Choose Scale</h5>
+            </div>
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
                 <ScaleNoteChooser/>
@@ -57,14 +56,12 @@ var MenuContainer = React.createClass({
             </div>
           </div>
         </div>
-        <br/>
-        <div className="row">
-          <div className="column small-centered large-8 medium-8 small-10">
-            <h5>Choose Chord</h5>
-          </div>
-        </div>
-        <div className="row">
+
+        <div className="row tabs-panel" id="chords-panel">
           <div className="column small-centered large-8 medium-8 small-10 shadow">
+            <div className="row header shadow">
+              <h5 className="menu-header-text">Choose Chord</h5>
+            </div>
             <div className="row menu-section">
               <div className="small-5 medium-4 columns">
                 <ChordNoteChooser/>

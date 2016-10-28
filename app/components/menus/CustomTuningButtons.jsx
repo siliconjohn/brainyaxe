@@ -8,8 +8,8 @@ export var CustomTuningButtons = React.createClass({
     var { dispatch } = this.props
 
     return (
-      <div className="float-right">
-        <a className="button tiny success btn-wide"
+      <div className="float-right custom-tuning-buttons">
+        <a className="button tiny success btn-wide "
          onClick={ (e) => {
            dispatch( actions.incrementCustomTuningStrings())
           }}>

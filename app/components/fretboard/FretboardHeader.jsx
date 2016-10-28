@@ -21,8 +21,8 @@ var FretboardHeader = ( props ) => {
 
   return (
     <div>
-      <h5 className="fb-header-text float-left">{ scaleText }</h5>
-      <h5 className="fb-header-text float-right">{ tuning.name } Tuning</h5>
+      <h5 className="fretboard-header-text float-left">{ scaleText }</h5>
+      <h5 className="fretboard-header-text float-right">{ tuning.name } Tuning</h5>
     </div>
   )
 }
