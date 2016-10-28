@@ -15,14 +15,11 @@ export var CustomTuningContainer = React.createClass({
         <div className="text-center"><strong>Or Create a Custom Tuning</strong></div>
         <div className="row">
           <div className="column small-centered large-12 medium-12 small-12">
-
-          <small>Strings {num} to 1, the lowest is first and the highest is last</small>
-            <CustomTuningButtons/>
-  </div>
+            <small>Strings {num} to 1, the lowest is first and the highest is last</small>
+              <CustomTuningButtons/>
+          </div>
         </div>
-
-
-    {
+        {
           Array( num ).fill().map(( _, i ) => {
             return (
               <CustomTuningNoteChooser key={ i } stringNumber={ i }/>
