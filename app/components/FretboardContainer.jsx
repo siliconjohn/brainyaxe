@@ -31,9 +31,7 @@ export var FretboardContainer = React.createClass({
 
     return (
       <div className="fretboard-parent">
-        <div className="fretboard-header-parent">
-          <FretboardHeader/>
-        </div>
+        <FretboardHeader/>
 
         <div className="fretboard-svg-parent">
            <svg xmlns="http://www.w3.org/2000/svg" className="fretboard-svg" width={ width } height={ height }>

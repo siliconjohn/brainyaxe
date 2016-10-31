@@ -6,84 +6,108 @@
 $fret-border: $black;
 
 body{
-  margin-bottom: 100px;
+  margin-bottom: rem-calc(100)
 }
 
-.main-menu {
+// foundation override
+.title-bar {
+  height: 3rem;
+}
 
-  margin-top: 1.5rem;
+.toolbar-tabs {
+  border-width: 0px;
+  margin-top: -1.4rem;
 
-  .menu-section {
-    padding-left:10px;
-    padding-right: 10px;
-    background-color: #fff;
-    padding-top: 20px;
+  .tabs-title {
+    display: inline-block;
+    float: none;
+    width: 33.33%;
   }
 
-  .tuning-section {
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 10px;
-  }
-
-  .menu-bottom-row {
-    padding-left:10px;
-    padding-right: 10px;
-    background-color: #fff;
-    padding-top: 0px;
-    padding-bottom: 10px;
-  }
-
-  .menu-header-text {
-    margin-top: 8px;
-    margin-left: 8px;
-    color:#fff;
-  }
-
-  .degrees {
-    margin-top: 5px;
+  .tabs-title a {
+    color: #6f6f6f;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-size: 1rem;
     font-weight: bold;
-    font-size: x-large;
-    word-wrap: break-word;
   }
 
-  .note-circle-menu-degree {
-    font-size:12px;
-    fill: #333;
+  .tabs-title>a[aria-selected=true] {
+     color: #000;
   }
+}
 
-  .custom-tuning-select {
-    font-size: small;
-    height: 30px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-  }
+// misc
+.no-pad-top {
+  padding-top: 0 !important;
 }
 
 .shadow {
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
-// note circles
-
-.note-circle-scale {
-  fill: rgba(255,0,0,0.3);
-  stroke: rgba(255,0,0,0.7);
-  stroke-width: 1;
+.button.tiny {
+  font-weight: bold;
 }
 
-.note-circle-chord {
-  fill: rgba(255,255,0,0.6);
-  stroke: rgba(255,255,0,0.8);
-  stroke-width: 1;
+.btn-wide {
+  width:7rem;
 }
 
-.note-circle-scale-chord {
-  fill: rgba(255,0,0,0.3);
-  stroke: rgba(255,255,0,0.6);
-  stroke-width: 5;
+.degrees {
+  font-size: x-large;
+  word-wrap: break-word;
 }
 
+.note-circle-menu-degree {
+  font-size: rem-calc(12);
+  fill: #333;
+}
+
+.main-menu {
+  margin-top: 1.5rem;
+
+  .menu-section {
+    padding-top: 1rem;
+    background-color: #fff;
+  }
+
+  .custom-tuning-select {
+    width: 8rem;
+    height: rem-calc(30);
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-right: 1rem;
+    font-size: small;
+  }
+}
+
+
+.note-circle {
+
+ .note-circle-bg {
+   fill: rgba(255,0,0,0.3);
+   stroke: rgba(255,0,0,0.7);
+   stroke-width: 1;
+ }
+
+ .note-circle-name {
+   font-family:"Arial Unicode MS";
+   font-size:18px;
+   fill: #000;
+ }
+
+ .note-circle-degree {
+   font-family:"Arial Unicode MS";
+   font-size:12px;
+   fill: #000;
+ }
+
+ .note-circle-yellow-bg {
+   fill: rgba(255,255,0,0.6);
+   stroke: rgba(255,255,0,0.8);
+ }
+}
 
 // fretboard svg
 .fretboard-svg {
@@ -102,6 +126,11 @@ body{
 
   .string {
     stroke:#fff;
+  }
+
+  .inlay-marker {
+    fill: #999;
+    stroke-width: 0;
   }
 
   .marker-bold-text {
@@ -161,61 +190,24 @@ body{
     stroke-width: 1px;
   }
 
-  .inlay-marker {
-    fill: #999;
-    stroke-width: 0;
-  }
-}
-
-.custom-tuning-select {
-  width: 8rem;
-  margin-right: 1rem;
-}
-
-.button.tiny {
-  font-weight: bold;
-}
-
-.btn-wide {
-  width:6rem;
-}
-
-
-.note-circle {
-
-  .note-circle-bg {
+  .note-circle-scale {
     fill: rgba(255,0,0,0.3);
     stroke: rgba(255,0,0,0.7);
     stroke-width: 1;
   }
 
-  .note-circle-name {
-    font-family:"Arial Unicode MS";
-    font-size:18px;
-    fill: #000;
-  }
-
-  .note-circle-degree {
-    font-family:"Arial Unicode MS";
-    font-size:12px;
-    fill: #000;
-  }
-
-  .note-circle-yellow-bg {
+  .note-circle-chord {
     fill: rgba(255,255,0,0.6);
     stroke: rgba(255,255,0,0.8);
+    stroke-width: 1;
+  }
+
+  .note-circle-scale-chord {
+    fill: rgba(255,0,0,0.3);
+    stroke: rgba(255,255,0,0.6);
+    stroke-width: 5;
   }
 }
-
-.header {
-  background-color: #1583cc;
-
-  .header-text {
-    margin-top: 8px;
-    color:#fff;
-  }
-}
-
 
 // fretboard
 .fretboard-parent {
@@ -231,46 +223,9 @@ body{
     background-color: #1583cc;
   }
 
-  .fretboard-header-text {
-    color:#fff;
-    padding-top: 8px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
   .fretboard-svg-parent {
     width: 100%;
     padding-top: 20px;
     overflow-x: auto;
   }
-}
-
-// foundation override
-.title-bar {
-  height: 43.75px;
-  background-color: #1583cc;
-}
-
-.toolbar-tabs {
-  border-width: 0px;
-  margin-top: -20px;
-
-  .tabs-title {
-    display: inline-block;
-    float: none;
-    width:33.33%;
-  }
-
-  .tabs-title a {
-    color: #6f6f6f;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
-  .tabs-title>a[aria-selected=true] {
-     color: #000;
-  }
-
 }

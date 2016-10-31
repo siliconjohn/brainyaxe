@@ -20,9 +20,9 @@ var FretboardHeader = ( props ) => {
   var scaleText = scale.intervals.length > 0 ? scale.name + " Scale" : ""
 
   return (
-    <div>
-      <h5 className="fretboard-header-text float-left">{ scaleText }</h5>
-      <h5 className="fretboard-header-text float-right">{ tuning.name } Tuning</h5>
+    <div className="title-bar">
+      <h2 className="title-bar-left">{ scaleText }</h2>
+      <h2 className="title-bar-right">{ tuning.name } Tuning</h2>
     </div>
   )
 }

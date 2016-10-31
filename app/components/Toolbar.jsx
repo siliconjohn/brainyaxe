@@ -7,12 +7,12 @@ var Toolbar = React.createClass({
     return (
       <div className="title-bar">
         <div className="title-bar-left">
-          <h5>BrainyAxe</h5>
+          <h1><strong>BrainyAxe</strong></h1>
         </div>
         <div className="title-bar-right">
           <button className="menu-icon" type="button"></button>
         </div>
-        <div className="row column medium-6 medium-centered small-8 small-centered">
+        <div className="row column medium-6 small-8 medium-centered small-centered">
           <ul className="tabs text-center shadow toolbar-tabs" data-tabs id="toolbar-tabs-div">
             <li className="tabs-title"><a href="#scales-panel">Scales</a></li>
             <li className="tabs-title is-active"><a href="#tunings-panel" aria-selected="true">Tunings</a></li>
@@ -22,6 +22,6 @@ var Toolbar = React.createClass({
       </div>
     )
   }
-});
+})
 
 module.exports = Toolbar
