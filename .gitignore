@@ -38,6 +38,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# webpack built files
+public/bundle.js
+public/bundle.js.map
+
 # siliconjohn's personal
 Start Dev.app
 Startup Applescript.scpt
