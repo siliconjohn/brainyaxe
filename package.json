@@ -1,7 +1,7 @@
 {
-  "name": "Fretboard-Kingdom",
+  "name": "brainyaxe",
   "version": "0.0.1",
-  "description": "Fretboard-Kingdom",
+  "description": "brainyaxe",
   "main": "server.js",
   "scripts": {
     "test": "karma start",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/siliconjohn/fretboard-kingdom.git"
+    "url": "git://github.com/siliconjohn/brainyaxe.git"
   },
   "dependencies": {
     "compression": "^1.6.2",
