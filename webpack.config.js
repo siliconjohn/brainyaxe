@@ -27,10 +27,10 @@ module.exports = {
     'script!jquery/dist/jquery.min.js',
     //'script!foundation-sites/dist/foundation.min.js',
     // only load the js I need from foundation
-    'script!foundation-sites/js/foundation.core.js',
-    'script!foundation-sites/js/foundation.util.mediaQuery.js',
-    'script!foundation-sites/js/foundation.tabs.js',
-    'script!foundation-sites/js/foundation.util.keyboard.js',
+    //'script!foundation-sites/js/foundation.core.js',
+    //'script!foundation-sites/js/foundation.util.mediaQuery.js',
+    //'script!foundation-sites/js/foundation.tabs.js',
+    //'script!foundation-sites/js/foundation.util.keyboard.js',
     './app/app.jsx'
   ],
   externals: {

@@ -14,28 +14,28 @@ body{
   height: 3rem;
 }
 
-.toolbar-tabs {
-  border-width: 0px;
-  margin-top: -1.4rem;
-
-  .tabs-title {
-    display: inline-block;
-    float: none;
-    width: 33.33%;
-  }
-
-  .tabs-title a {
-    color: #6f6f6f;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
-  .tabs-title>a[aria-selected=true] {
-     color: #000;
-  }
-}
+// .toolbar-tabs {
+//   border-width: 0px;
+//   margin-top: -1.4rem;
+//
+//   .tabs-title {
+//     display: inline-block;
+//     float: none;
+//     width: 33.33%;
+//   }
+//
+//   .tabs-title a {
+//     color: #6f6f6f;
+//     padding-top: 0.7rem;
+//     padding-bottom: 0.7rem;
+//     font-size: 1rem;
+//     font-weight: bold;
+//   }
+//
+//   .tabs-title>a[aria-selected=true] {
+//      color: #000;
+//   }
+// }
 
 // misc
 .no-pad-top {

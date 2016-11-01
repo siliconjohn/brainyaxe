@@ -1,6 +1,5 @@
 var React = require('react');
-import FretboardContainer from 'FretboardContainer'
-import MenuContainer from 'MenuContainer';
+import FretboardContainer from 'FretboardContainer' 
 import Toolbar from 'Toolbar'
 export var AppContainer = React.createClass({
 
@@ -13,7 +12,7 @@ export var AppContainer = React.createClass({
     return (
       <div>
         <Toolbar/>
-        <MenuContainer/>
+        {this.props.children}
         <FretboardContainer/>
       </div>
     )
