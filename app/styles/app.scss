@@ -6,12 +6,12 @@
 $fret-border: $black;
 
 body{
-  margin-bottom: rem-calc(100)
+  margin-bottom: rem-calc(100);
 }
 
 // foundation override
 .title-bar {
-  height: 3rem;
+  padding-bottom: rem-calc(2);
 }
 
 // .toolbar-tabs {
