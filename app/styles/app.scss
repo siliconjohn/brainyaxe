@@ -14,28 +14,36 @@ body{
   padding-bottom: rem-calc(2);
 }
 
-// .toolbar-tabs {
-//   border-width: 0px;
-//   margin-top: -1.4rem;
-//
-//   .tabs-title {
-//     display: inline-block;
-//     float: none;
-//     width: 33.33%;
-//   }
-//
-//   .tabs-title a {
-//     color: #6f6f6f;
-//     padding-top: 0.7rem;
-//     padding-bottom: 0.7rem;
-//     font-size: 1rem;
-//     font-weight: bold;
-//   }
-//
-//   .tabs-title>a[aria-selected=true] {
-//      color: #000;
-//   }
-// }
+.top-bar {
+  padding: 0px;
+
+  .app-name {
+    color: #fff;
+    font-size: x-large;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding-left: rem-calc(10);
+    padding-top: rem-calc(4);
+  }
+
+  .link {
+    font-size: larger;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+  }
+
+  .top-bar-menu {
+    font-weight: bold;
+    padding-right: rem-calc(10);
+
+    .active {
+      background: #5caee4;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 1px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.28);
+    }
+  }
+}
 
 // misc
 .no-pad-top {
@@ -44,6 +52,10 @@ body{
 
 .shadow {
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+.shadow-small {
+  box-shadow: 0 0 2px rgba(0,0,0,.14),0 2px 4px rgba(0,0,0,.28);
 }
 
 .button.tiny {

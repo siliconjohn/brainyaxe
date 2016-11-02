@@ -5,26 +5,26 @@ var Toolbar = React.createClass({
 
   render: function() {
     return (
-      <div className="top-bar">
+      <div className="top-bar shadow-small">
         <div className="top-bar-left">
-          <Link to="/"><h1><strong>BrainyAxe</strong></h1></Link>
+          <h1 className="app-name">BrainyAxe</h1>
         </div>
         <div className="top-bar-right">
-          <ul className="menu">
+          <ul className="menu top-bar-menu">
             <li>
-              <IndexLink to="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Tunings</IndexLink>
+              <IndexLink to="/" className="link" activeClassName="active">Tunings</IndexLink>
             </li>
             <li>
-              <Link to="/scales" activeClassName="active"  activeStyle={{ fontWeight: 'bold' }}>Scales</Link>
+              <Link to="/scales" className="link" activeClassName="active">Scales</Link>
             </li>
             <li>
-              <Link to="/chords" activeClassName="active"  activeStyle={{ fontWeight: 'bold' }}>Chords</Link>
+              <Link to="/chords" className="link" activeClassName="active">Chords</Link>
             </li>
             <li>
-              <Link to="/settings" activeClassName="active"  activeStyle={{ fontWeight: 'bold' }}>Settings</Link>
+              <Link to="/settings" className="link" activeClassName="active">Settings</Link>
             </li>
             <li>
-              <Link to="/about" activeClassName="active"  activeStyle={{ fontWeight: 'bold' }}>About</Link>
+              <Link to="/about" className="link" activeClassName="active">About</Link>
             </li>
           </ul>
         </div>
