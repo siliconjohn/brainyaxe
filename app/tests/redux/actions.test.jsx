@@ -58,6 +58,15 @@ describe( "Redux Actions", () => {
     expect( action ).toEqual( generatedAction )
   })
 
+  it( "Should change the number of fretboard notes", () => {
+    var action = {
+      type: actions.CHANGE_FRETBOARD_NUMBER_OF_NOTES,
+      numberOfNotes: 10
+    }
+    var generatedAction = actions.changeFretboardNumberOfNotes( 10 )
+    expect( action ).toEqual( generatedAction )
+  })
+
   it( "Should change a custom tuning note", () => {
     var action = {
       type: actions.CHANGE_CUSTOM_TUNING_NOTE,
@@ -91,5 +100,5 @@ describe( "Redux Actions", () => {
     var generatedAction = actions.toggleShowCustomTuningMidiNote()
     expect( action ).toEqual( generatedAction )
   })
-  
+
 })

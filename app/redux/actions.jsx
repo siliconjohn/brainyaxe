@@ -76,3 +76,12 @@ export var toggleShowCustomTuningMidiNote = () => {
     type: TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE
   }
 }
+
+export const CHANGE_FRETBOARD_NUMBER_OF_NOTES = 'CHANGE_FRETBOARD_NUMBER_OF_NOTES'
+
+export var changeFretboardNumberOfNotes = ( numberOfNotes ) => {
+  return {
+    type: CHANGE_FRETBOARD_NUMBER_OF_NOTES,
+    numberOfNotes
+  }
+}

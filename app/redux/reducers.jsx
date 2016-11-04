@@ -59,6 +59,15 @@ export var chordNoteReducer = ( state = 'E', action ) => {
   }
 }
 
+export var fretboardNumberOfNotesReducer = ( state = 24, action ) => {
+
+  if( action.type == actions.CHANGE_FRETBOARD_NUMBER_OF_NOTES ) {
+    return action.numberOfNotes
+  } else {
+    return state
+  }
+}
+
 export var toggleShowCustomTuningMidiNoteReducer = ( state = false, action) => {
 
   if ( action.type == actions.TOGGLE_SHOW_CUSTOM_TUNING_MIDI_NOTE ) {
@@ -182,7 +191,7 @@ export const appReducers = redux.combineReducers({
   scales: (state = {}) => state,
   chords: (state = {}) => state,
   references : (state = {}) => state,
-  fretboardNumberOfNotes: (state = {}) => state,
+  fretboardNumberOfNotes: fretboardNumberOfNotesReducer,
   fretboardStringHeight: (state = {}) => state,
   fretboardNutWidth: (state = {}) => state,
   fretboardOpenNoteWidth: (state = {}) => state,
