@@ -85,3 +85,21 @@ export var changeFretboardNumberOfNotes = ( numberOfNotes ) => {
     numberOfNotes
   }
 }
+
+export const FRETBOARD_STRING_HEIGHT = 'FRETBOARD_STRING_HEIGHT'
+
+export var changeFretboardStringHeight = ( height ) => {
+  return {
+    type: FRETBOARD_STRING_HEIGHT,
+    height
+  }
+}
+
+export const FRETBOARD_FRET_WIDTH = 'FRETBOARD_FRET_WIDTH'
+
+export var changeFretboardFretWidth = ( width ) => {
+  return {
+    type: FRETBOARD_FRET_WIDTH,
+    width
+  }
+}

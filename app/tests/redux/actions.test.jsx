@@ -67,6 +67,24 @@ describe( "Redux Actions", () => {
     expect( action ).toEqual( generatedAction )
   })
 
+  it( "Should change the fretboard string height", () => {
+    var action = {
+      type: actions.FRETBOARD_STRING_HEIGHT,
+      height: 42
+    }
+    var generatedAction = actions.changeFretboardStringHeight( 42 )
+    expect( action ).toEqual( generatedAction )
+  })
+
+  it( "Should change the number fret width", () => {
+    var action = {
+      type: actions.FRETBOARD_FRET_WIDTH,
+      width: 77
+    }
+    var generatedAction = actions.changeFretboardFretWidth( 77 )
+    expect( action ).toEqual( generatedAction )
+  })
+
   it( "Should change a custom tuning note", () => {
     var action = {
       type: actions.CHANGE_CUSTOM_TUNING_NOTE,
