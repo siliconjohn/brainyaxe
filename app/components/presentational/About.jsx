@@ -11,7 +11,18 @@ var About = ( props ) => {
           </div>
           <div className="row menu-section shadow">
             <div className="columns small-12">
-              To be continued...
+              <div className="media-object">
+                <div className="media-object-section">
+                  <div className="thumbnail">
+                    <img src= "images/john.jpg"/>
+                  </div>
+                </div>
+                <div className="media-object-section main-section">
+                  <h2>Created by John Doerfler</h2>
+                  <p className="black">A react and redux app.
+                   Checkout the code at <a href="http://github.com/siliconjohn/brainyaxe">GitHub</a></p>
+               </div>
+              </div>
             </div>
           </div>
         </div>

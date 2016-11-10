@@ -50,6 +50,26 @@ body{
   padding-top: 0 !important;
 }
 
+.black {
+  a:link {
+    color: #1583cc;
+}
+
+/* visited link */
+a:visited {
+    color: red;
+}
+
+/* mouse over link */
+a:hover {
+    color: blue;
+}
+
+/* selected link */
+a:active {
+    color: #1583cc;
+}
+}
 .shadow {
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
