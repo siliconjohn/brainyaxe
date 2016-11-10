@@ -21,9 +21,11 @@ export var Settings = React.createClass({
                 <label className="text-right middle">Number of notes on the Fretboard</label>
               </div>
               <div className="columns small-3">
-                <NumericInput className="form-control" min={ 1 } max={ 100 } value={ fretboardNumberOfNotes }
+                <NumericInput className="form-control" min={ 1 } max={ 100 }  mobile value={ fretboardNumberOfNotes }
                   onChange={ ( e ) => {
-                    dispatch( actions.changeFretboardNumberOfNotes( e ))
+                    if ( e > 0 && e < 100 ) {
+                      dispatch( actions.changeFretboardNumberOfNotes( e ))
+                    }
                   }}/>
               </div>
               <div className="columns small-3">
@@ -34,9 +36,11 @@ export var Settings = React.createClass({
                 <label className="text-right middle">String Height</label>
               </div>
               <div className="columns small-3">
-                <NumericInput className="form-control" min={ 30 } max={ 70 } value={ fretboardStringHeight }
+                <NumericInput className="form-control" min={ 30 } max={ 70 } mobile value={ fretboardStringHeight }
                   onChange={ ( e ) => {
-                    dispatch( actions.changeFretboardStringHeight( e ))
+                    if ( e > 30 && e < 70 ) {
+                      dispatch( actions.changeFretboardStringHeight( e ))
+                    }
                   }}/>
               </div>
               <div className="columns small-3">
@@ -47,9 +51,11 @@ export var Settings = React.createClass({
                 <label className="text-right middle">Note Width</label>
               </div>
               <div className="columns small-3">
-                <NumericInput className="form-control" min={ 50 } max={ 150 } value={ fretboardFretWidth }
-                  onChange={ ( e ) => {
-                    dispatch( actions.changeFretboardFretWidth( e ))
+                <NumericInput className="form-control" min={ 50 } max={ 150 } mobile value={ fretboardFretWidth }
+                  onChange={ ( e ) => { 
+                    if ( e > 50 && e < 150 ) {
+                      dispatch( actions.changeFretboardFretWidth( e ))
+                    }
                   }}/>
               </div>
               <div className="columns small-3">
