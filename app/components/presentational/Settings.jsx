@@ -29,7 +29,7 @@ export var Settings = React.createClass({
               <div className="columns small-3">
               </div>
             </div>
-            <div className="row menu-section">
+            <div className="row menu-section no-pad-top">
               <div className="columns small-6">
                 <label className="text-right middle">String Height</label>
               </div>
@@ -42,7 +42,7 @@ export var Settings = React.createClass({
               <div className="columns small-3">
               </div>
             </div>
-            <div className="row menu-section">
+            <div className="row menu-section no-pad-top">
               <div className="columns small-6">
                 <label className="text-right middle">Note Width</label>
               </div>
