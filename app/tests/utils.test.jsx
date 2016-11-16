@@ -77,7 +77,7 @@ describe( "Utils", () => {
       expect( result ).toBe( undefined )
     })
 
-    it( "Should also returnundefined", () => {
+    it( "Should also return undefined", () => {
       var result = utils.isNoteInArray( -1, ['F','C','D'] )
       expect( result ).toBe( undefined )
     })
