@@ -73,7 +73,7 @@ module.exports.getNotesForArray = function( scale, startNoteName ) {
 module.exports.playMidiNote = function ( note ) {
 
   try {
-    var synth = T( "OscGen", { wave:"tri", mul:1 })
+    var synth = T( "OscGen", { wave:"saw", mul:1 })
 
     T( "interval", { interval:"L1", timeout:"1sec" }, function() {
       synth.noteOn( note, 40 )
