@@ -30,7 +30,7 @@ module.exports.getObjectForKey = function( array, key ) {
 }
 
 module.exports.isNoteInArray = function( midiNumber, noteArray ) {
-  if (midiNumber < 0  || midiNumber >= notesNameTable.length ) return false;
+  if (midiNumber < 0  || midiNumber >= notesNameTable.length ) return undefined;
 
   var noteName = notesNameTable[midiNumber];
 
