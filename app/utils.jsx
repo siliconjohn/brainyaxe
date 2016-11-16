@@ -1,84 +1,84 @@
 // all possible notes, the array index is the midi number
 export const noteNamesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                        "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"];
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
 
-export const twelveNotesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"];
+export const twelveNotesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
 
-module.exports.getNoteNameFromMIDINumber = function( number ) {
-  if (number < 0 ) return noteNamesTable[0];
-  if( number >= noteNamesTable.length) return noteNamesTable[noteNamesTable.length - 1];
+module.exports.getNoteNameFromMIDINumber = ( midiNoteNumber ) => {
+  if ( midiNoteNumber < 0 )
+    return noteNamesTable[0]
 
-  return noteNamesTable[number];
+  if(  midiNoteNumber >= noteNamesTable.length)
+    return noteNamesTable[noteNamesTable.length - 1]
+
+  return noteNamesTable[ midiNoteNumber ]
 }
 
-module.exports.getObjectForKey = function( array, key ) {
-  try {
-    return array.find(function( object ) {
-      return object.key === key ? true : false
-    },this);
-  } catch (e) {
+module.exports.getObjectForKey = ( array, key ) => {
+  return array.find(( object ) => {
+    return object.key === key ? true : false
+  }, this )
+}
+
+module.exports.isNoteInArray = ( midiNumber, noteArray ) => {
+  if (midiNumber < 0 || midiNumber >= noteNamesTable.length )
     return undefined
-  }
-}
 
-module.exports.isNoteInArray = function( midiNumber, noteArray ) {
-  if (midiNumber < 0  || midiNumber >= noteNamesTable.length ) return undefined;
+  var noteName = noteNamesTable[ midiNumber ]
 
-  var noteName = noteNamesTable[midiNumber];
-
-  return noteArray.find(function(midiNote){
+  return noteArray.find(( midiNote ) => {
     return midiNote === noteName  ? true : false;
   })
 }
 
-module.exports.getNotesForArray = function( scale, startNoteName ) {
-  if(scale.intervals.length == 0) return [];
+module.exports.getNotesForArray = ( scale, startNoteName ) => {
+  if( scale.intervals.length == 0 )
+    return []
 
-  var result = [];
+  var result = []
 
   // find first instance of start note in array
   var rootMidiNote;
-  noteNamesTable.find(function( name, index ) {
+  noteNamesTable.find(( name, index ) => {
     if( name === startNoteName) {
-      rootMidiNote = index;
-      return true;
+      rootMidiNote = index
+      return true
     } else
-      return false;
-  },this);
+      return false
+  }, this )
 
   // if couln't find note return []
-  if(rootMidiNote === undefined) return [];
+  if( rootMidiNote === undefined )
+    return []
 
   // push root note
-  result.push(noteNamesTable[rootMidiNote]);
+  result.push( noteNamesTable[ rootMidiNote ])
 
   // push other notes in scale
-  scale.intervals.forEach(function(item) {
-    result.push(noteNamesTable[rootMidiNote + item]);
-  });
+  scale.intervals.forEach(( item ) => {
+    result.push( noteNamesTable[ rootMidiNote + item ])
+  })
 
-  return result;
+  return result
 }
 
-module.exports.playMidiNote = function ( note ) {
-
+module.exports.playMidiNote = ( midiNote ) => {
   try {
     var synth = T( "OscGen", { wave:"saw", mul:1 })
 
-    T( "interval", { interval:"L1", timeout:"1sec" }, function() {
-      synth.noteOn( note, 40 )
-
-    }).on( "ended", function() {
-      this.stop();
+    T( "interval", { interval:"L1", timeout:"1sec" }, () => {
+      synth.noteOn( midiNote, 40 )
+    }).on( "ended", () => {
+      this.stop()
     }).set({ buddies:synth }).start()
   } catch ( e ) {
     console.log("Timbre not loaded")
