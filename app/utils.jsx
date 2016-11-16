@@ -27,7 +27,7 @@ module.exports.getObjectForKey = function( array, key ) {
     },this);
   } catch (e) {
     return undefined
-  } 
+  }
 }
 
 module.exports.isNoteInArray = function( midiNumber, noteArray ) {
@@ -70,6 +70,21 @@ module.exports.getNotesForArray = function( scale, startNoteName ) {
   return result;
 }
 
+module.exports.playMidiNote = function ( note ) {
+
+  try {
+    var synth = T( "OscGen", { wave:"tri", mul:1 })
+
+    T( "interval", { interval:"L1", timeout:"1sec" }, function() {
+      synth.noteOn( note, 40 )
+
+    }).on( "ended", function() {
+      this.stop();
+    }).set({ buddies:synth }).start()
+  } catch ( e ) {
+    console.log("Timbre not loaded")
+  }
+}
 
 // This was used to generate the notes table, saving incase it
 // needs to be changed

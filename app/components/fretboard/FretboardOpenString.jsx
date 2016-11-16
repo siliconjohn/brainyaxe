@@ -1,8 +1,9 @@
 var React = require('react')
+var utils = require('utils')
 
 var FretboardOpenString = ( props ) => {
 
-  var { y, width, key, note } = props
+  var { y, width, key, note, midiNote } = props
 
   var textYOffset = 6
   var textXOffset = 6
@@ -16,7 +17,11 @@ var FretboardOpenString = ( props ) => {
 
   return (
     <text x={ width / 2 - textXOffset } y={ y + textYOffset }
-      className="open-string-text">{ noteName }
+      className="open-string-text"
+      onClick={ () => {
+        utils.playMidiNote( midiNote )
+      }}>
+      { noteName }
     </text>
   )
 }

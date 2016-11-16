@@ -1,4 +1,5 @@
 var React = require('react')
+var utils = require('utils')
 
 var FretboardOpenNote = ( props ) => {
 
@@ -23,7 +24,10 @@ var FretboardOpenNote = ( props ) => {
       }
 
       return (
-        <circle cx={ x + width / 2 } cy={ y + height / 2 } r="18" className={ circleClass }/>
+        <circle cx={ x + width / 2 } cy={ y + height / 2 } r="18" className={ circleClass }
+
+
+          />
        )
     }
   }
@@ -88,7 +92,9 @@ var FretboardOpenNote = ( props ) => {
   }
 
   return (
-    <g className="note">
+    <g className="note" onClick={ () => {
+      utils.playMidiNote( midiNote )
+    }}>
       {getNoteDegree()}
       {getCircle()}
       {getNoteName()}

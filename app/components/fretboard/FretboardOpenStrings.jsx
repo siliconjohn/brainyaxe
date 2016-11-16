@@ -23,7 +23,7 @@ var FretboardOpenStrings = ( props ) => {
       {
         strings.map(( value, index ) => {
           var tempProps =  { y:props.fretboardStringHeight * index + halfStringHeight,
-                            width: props.fretboardOpenNoteWidth,
+                            width: props.fretboardOpenNoteWidth, midiNote: tuning.midiNotes[ index ],
                             note: utils.getNoteNameFromMIDINumber( tuning.midiNotes[ index ])}
 
           return (
