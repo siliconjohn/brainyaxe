@@ -125,7 +125,7 @@ export var customTuningReducer = ( state = [], action ) => {
       var newMidiNote = customTuning.midiNotes[ 0 ]
 
       // make 5 notes higher
-      if(newMidiNote + 5 < utils.notesNameTable.length ) {
+      if(newMidiNote + 5 < utils.noteNamesTable.length ) {
         newMidiNote += 5
       }
 

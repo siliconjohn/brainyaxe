@@ -23,7 +23,7 @@ export var CustomTuningNoteChooser = React.createClass({
         }}>
 
         {
-          utils.notesNameTable.map(( note, index ) => {
+          utils.noteNamesTable.map(( note, index ) => {
             var tempProps = { note:note, index:index, references:references,
                               showMidiNote: showCustomTuningMidiNote }
 

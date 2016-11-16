@@ -74,6 +74,6 @@ describe( 'CustomTuningNoteChooser', () => {
     var $el = $( ReactDOM.findDOMNode( comp ))
 
     // check number of children
-    expect( $el.children().length ).toBe( utils.notesNameTable.length )
+    expect( $el.children().length ).toBe( utils.noteNamesTable.length )
   })
 })

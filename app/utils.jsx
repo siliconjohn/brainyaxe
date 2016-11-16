@@ -1,4 +1,4 @@
-export const notesNameTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+export const noteNamesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
                         "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
                         "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
                         "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
@@ -13,10 +13,10 @@ export const notesNameTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G�
 export const twelveNotesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"];
 
 module.exports.getNoteNameFromMIDINumber = function( number ) {
-  if (number < 0 ) return notesNameTable[0];
-  if( number >= notesNameTable.length) return notesNameTable[notesNameTable.length - 1];
+  if (number < 0 ) return noteNamesTable[0];
+  if( number >= noteNamesTable.length) return noteNamesTable[noteNamesTable.length - 1];
 
-  return notesNameTable[number];
+  return noteNamesTable[number];
 }
 
 module.exports.getObjectForKey = function( array, key ) {
@@ -30,9 +30,9 @@ module.exports.getObjectForKey = function( array, key ) {
 }
 
 module.exports.isNoteInArray = function( midiNumber, noteArray ) {
-  if (midiNumber < 0  || midiNumber >= notesNameTable.length ) return undefined;
+  if (midiNumber < 0  || midiNumber >= noteNamesTable.length ) return undefined;
 
-  var noteName = notesNameTable[midiNumber];
+  var noteName = noteNamesTable[midiNumber];
 
   return noteArray.find(function(midiNote){
     return midiNote === noteName  ? true : false;
@@ -46,7 +46,7 @@ module.exports.getNotesForArray = function( scale, startNoteName ) {
 
   // find first instance of start note in array
   var rootMidiNote;
-  notesNameTable.find(function( name, index ) {
+  noteNamesTable.find(function( name, index ) {
     if( name === startNoteName) {
       rootMidiNote = index;
       return true;
@@ -58,11 +58,11 @@ module.exports.getNotesForArray = function( scale, startNoteName ) {
   if(rootMidiNote === undefined) return [];
 
   // push root note
-  result.push(notesNameTable[rootMidiNote]);
+  result.push(noteNamesTable[rootMidiNote]);
 
   // push other notes in scale
   scale.intervals.forEach(function(item) {
-    result.push(notesNameTable[rootMidiNote + item]);
+    result.push(noteNamesTable[rootMidiNote + item]);
   });
 
   return result;

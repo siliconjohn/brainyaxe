@@ -3,10 +3,10 @@ var utils = require('utils')
 
 describe( "Utils", () => {
 
-  describe( 'notesNameTable', () => {
+  describe( 'noteNamesTable', () => {
 
     it( "Should have 132 notes", () => {
-      expect( utils.notesNameTable.length ).toEqual( 132 )
+      expect( utils.noteNamesTable.length ).toEqual( 132 )
     })
   })
 
