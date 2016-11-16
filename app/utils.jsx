@@ -19,7 +19,6 @@ module.exports.getNoteNameFromMIDINumber = function( number ) {
   return notesNameTable[number];
 }
 
-// TODO maybe move to AppContainer
 module.exports.getObjectForKey = function( array, key ) {
   try {
     return array.find(function( object ) {
@@ -39,8 +38,7 @@ module.exports.isNoteInArray = function( midiNumber, noteArray ) {
     return midiNote === noteName  ? true : false;
   })
 }
-
-// TODO maybe move to AppContainer
+ 
 module.exports.getNotesForArray = function( scale, startNoteName ) {
   if(scale.intervals.length == 0) return [];
 
