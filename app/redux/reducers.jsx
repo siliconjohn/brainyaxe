@@ -193,8 +193,6 @@ export var customTuningReducer = ( state = [], action ) => {
   return state
 }
 
-
-// all app reducers compined into one
 export const appReducers = redux.combineReducers({
   selectedTuningKey:tuningReducer,
   selectedScaleKey:scaleReducer,
