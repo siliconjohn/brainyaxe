@@ -1,6 +1,6 @@
 var redux = require('redux')
-var actions = require('./actions')
-var reducers = require('./reducers')
+var actions = require('actions')
+var reducers = require('reducers')
 
 export var createStore = ( initialState ) => {
 
