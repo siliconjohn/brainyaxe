@@ -4,7 +4,7 @@ var utils = require('utils')
 var FretboardNote = ( props ) => {
 
   var { x, y, width, height, midiNote, note, scaleNote,
-        chordNote, isOpenString, degree, menuDegree } = props
+        chordNote, isOpenString, degree } = props
 
   // adjustments used to center text
   var textYOffset = 6
@@ -50,23 +50,8 @@ var FretboardNote = ( props ) => {
     }
   }
 
-  var getMenuDegree = () => {
-    if( menuDegree && !isOpenString && ( scaleNote || chordNote )) {
-
-      var globalXOffset = 4
-      var textXOffset = 12
-      if( menuDegree.length > 1 ) textXOffset = 13
-
-      return (
-        <text x={ globalXOffset + x + width - textXOffset } y={ y + height - 1  }
-          className="note-circle-menu-degree">{ menuDegree }
-        </text>
-      )
-    }
-  }
-
   var getNoteDegree = () =>  {
-    if( !menuDegree && degree && !isOpenString && ( scaleNote || chordNote )) {
+    if( degree && !isOpenString && ( scaleNote || chordNote )) {
 
       var globalXOffset = 4
       var textXOffset = 21
@@ -98,7 +83,6 @@ var FretboardNote = ( props ) => {
       {getNoteDegree()}
       {getCircle()}
       {getNoteName()}
-      {getMenuDegree()}
     </g>
   )
 }
