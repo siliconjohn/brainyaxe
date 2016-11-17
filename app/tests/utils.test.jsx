@@ -65,25 +65,25 @@ describe( "Utils", () => {
     })
   })
 
-  describe( 'isNoteInArray', () => {
+  describe( 'getNoteInArray', () => {
 
     it( "Should return C", () => {
-      var result = utils.isNoteInArray( 60, ['F','C','D'] )
+      var result = utils.getNoteInArray( 60, ['F','C','D'] )
       expect( result ).toEqual( 'C' )
     })
 
     it( "Should return undefined", () => {
-      var result = utils.isNoteInArray( 61, ['F','C','D'] )
+      var result = utils.getNoteInArray( 61, ['F','C','D'] )
       expect( result ).toBe( undefined )
     })
 
     it( "Should also return undefined", () => {
-      var result = utils.isNoteInArray( -1, ['F','C','D'] )
+      var result = utils.getNoteInArray( -1, ['F','C','D'] )
       expect( result ).toBe( undefined )
     })
 
     it( "Should return undefined too", () => {
-      var result = utils.isNoteInArray(999, ['F','C','D'] )
+      var result = utils.getNoteInArray(999, ['F','C','D'] )
       expect( result ).toBe( undefined )
     })
   })

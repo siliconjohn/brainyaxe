@@ -31,8 +31,8 @@ var FretboardNotes = ( props ) => {
     var midiNote = tuning.midiNotes[ i ]
     var noteY = props.fretboardStringHeight * i
     var noteName = utils.getNoteNameFromMIDINumber( midiNote )
-    var isNoteInScale = utils.isNoteInArray( midiNote, selectedNotesForScale )
-    var isNoteInChord = utils.isNoteInArray( midiNote, selectedNotesForChord )
+    var isNoteInScale = utils.getNoteInArray( midiNote, selectedNotesForScale )
+    var isNoteInChord = utils.getNoteInArray( midiNote, selectedNotesForChord )
 
     var tempProps = { x:0, y:noteY, width:props.fretboardOpenNoteWidth, scaleNote:isNoteInScale,
                      chordNote:isNoteInChord, midiNote:midiNote, height:props.fretboardStringHeight,
@@ -58,8 +58,8 @@ var FretboardNotes = ( props ) => {
       var width = props.fretboardFretWidth - ( a == 1 ? 0 : 2 )
       var midiNote = stringMidiNote + a + 1
       var noteName = utils.getNoteNameFromMIDINumber( midiNote )
-      var isNoteInScale = utils.isNoteInArray( midiNote, selectedNotesForScale )
-      var isNoteInChord = utils.isNoteInArray( midiNote, selectedNotesForChord )
+      var isNoteInScale = utils.getNoteInArray( midiNote, selectedNotesForScale )
+      var isNoteInChord = utils.getNoteInArray( midiNote, selectedNotesForChord )
       var scaleDegree = scaleDegrees[ selectedNotesForScale.indexOf( noteName )]
       var chordDegree = chordDegrees[ selectedNotesForChord.indexOf( noteName )]
 

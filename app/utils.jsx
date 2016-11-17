@@ -30,7 +30,7 @@ module.exports.getObjectForKey = ( array, key ) => {
   }, this )
 }
 
-module.exports.isNoteInArray = ( midiNumber, noteArray ) => {
+module.exports.getNoteInArray = ( midiNumber, noteArray ) => {
   if (midiNumber < 0 || midiNumber >= noteNamesTable.length )
     return undefined
 
