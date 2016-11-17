@@ -223,16 +223,34 @@ body{
     stroke-width: 1;
   }
 
+  .note-circle-scale-root {
+    fill: rgba(255,0,0,0.3);
+    stroke: rgba(200,0,0,0.7);
+    stroke-width: 3;
+  }
+
   .note-circle-chord {
     fill: rgba(255,255,0,0.6);
     stroke: rgba(255,255,0,0.8);
     stroke-width: 1;
   }
 
+  .note-circle-chord-root {
+    fill: rgba(255,255,0,0.6);
+    stroke: rgba(180,180,0,1);
+    stroke-width: 4;
+  }
+
   .note-circle-scale-chord {
     fill: rgba(255,0,0,0.3);
     stroke: rgba(255,255,0,0.6);
-    stroke-width: 5;
+    stroke-width: 3;
+  }
+
+  .note-circle-scale-chord-root {
+    fill: rgba(255,0,0,0.3);
+    stroke: rgba(255,255,0,0.6);
+    stroke-width: 3;
   }
 }
 

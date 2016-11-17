@@ -13,6 +13,7 @@ var FretboardNotes = ( props ) => {
     var selectedNotesForScale = utils.getNotesForArray( scale, props.selectedScaleNote )
     var selectedNotesForChord = utils.getNotesForArray( chord, props.selectedChordNote )
     var scaleDegrees = scale.degrees.split( ',' )
+    var chordDegrees = chord.degrees.split( ',' )
     var numberOfStrings = tuning.midiNotes.length
   } catch ( e ) {
     return ( <g></g> )
@@ -59,11 +60,12 @@ var FretboardNotes = ( props ) => {
       var noteName = utils.getNoteNameFromMIDINumber( midiNote )
       var isNoteInScale = utils.isNoteInArray( midiNote, selectedNotesForScale )
       var isNoteInChord = utils.isNoteInArray( midiNote, selectedNotesForChord )
-      var degree = scaleDegrees[ selectedNotesForScale.indexOf( noteName )]
+      var scaleDegree = scaleDegrees[ selectedNotesForScale.indexOf( noteName )]
+      var chordDegree = chordDegrees[ selectedNotesForChord.indexOf( noteName )]
 
       var tempProps = { x:tempFretX, y:noteY, width: width, height: props.fretboardStringHeight,
                         scaleNote:isNoteInScale, midiNote: midiNote, chordNote:isNoteInChord,
-                        note:noteName, isOpenString:false, degree: degree  }
+                        note:noteName, isOpenString:false, scaleDegree: scaleDegree, chordDegree: chordDegree  }
 
       result.push ( <FretboardNote  key={ key } {...tempProps}/> )
 

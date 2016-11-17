@@ -4,7 +4,7 @@ var utils = require('utils')
 var FretboardNote = ( props ) => {
 
   var { x, y, width, height, midiNote, note, scaleNote,
-        chordNote, isOpenString, degree } = props
+        chordNote, isOpenString, scaleDegree, chordDegree } = props
 
   // adjustments used to center text
   var textYOffset = 6
@@ -13,21 +13,31 @@ var FretboardNote = ( props ) => {
   var getCircle = () =>  {
 
     if( scaleNote || chordNote ) {
-      // get the className to use for the circle
+
       var circleClass = ""
+
       if( !scaleNote && chordNote ) {
-         circleClass = "note-circle-chord"
+        if( chordDegree === "1") {
+          circleClass = "note-circle-chord-root"
+        } else {
+          circleClass = "note-circle-chord"
+        }
       } else if( scaleNote && !chordNote ) {
-         circleClass = "note-circle-scale"
+        if( scaleDegree === "1") {
+          circleClass = "note-circle-scale-root"
+        } else {
+          circleClass = "note-circle-scale"
+        }
       } else if( scaleNote && chordNote ) {
-         circleClass = "note-circle-scale-chord"
+        if( chordDegree === "1" || scaleDegree === "1") {
+          circleClass = "note-circle-scale-chord-root"
+        } else {
+          circleClass = "note-circle-scale-chord"
+        }
       }
 
       return (
-        <circle cx={ x + width / 2 } cy={ y + height / 2 } r="18" className={ circleClass }
-
-
-          />
+        <circle cx={ x + width / 2 } cy={ y + height / 2 } r="18" className={ circleClass }/>
        )
     }
   }
@@ -51,10 +61,17 @@ var FretboardNote = ( props ) => {
   }
 
   var getNoteDegree = () =>  {
-    if( degree && !isOpenString && ( scaleNote || chordNote )) {
+    if( chordDegree || scaleDegree && !isOpenString && ( scaleNote || chordNote )) {
 
       var globalXOffset = 4
       var textXOffset = 21
+      var degree
+
+      if( chordDegree != undefined)
+       degree = chordDegree
+      if( scaleDegree != undefined)
+        degree = scaleDegree
+
       if( degree.length > 1 ) textXOffset = 24
 
       var addOnClass = "degree-circle"
