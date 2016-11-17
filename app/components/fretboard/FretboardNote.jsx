@@ -1,7 +1,7 @@
 var React = require('react')
 var utils = require('utils')
 
-var FretboardOpenNote = ( props ) => {
+var FretboardNote = ( props ) => {
 
   var { x, y, width, height, midiNote, note, scaleNote,
         chordNote, isOpenString, degree, menuDegree } = props
@@ -103,4 +103,4 @@ var FretboardOpenNote = ( props ) => {
   )
 }
 
-module.exports = FretboardOpenNote
+module.exports = FretboardNote

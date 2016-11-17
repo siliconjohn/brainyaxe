@@ -1,7 +1,7 @@
 var React = require('react')
 var { connect } = require('react-redux')
 var utils = require('utils')
-var FretboardOpenNote = require('FretboardOpenNote')
+var FretboardNote = require('FretboardNote')
 
 var FretboardNotes = ( props ) => {
 
@@ -37,7 +37,7 @@ var FretboardNotes = ( props ) => {
                      chordNote:isNoteInChord, midiNote:midiNote, height:props.fretboardStringHeight,
                      note:noteName, isOpenString:true }
 
-    result.push ( <FretboardOpenNote key={ key } { ...tempProps }/> )
+    result.push ( <FretboardNote key={ key } { ...tempProps }/> )
   }
 
   // add the fretboard's notes
@@ -65,7 +65,7 @@ var FretboardNotes = ( props ) => {
                         scaleNote:isNoteInScale, midiNote: midiNote, chordNote:isNoteInChord,
                         note:noteName, isOpenString:false, degree: degree  }
 
-      result.push ( <FretboardOpenNote  key={ key } {...tempProps}/> )
+      result.push ( <FretboardNote  key={ key } {...tempProps}/> )
 
       tempFretX += props.fretboardFretWidth
     }
