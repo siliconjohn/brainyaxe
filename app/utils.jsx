@@ -11,6 +11,7 @@ export const noteNamesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G�
                                "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
                                "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
 
+// array of all possible note names
 export const twelveNotesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
 
 module.exports.getNoteNameFromMIDINumber = ( midiNoteNumber ) => {
