@@ -77,9 +77,9 @@ module.exports.playMidiNote = ( midiNote ) => {
     var synth = T( "OscGen", { wave:"saw", mul:1 })
 
     T( "interval", { interval:"L1", timeout:"1sec" }, () => {
-      synth.noteOn( midiNote, 40 )
+      synth.noteOn( midiNote, 20 )
     }).on( "ended", () => {
-      this.stop()
+      synth.stop()
     }).set({ buddies:synth }).start()
   } catch ( e ) {
     console.log("Timbre not loaded")
