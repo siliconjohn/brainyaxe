@@ -5,19 +5,23 @@ var store = require('./redux/store')
 var { initialState } = require('./initialState')
 var { Route, Router, IndexRoute, hashHistory } = require('react-router')
 import About from 'About'
-import Settings from 'Settings' 
+import Settings from 'Settings'
 import AppContainer from 'AppContainer'
 import TuningsContainer from 'TuningsContainer'
 import ChordsContainer from 'ChordsContainer'
 import ScalesContainer from 'ScalesContainer'
+import ReactGA from 'react-ga'
 
 require('style!css!sass!applicationStyles')
+
+// initialize google analytics
+ReactGA.initialize('UA-87980245-1')
 
 var newStore = store.createStore( initialState )
 
 ReactDOM.render(
   <Provider store={ newStore }>
-    <Router history={ hashHistory }>
+    <Router history={ hashHistory } onUpdate={ () => ReactGA.pageview( window.location.hash )}>
        <Route path="/" component={ AppContainer }>
          <Route path="tunings" component={ TuningsContainer }/>
          <Route path="chords" component={ ChordsContainer }/>
@@ -29,4 +33,4 @@ ReactDOM.render(
      </Router>
   </Provider>,
   document.getElementById("app")
-);
+)
