@@ -15,7 +15,7 @@ import ReactGA from 'react-ga'
 require('style!css!sass!applicationStyles')
 
 // initialize google analytics
-ReactGA.initialize('UA-87980245-1')
+ReactGA.initialize('UA-87996753-1')
 
 var newStore = store.createStore( initialState )
 
