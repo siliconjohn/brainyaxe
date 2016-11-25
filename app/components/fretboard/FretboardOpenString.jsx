@@ -3,7 +3,7 @@ var utils = require('utils')
 
 var FretboardOpenString = ( props ) => {
 
-  var { y, width, key, note, midiNote } = props
+  var { y, width, note, midiNote } = props
 
   var textYOffset = 6
   var textXOffset = 6
