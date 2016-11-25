@@ -1,6 +1,14 @@
+import ReactGA from 'react-ga'
+
 export const CHANGE_TUNING = 'CHANGE_TUNING'
 
 export var changeTuning = ( key ) => {
+
+  ReactGA.event({
+    category: 'Tuning',
+    action: "Changed tuning to " + key,
+  })
+
   return {
     type: CHANGE_TUNING,
     key
