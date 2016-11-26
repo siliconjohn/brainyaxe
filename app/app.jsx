@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom')
 var { Provider } = require('react-redux')
 var store = require('./redux/store')
 var { initialState } = require('./initialState')
-var { Route, Router, IndexRoute, hashHistory } = require('react-router')
+var { Route, Router, IndexRoute, hashHistory,browserHistory } = require('react-router')
 import About from 'About'
 import Settings from 'Settings'
 import AppContainer from 'AppContainer'
@@ -11,8 +11,6 @@ import TuningsContainer from 'TuningsContainer'
 import ChordsContainer from 'ChordsContainer'
 import ScalesContainer from 'ScalesContainer'
 import ReactGA from 'react-ga'
-import Woopra from 'woopra'
-var $ = require('jquery')
 
 require('style!css!sass!applicationStyles')
 
@@ -23,7 +21,7 @@ var newStore = store.createStore( initialState )
 
 ReactDOM.render(
   <Provider store={ newStore }>
-    <Router history={ hashHistory } onUpdate={ () => ReactGA.pageview( window.location.hash )}>
+    <Router history={ hashHistory }>
        <Route path="/" component={ AppContainer }>
          <Route path="tunings" component={ TuningsContainer }/>
          <Route path="chords" component={ ChordsContainer }/>
@@ -37,16 +35,23 @@ ReactDOM.render(
   document.getElementById("app")
 )
 
-$.get('/getipaddress', function( data, status) {
+// listen for route changes and log to anylitics services
+browserHistory.listen( location =>  {
 
-  if( data === false ) {
+  if( window.location.hostname == 'localhost') {
     return
-  } else {
+  }
 
+  // send google analytics location
+  ReactGA.pageview( window.location.hash )
 
-  var woopra = new Woopra('brainyaxe.com', { ssl: false })
-  console.log(data);
-  woopra.identify(data, {
-        visitorProperty: 'Visitor Begins'
-  }).push();}
+  // send woopra location, if woopra exists ( it may not be loaded yet )
+  try {
+    var loc = window.location.hash.replace("/","").replace("#","")
+    if ( loc === "") {
+      loc = "tunings"
+    }
+    window.woopra.track( loc )
+  }
+  catch ( e ) {}
 })

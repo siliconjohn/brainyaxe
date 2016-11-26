@@ -23,8 +23,7 @@
     "react-ga": "^2.1.2",
     "react-numeric-input": "^2.0.6",
     "react-redux": "^4.4.6",
-    "react-router": "^3.0.0",
-    "woopra": "^0.2.0"
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
