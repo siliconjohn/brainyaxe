@@ -11,6 +11,8 @@ import TuningsContainer from 'TuningsContainer'
 import ChordsContainer from 'ChordsContainer'
 import ScalesContainer from 'ScalesContainer'
 import ReactGA from 'react-ga'
+import Woopra from 'woopra'
+var $ = require('jquery')
 
 require('style!css!sass!applicationStyles')
 
@@ -34,3 +36,17 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("app")
 )
+
+$.get('/getipaddress', function( data, status) {
+
+  if( data === false ) {
+    return
+  } else {
+
+
+  var woopra = new Woopra('brainyaxe.com', { ssl: false })
+  console.log(data);
+  woopra.identify(data, {
+        visitorProperty: 'Visitor Begins'
+  }).push();}
+})
