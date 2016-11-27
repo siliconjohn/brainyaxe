@@ -6,7 +6,7 @@ var Toolbar = React.createClass({
   render: function() {
     return (
       <div className="top-bar shadow-small">
-        <div className="top-bar-left">
+        <div className="top-bar-left hide-for-small-only">
           <h1 className="app-name">BrainyAxe</h1>
         </div>
         <div className="top-bar-right">

@@ -17,13 +17,17 @@ body{
 .top-bar {
   padding: 0px;
 
+  h1 {
+    margin-bottom: 0;
+  }
+
   .app-name {
     color: #fff;
     font-size: x-large;
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    padding-left: rem-calc(10);
-    padding-top: rem-calc(4);
+    padding-left: rem-calc(7);
+    padding-top: rem-calc(1);
   }
 
   .link {
@@ -33,14 +37,43 @@ body{
     border-radius: 0px 0px 5px 5px;
   }
 
-  .top-bar-menu {
-    font-weight: bold;
-    padding-right: rem-calc(10);
+  // for small screens only
+  @media only screen {
 
-    .active {
-      background: #5caee4;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-      box-shadow: 0 0 1px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.28);
+    .top-bar-menu {
+      padding-right: rem-calc(1);
+
+      .link {
+        padding-left: rem-calc(6);
+        padding-right: rem-calc(6);
+      }
+
+      .active {
+        background: #5caee4;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 1px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.28);
+      }
+    }
+  }
+
+  @media screen and (min-width: 40em)
+  {
+    .top-bar-menu {
+      padding-top: rem-calc(0);
+      padding-right: rem-calc(10);
+
+      .link {
+        padding-left: rem-calc(17);
+        padding-right: rem-calc(17);
+      }
+
+      .active {
+        font-weight: bold;
+        background: #5caee4;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 1px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.28);
+      }
     }
   }
 }
