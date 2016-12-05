@@ -25,7 +25,7 @@ export var FretboardContainer = React.createClass({
     }
 
     // calculate the size
-    var height = this.props.fretboardStringHeight * ( numberOfStrings + 1 )
+    var height = this.props.fretboardStringHeight * numberOfStrings + 20
     var width = ( this.props.fretboardFretWidth * this.props.fretboardNumberOfNotes ) +
                   this.props.fretboardOpenNoteWidth + this.props.fretboardNutWidth
 

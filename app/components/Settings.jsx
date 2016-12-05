@@ -20,7 +20,7 @@ export var Settings = React.createClass({
               <div className="columns small-6">
                 <label className="text-right middle">Number of notes on the Fretboard</label>
               </div>
-              <div className="columns small-3">
+              <div className="columns small-5 medium-3 large-2">
                 <NumericInput className="form-control" min={ 1 } max={ 100 }  mobile value={ fretboardNumberOfNotes }
                   onChange={ ( e ) => {
                     if ( e > 0 && e < 100 ) {
@@ -28,14 +28,14 @@ export var Settings = React.createClass({
                     }
                   }}/>
               </div>
-              <div className="columns small-3">
+              <div className="columns small-1 medium-3 large-4">
               </div>
             </div>
             <div className="row menu-section no-pad-top">
               <div className="columns small-6">
                 <label className="text-right middle">String Height</label>
               </div>
-              <div className="columns small-3">
+              <div className="columns small-5 medium-3 large-2">
                 <NumericInput className="form-control" min={ 30 } max={ 70 } mobile value={ fretboardStringHeight }
                   onChange={ ( e ) => {
                     if ( e > 30 && e < 70 ) {
@@ -43,22 +43,22 @@ export var Settings = React.createClass({
                     }
                   }}/>
               </div>
-              <div className="columns small-3">
+              <div className="columns small-1 medium-3 large-4">
               </div>
             </div>
             <div className="row menu-section no-pad-top">
               <div className="columns small-6">
                 <label className="text-right middle">Note Width</label>
               </div>
-              <div className="columns small-3">
+              <div className="columns small-5 medium-3 large-2">
                 <NumericInput className="form-control" min={ 50 } max={ 150 } mobile value={ fretboardFretWidth }
-                  onChange={ ( e ) => { 
+                  onChange={ ( e ) => {
                     if ( e > 50 && e < 150 ) {
                       dispatch( actions.changeFretboardFretWidth( e ))
                     }
                   }}/>
               </div>
-              <div className="columns small-3">
+              <div className="columns small-1 medium-3 large-4">
               </div>
             </div>
           </div>
