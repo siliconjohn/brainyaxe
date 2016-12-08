@@ -5,10 +5,6 @@ import TuningChooser from 'TuningChooser'
 
 var TuningsContainer = React.createClass({
 
-  componentDidMount(){
-    ReactDOM.findDOMNode(this.refs.tuningChooser).focus()
-  },
-
   render: function() {
     return (
       <div className="main-menu">
