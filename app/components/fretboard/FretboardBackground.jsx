@@ -1,34 +1,32 @@
-var React = require('react')
-var { connect } = require('react-redux')
+import React from 'react'
+import { connect } from 'react-redux'
 var utils = require('utils')
 
 var FretboardBackground = ( props ) => {
-
-  // get the number of strings from the selected tuning
-  var numberOfStrings
-  try {
-    var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
-    numberOfStrings = tuning.midiNotes.length
-  } catch ( e ) {
-    numberOfStrings = 1
-  }
+  let { numberOfStrings, selectedTuningKey, fretboardNumberOfNotes, fretboardFretWidth,
+        fretboardOpenNoteWidth, fretboardNutWidth, fretboardStringHeight} = props
 
   // calculate the size
-  var newProps = {}
-  newProps.x = props.fretboardOpenNoteWidth
-  newProps.y = 0
+  let newProps = {}
+  newProps.x = props.fretboardOpenNoteWidth + props.fretboardNutWidth
+  newProps.y = 1
   newProps.height = props.fretboardStringHeight * numberOfStrings
-  newProps.width = ( props.fretboardFretWidth * props.fretboardNumberOfNotes ) +
-                     props.fretboardOpenNoteWidth + props.fretboardNutWidth
+  newProps.width = ( props.fretboardFretWidth *  props.fretboardNumberOfNotes )
+
+  let polylinePoints = `${ newProps.x + newProps.width}, ${ newProps.y }, \
+                        ${ newProps.x}, ${ newProps.y }, \
+                        ${ newProps.x }, ${ newProps.y + newProps.height }, \
+                        ${ newProps.x + newProps.width}, ${ newProps.y + newProps.height }`
 
   return (
-    <rect { ...newProps } className="background"/>
+    <g>
+      <rect { ...newProps } className="background"/>
+      <polyline points={ polylinePoints } className="background-outline"/>
+    </g>
   )
 }
-
 export default connect(( state ) => {
   return {
-    tunings: state.tunings,
     selectedTuningKey: state.selectedTuningKey,
     fretboardNumberOfNotes: state.fretboardNumberOfNotes,
     fretboardStringHeight: state.fretboardStringHeight,

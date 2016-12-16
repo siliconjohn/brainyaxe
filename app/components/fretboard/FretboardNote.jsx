@@ -1,107 +1,107 @@
-var React = require('react')
-var utils = require('utils')
+import React from 'react'
+import { connect } from 'react-redux'
 
-var FretboardNote = ( props ) => {
+const radius = 12 // size of note's circle
 
-  var { x, y, width, height, midiNote, note, scaleNote,
-        chordNote, isOpenString, scaleDegree, chordDegree } = props
+export class FretboardNote extends React.Component {
 
-  // adjustments used to center text
-  var textYOffset = 6
-  var textXOffset = -6
+  getDegreeClassName() {
+    let { scaleDegree, chordDegree } = this.props
 
-  var getCircle = () =>  {
+    let degree = scaleDegree ? scaleDegree : chordDegree
 
-    if( scaleNote || chordNote ) {
+    if( degree ) {
+      degree = degree.replace( /♭|♯/g, "" )
 
-      var circleClass = ""
+      // add the .highlight class if the note is to be highlighted
+      let highlight = ""
+      if( this.props.fretboardHighlight.indexOf( degree ) > -1 ) highlight = "highlight "
 
-      if( !scaleNote && chordNote ) {
-        if( chordDegree === "1") {
-          circleClass = "note-circle-chord-root"
-        } else {
-          circleClass = "note-circle-chord"
-        }
-      } else if( scaleNote && !chordNote ) {
-        if( scaleDegree === "1") {
-          circleClass = "note-circle-scale-root"
-        } else {
-          circleClass = "note-circle-scale"
-        }
-      } else if( scaleNote && chordNote ) {
-        if( chordDegree === "1" || scaleDegree === "1") {
-          circleClass = "note-circle-scale-chord-root"
-        } else {
-          circleClass = "note-circle-scale-chord"
-        }
+      return `${highlight}degree-${degree}`
+    }
+
+    return ""
+  }
+
+  getNoteText() {
+    let { noteName } = this.props
+
+    // if is a long note name: "G♯/A♭", truncate to only show one part of the noteName
+    // and adjust centerX to keep centered
+    if( noteName.length == 5 ) {
+      // get the ♭ (flat) part
+      //noteName = noteName.substring( 3, 5 )
+      // or use this:
+      // get the ♯ (sharp) part
+      noteName = noteName.substring( 0, 2 )
+    }
+
+    return (
+      <text x={ this.centerX } y={ this.centerY }  textAnchor="middle" dominantBaseline="central"
+        className="note-text">{ noteName }
+      </text>
+    )
+  }
+
+  getNoteDegreeText() {
+    if( this.props.fretboardShowDegree == false ) return
+
+    let { scaleDegree, chordDegree } = this.props
+
+    let degree = scaleDegree ? scaleDegree : chordDegree
+
+    if( degree ) {
+      let x = this.centerX + radius * 0.8
+      let y = this.centerY + radius * 0.6
+
+      // if the note is an open note ( before the nut), we need to snug the text to make it fit
+      if( x <= this.props.fretboardOpenNoteWidth ) {
+        x = this.centerX + radius * 0.4
+        y = this.centerY + radius * 0.9
       }
 
       return (
-        <circle cx={ x + width / 2 } cy={ y + height / 2 } r="18" className={ circleClass }/>
-       )
+          <text x={ x } y={ y } textAnchor="start" dominantBaseline="hanging"
+            className="note-text-degree">{ degree }
+          </text>
+        )
     }
   }
 
-  var getNoteName = () =>  {
-    if( !isOpenString && ( scaleNote || chordNote )) {
+  render() {
+    const { parentFretX, parentFretY, parentFretWidth, parentFretHeight } = this.props
 
-      // short notename so it fits in the circle
-      var noteName = note.substring( 0, 2 )
+    this.centerX = parentFretX + parentFretWidth / 2
+    this.centerY = parentFretY + parentFretHeight / 2
 
-      // setup offsetX for 2 char noteName so it's still centered
-      var offsetX = 0
-      if( noteName.length > 1 ) offsetX = -4
+    let classes = `note ${this.getDegreeClassName()} `
 
-      return (
-        <text x={ x + textXOffset + offsetX + width / 2 } y={ textYOffset + y + height / 2 }
-          className="fret-note-name">{ noteName }
-        </text>
-      )
-    }
+    return (
+      <g className={ classes } cursor="default">
+        <circle cx={ this.centerX } cy={ this.centerY } r={ radius } className="note-circle"/>
+        { this.getNoteText() }
+        { this.getNoteDegreeText() }
+      </g>
+    )
   }
-
-  var getNoteDegree = () =>  {
-    if( chordDegree || scaleDegree && !isOpenString && ( scaleNote || chordNote )) {
-
-      var globalXOffset = 4
-      var textXOffset = 21
-      var degree
-
-      if( chordDegree != undefined)
-       degree = chordDegree
-      if( scaleDegree != undefined)
-        degree = scaleDegree
-
-      if( degree.length > 1 ) textXOffset = 24
-
-      var addOnClass = "degree-circle"
-
-      if( degree.indexOf( "1" ) > -1 ) {
-        addOnClass += " degree-circle-1"
-      } else if( degree.indexOf( "3" ) > -1 ) {
-        addOnClass += " degree-circle-3"
-      } else if( degree.indexOf( "5" ) > -1 ) {
-        addOnClass += " degree-circle-5"
-      }
-
-      return (
-        <g>
-          <circle cx={ globalXOffset + x + width - 18 } cy={ y + height - 8} r="9" className={ addOnClass }/>
-          <text x={ globalXOffset + x + width - textXOffset } y={ y + height - 4  } className="fret-note-degree">{ degree }</text>
-        </g>
-      )
-    }
-  }
-
-  return (
-    <g className="note" onClick={ () => {
-      utils.playMidiNote( midiNote )
-    }}>
-      {getNoteDegree()}
-      {getCircle()}
-      {getNoteName()}
-    </g>
-  )
 }
 
-module.exports = FretboardNote
+FretboardNote.propTypes = {
+  noteName: React.PropTypes.string.isRequired,
+  parentFretX: React.PropTypes.number.isRequired,
+  parentFretY: React.PropTypes.number.isRequired,
+  parentFretWidth: React.PropTypes.number.isRequired,
+  parentFretHeight: React.PropTypes.number.isRequired,
+  scaleNote: React.PropTypes.string,
+  chordNote: React.PropTypes.string,
+  scaleDegree: React.PropTypes.string,
+  chordDegree: React.PropTypes.string,
+}
+
+export default connect(( state ) => {
+  return {
+    fretboardHighlight: state.fretboardHighlight,
+    fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
+    fretboardShowDegree: state.fretboardShowDegree,
+  }
+})( FretboardNote )

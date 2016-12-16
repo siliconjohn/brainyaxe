@@ -1,0 +1,25 @@
+.fretboard-parent {
+  background-color: #fff;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  margin-bottom: 0;
+
+  @media only screen {
+
+    .fretboard-svg-parent {
+      width: 100%;
+      padding-top: 18px;
+      overflow-x: auto;
+    }
+  }
+
+  @media screen and (min-width: 40em) {
+
+    .fretboard-svg-parent {
+      width: 100%;
+      padding-top: 24px;
+      overflow-x: auto;
+    }
+  }
+}

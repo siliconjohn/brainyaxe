@@ -1,28 +1,28 @@
-var React = require('react')
-var utils = require('utils')
+import React from 'react' 
 
 var FretboardOpenString = ( props ) => {
+  let { y, width, noteName, height } = props
 
-  var { y, width, note, midiNote } = props
+  // if is a long note name: "G♯/A♭", truncate to only show one part of the noteName
+  // and adjust centerX to keep centered
+  if( noteName.length == 5 ) {
+    // get the ♭ (flat) part
+    //noteName = noteName.substring( 3, 5 )
+    // or use this:
+    // get the ♯ (sharp) part
+    noteName = noteName.substring( 0, 2 )
+  }
 
-  var textYOffset = 6
-  var textXOffset = 6
-
-  // short notename so it fits in the circle
-  var noteName = note.substring( 0, 2 )
-
-  // setup offsetX for 2 char noteName so it's still centered
-  var offsetX = 0
-  if( noteName.length > 1 ) offsetX = -4
+  // find center
+  let centerX = width / 2
+  let centerY = y + height / 2
 
   return (
-    <text x={ width / 2 - textXOffset } y={ y + textYOffset }
-      className="open-string-text"
-      onClick={ () => {
-        utils.playMidiNote( midiNote )
-      }}>
-      { noteName }
-    </text>
+    <g className="open-string">
+      <text x={ centerX } y={ centerY } textAnchor="middle" dominantBaseline="central"
+        className="open-string-text">{ noteName }
+      </text>
+    </g>
   )
 }
 

@@ -13,7 +13,7 @@ var ChordsContainer = React.createClass({
         <div className="row">
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row title-bar shadow">
-              <h2>Choose Chord</h2>
+              Choose Chord
             </div>
             <div className="row menu-section">
               <div className="columns small-5 medium-4">
@@ -28,7 +28,7 @@ var ChordsContainer = React.createClass({
                 <ChordIntervals/>
               </div>
               <div className="columns small-7 medium-8">
-                <NoteCirclesChord/>
+                {/*<NoteCirclesChord/>*/}
               </div>
             </div>
           </div>

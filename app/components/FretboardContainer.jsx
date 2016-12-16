@@ -25,24 +25,32 @@ export var FretboardContainer = React.createClass({
     }
 
     // calculate the size
-    var height = this.props.fretboardStringHeight * numberOfStrings + 20
+    const extraHeight = 33
+    const extraWidth = this.props.fretboardOpenNoteWidth
+    var height = this.props.fretboardStringHeight * numberOfStrings + extraHeight
     var width = ( this.props.fretboardFretWidth * this.props.fretboardNumberOfNotes ) +
-                  this.props.fretboardOpenNoteWidth + this.props.fretboardNutWidth
+                  this.props.fretboardOpenNoteWidth + this.props.fretboardNutWidth + extraWidth
+
+    var fretBoardClassName = "fretboard-svg"
+    if( this.props.fretboardTheme != "") {
+      fretBoardClassName = `${fretBoardClassName} fretboard-${this.props.fretboardTheme}`
+    }
 
     return (
       <div className="fretboard-parent">
         <FretboardHeader/>
 
-        <div className="fretboard-svg-parent">
-           <svg xmlns="http://www.w3.org/2000/svg" className="fretboard-svg" width={ width } height={ height }>
-            <FretboardBackground/>
-            <FretboardInlayMarkers/>
-            <FretboardFretNumbers/>
-            <FretboardNut/>
-            <FretboardFrets/>
-            <FretboardStrings/>
+        <div className="fretboard-svg-parent text-center">
+           <svg xmlns="http://www.w3.org/2000/svg" className={ fretBoardClassName } width={ width } height={ height }>
+            <FretboardBackground numberOfStrings={ numberOfStrings }/>
+            <FretboardNut numberOfStrings={ numberOfStrings } fretboardStringHeight={ this.props.fretboardStringHeight}
+                fretboardNutWidth={ this.props.fretboardNutWidth } fretboardOpenNoteWidth={this.props.fretboardOpenNoteWidth} />
+            <FretboardFrets  numberOfStrings={ numberOfStrings }/>
+            <FretboardInlayMarkers  numberOfStrings={ numberOfStrings }/>
+            <FretboardStrings numberOfStrings={ numberOfStrings } />
+            <FretboardFretNumbers numberOfStrings={ numberOfStrings } />
+            <FretboardOpenStrings  numberOfStrings={ numberOfStrings }  />
             <FretboardNotes/>
-            <FretboardOpenStrings/>
           </svg>
         </div>
       </div>
@@ -58,6 +66,7 @@ export default connect(( state ) => {
     fretboardFretWidth: state.fretboardFretWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
     fretboardStringHeight: state.fretboardStringHeight,
-    fretboardNumberOfNotes: state.fretboardNumberOfNotes
+    fretboardNumberOfNotes: state.fretboardNumberOfNotes,
+    fretboardTheme: state.fretboardTheme,
   }
 })( FretboardContainer )

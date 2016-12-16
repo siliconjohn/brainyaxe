@@ -7,8 +7,7 @@ module.exports.logger = ({ getState }) => {
     // clone the action and delete the type, it's redundant
     var newAction = Object.assign( {}, action )
     delete newAction.type
-
-  //  console.log("Changed: " + JSON.stringify( newAction ));
+ 
     ReactGA.event({
       category: action.type,
       action: "Changed: " + JSON.stringify( newAction )

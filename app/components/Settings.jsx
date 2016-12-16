@@ -14,7 +14,7 @@ export var Settings = React.createClass({
         <div className="row">
           <div className="column small-centered large-8 medium-10 small-10 shadow">
             <div className="row title-bar shadow">
-              <h2>Settings</h2>
+               Settings
             </div>
             <div className="row menu-section">
               <div className="columns small-6">

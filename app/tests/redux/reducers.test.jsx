@@ -92,6 +92,41 @@ describe( 'Redux Reducers', () => {
     })
   })
 
+  describe( 'changeThemeReducer', () => {
+
+    it( 'Should toggle change the theme', () => {
+      var action = {
+        type: "CHANGE_FRETBOARD_THEME",
+        themeName: "test"
+      }
+      var response = reducers.fretboardThemeReducer( deepFreeze( 'default' ), deepFreeze( action ))
+      expect( response ).toEqual( action.themeName )
+    })
+  })
+
+  describe( 'toggleShowCustomTuningMidiNoteReducer', () => {
+
+    it( 'Should toggle showDegree', () => {
+      var action = {
+        type: "TOGGLE_FRETBOARD_SHOW_DEGREE"
+      }
+      var response = reducers.toggleFretboardShowDegreeReducer( deepFreeze( true ), deepFreeze( action ))
+      expect( response ).toEqual( false )
+    })
+  })
+
+  describe( 'changeFretboardHighlight', () => {
+
+    it( 'Should toggle change the highlight', () => {
+      var action = {
+        type: "CHANGE_FRETBOARD_HIGHLIGHT",
+        highlight: "1,3"
+      }
+      var response = reducers.fretboardHighlightReducer( deepFreeze( 'default' ), deepFreeze( action ))
+      expect( response ).toEqual( action.highlight )
+    })
+  })
+
   describe( 'numberOfCustomTuningStringsReducer', () => {
 
     it( 'Should increment number of custom tuning strings', () => {

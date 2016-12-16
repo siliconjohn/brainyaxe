@@ -27,9 +27,13 @@ export var scaleReducer = ( state = 'default', action ) => {
 
   if ( action.type == actions.CHANGE_SCALE ) {
     return action.key
-  } else {
-    return state
   }
+  
+  if ( action.type == actions.CHANGE_CHORD ) {
+    return 'default'
+  }
+
+  return state
 }
 
 export var scaleNoteReducer = ( state = 'E', action ) => {
@@ -45,9 +49,14 @@ export var chordReducer = ( state = 'default', action ) => {
 
   if ( action.type == actions.CHANGE_CHORD ) {
     return action.key
-  } else {
-    return state
   }
+
+  if ( action.type == actions.CHANGE_SCALE ) {
+    console.log('e');
+    return 'default'
+  }
+
+  return state
 }
 
 export var chordNoteReducer = ( state = 'E', action ) => {
@@ -81,6 +90,33 @@ export var fretboardFretWidthReducer = ( state = 70, action ) => {
 
   if( action.type == actions.FRETBOARD_FRET_WIDTH ) {
     return action.width
+  } else {
+    return state
+  }
+}
+
+export var fretboardThemeReducer = ( state = "", action ) => {
+
+  if( action.type == actions.CHANGE_FRETBOARD_THEME ) {
+    return action.themeName
+  } else {
+    return state
+  }
+}
+
+export var fretboardHighlightReducer = ( state = "1", action ) => {
+
+  if( action.type == actions.CHANGE_FRETBOARD_HIGHLIGHT ) {
+    return action.highlight
+  } else {
+    return state
+  }
+}
+
+export var toggleFretboardShowDegreeReducer = ( state = false, action) => {
+
+  if ( action.type == actions.TOGGLE_FRETBOARD_SHOW_DEGREE ) {
+    return !state
   } else {
     return state
   }
@@ -202,8 +238,6 @@ export const appReducers = redux.combineReducers({
   tunings: customTuningReducer,
   numberOfCustomTuningStrings: numberOfCustomTuningStringsReducer,
   showCustomTuningMidiNote: toggleShowCustomTuningMidiNoteReducer,
-  selectedNotesForScale: (state = {}) => state,
-  selectedNotesForChord: (state = {}) => state,
   scales: (state = {}) => state,
   chords: (state = {}) => state,
   references : (state = {}) => state,
@@ -212,4 +246,7 @@ export const appReducers = redux.combineReducers({
   fretboardNutWidth: (state = {}) => state,
   fretboardOpenNoteWidth: (state = {}) => state,
   fretboardFretWidth: fretboardFretWidthReducer,
+  fretboardTheme: fretboardThemeReducer,
+  fretboardHighlight: fretboardHighlightReducer,
+  fretboardShowDegree: toggleFretboardShowDegreeReducer,
 })
