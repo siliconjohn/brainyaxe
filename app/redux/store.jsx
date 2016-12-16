@@ -1,5 +1,4 @@
 var redux = require('redux')
-var actions = require('actions')
 var reducers = require('reducers')
 var { logger } = require('loggerMiddleware')
 
