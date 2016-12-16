@@ -1,3 +1,6 @@
+//@import url('https://fonts.googleapis.com/css?family=Roboto');
+//@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 //  Foundation for Sites Settings
 //  -----------------------------
 //
@@ -45,26 +48,26 @@
 // 1. Global
 // ---------
 
-$global-font-size: 81%;
+$global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #2199e8,
   secondary: #777,
-  success: #04bd49,
+  success: #2dad33,
   warning: #ffae00,
-  alert: #ec5840,
+  alert: #ef4125,
 );
-$google-blue: #1583cc;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
+$titlebarblue: #1583cc;
 $light-yellow: #fefd8f;
 $body-background: #f2f2f2;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family:  Roboto, Helvetica, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -110,26 +113,20 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
-    'h1': 16,
-    'h2': 16,
-    'h3': 15,
-    'h4': 11,
-    'h5': 7,
-    'h6': 3,
+    'h1': 24,
+    'h2': 20,
+    'h3': 19,
+    'h4': 18,
+    'h5': 17,
+    'h6': 15,
   ),
   medium: (
-  'h1': 20,
-  'h2': 16,
-  'h3': 15,
-  'h4': 11,
-  'h5': 7,
-  'h6': 3,
-  // 'h1': 24,
-  // 'h2': 20,
-  // 'h3': 19,
-  // 'h4': 18,
-  // 'h5': 17,
-  // 'h6': 16,
+    'h1': 48,
+    'h2': 40,
+    'h3': 31,
+    'h4': 25,
+    'h5': 20,
+    'h6': 16,
   ),
 );
 $header-color: inherit;
@@ -241,7 +238,7 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.5em 0.5em;
+$button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
@@ -250,12 +247,14 @@ $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
-  tiny: 0.85rem,
+  tiny: 0.6rem,
   small: 0.75rem,
   default: 0.9rem,
   large: 1.25rem,
 );
 $button-opacity-disabled: 0.25;
+$button-background-hover-lightness: -20%;
+$button-hollow-hover-lightness: -50%;
 
 // 12. Button Group
 // ----------------
@@ -364,6 +363,7 @@ $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 $input-number-spinners: true;
 $input-radius: $global-radius;
+$button-radius: $global-radius;
 
 // 20. Label
 // ---------
@@ -444,6 +444,7 @@ $pagination-item-color-current: foreground($pagination-item-background-current);
 $pagination-item-color-disabled: $medium-gray;
 $pagination-ellipsis-color: $black;
 $pagination-mobile-items: false;
+$pagination-mobile-current-item: false;
 $pagination-arrows: true;
 
 // 27. Progress Bar
@@ -502,16 +503,19 @@ $switch-paddle-transition: all 0.25s ease-out;
 
 $table-background: $white;
 $table-color-scale: 5%;
-$table-border: 0px solid smart-scale($table-background, $table-color-scale);
+$table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-striped-background: smart-scale($table-background, $table-color-scale);
-$table-stripe: none;
+$table-stripe: even;
 $table-head-background: smart-scale($table-background, $table-color-scale / 2);
+$table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
+$table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
 $table-head-font-color: $body-font-color;
+$table-foot-font-color: $body-font-color;
 $show-header-for-stacked: false;
 
 // 32. Tabs
@@ -542,9 +546,9 @@ $thumbnail-radius: $global-radius;
 // 34. Title Bar
 // -------------
 
-$titlebar-background: $google-blue;
+$titlebar-background: $titlebarblue;
 $titlebar-color: $white;
-$titlebar-padding: 0.5rem;
+$titlebar-padding: 0.3rem;
 $titlebar-text-font-weight: bold;
 $titlebar-icon-color: $white;
 $titlebar-icon-color-hover: $medium-gray;
@@ -567,7 +571,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $google-blue;
+$topbar-background: $titlebarblue;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

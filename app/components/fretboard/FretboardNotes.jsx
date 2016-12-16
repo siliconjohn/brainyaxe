@@ -1,7 +1,7 @@
-var React = require('react')
-var { connect } = require('react-redux')
+import React from 'react'
+import { connect } from 'react-redux'
+import FretboardNote from 'FretboardNote'
 var utils = require('utils')
-var FretboardNote = require('FretboardNote')
 
 var FretboardNotes = ( props ) => {
 
@@ -19,56 +19,63 @@ var FretboardNotes = ( props ) => {
     return ( <g></g> )
   }
 
-  var result = []
-  var keyCounter = 1
+  let result = []
+  let keyCounter = 1
 
   // create open string's notes
-  for( var i = 0; i < numberOfStrings; i++ ) {
+  for( let i = 0; i < numberOfStrings; i++ ) {
+    let midiNote = tuning.midiNotes[ i ]
+    let isNoteInScale = utils.getNoteInArray( midiNote, selectedNotesForScale )
+    let isNoteInChord = utils.getNoteInArray( midiNote, selectedNotesForChord )
 
-    var key = keyCounter++
+    if ( !isNoteInScale && !isNoteInChord) {
+      continue;
+    }
+
+    let key = keyCounter++
 
     // calculate tempProps
-    var midiNote = tuning.midiNotes[ i ]
-    var noteY = props.fretboardStringHeight * i
-    var noteName = utils.getNoteNameFromMIDINumber( midiNote )
-    var isNoteInScale = utils.getNoteInArray( midiNote, selectedNotesForScale )
-    var isNoteInChord = utils.getNoteInArray( midiNote, selectedNotesForChord )
+    let noteY = props.fretboardStringHeight * i
+    let noteName = utils.getNoteNameFromMIDINumber( midiNote )
+    let scaleDegree = scaleDegrees[ selectedNotesForScale.indexOf( noteName )]
+    let chordDegree = chordDegrees[ selectedNotesForChord.indexOf( noteName )]
 
-    var tempProps = { x:0, y:noteY, width:props.fretboardOpenNoteWidth, scaleNote:isNoteInScale,
-                     chordNote:isNoteInChord, midiNote:midiNote, height:props.fretboardStringHeight,
-                     note:noteName, isOpenString:true }
+    let tempProps = { parentFretX:0, parentFretY:noteY, parentFretWidth:props.fretboardOpenNoteWidth, scaleNote:isNoteInScale,
+                     chordNote:isNoteInChord, midiNote:midiNote, parentFretHeight:props.fretboardStringHeight,
+                     noteName:noteName, scaleDegree: scaleDegree, chordDegree: chordDegree }
 
     result.push ( <FretboardNote key={ key } { ...tempProps }/> )
   }
 
   // add the fretboard's notes
-  for(var i = 0; i < numberOfStrings; i++ ) {
+  for(let i = 0; i < numberOfStrings; i++ ) {
 
     // calculate tempProps for this string
-    var noteY = props.fretboardStringHeight * i
-    var tempFretX = props.fretboardOpenNoteWidth + props.fretboardNutWidth
-    var stringMidiNote = tuning.midiNotes[ i ]
+    let noteY = props.fretboardStringHeight * i
+    let tempFretX = props.fretboardOpenNoteWidth + props.fretboardNutWidth
+    let stringMidiNote = tuning.midiNotes[ i ]
 
     // for each fret on this string
-    for( var a = 0; a < props.fretboardNumberOfNotes; a++ ) {
+    for( let a = 0; a < props.fretboardNumberOfNotes; a++ ) {
 
-      key = keyCounter++
+      let key = keyCounter++
 
       // calculate tempProps for this fret
-      var width = props.fretboardFretWidth - ( a == 1 ? 0 : 2 )
-      var midiNote = stringMidiNote + a + 1
-      var noteName = utils.getNoteNameFromMIDINumber( midiNote )
-      var isNoteInScale = utils.getNoteInArray( midiNote, selectedNotesForScale )
-      var isNoteInChord = utils.getNoteInArray( midiNote, selectedNotesForChord )
-      var scaleDegree = scaleDegrees[ selectedNotesForScale.indexOf( noteName )]
-      var chordDegree = chordDegrees[ selectedNotesForChord.indexOf( noteName )]
+      let width = props.fretboardFretWidth
+      let midiNote = stringMidiNote + a + 1
+      let noteName = utils.getNoteNameFromMIDINumber( midiNote )
+      let isNoteInScale = utils.getNoteInArray( midiNote, selectedNotesForScale )
+      let isNoteInChord = utils.getNoteInArray( midiNote, selectedNotesForChord )
+      let scaleDegree = scaleDegrees[ selectedNotesForScale.indexOf( noteName )]
+      let chordDegree = chordDegrees[ selectedNotesForChord.indexOf( noteName )]
 
-      var tempProps = { x:tempFretX, y:noteY, width: width, height: props.fretboardStringHeight,
-                        scaleNote:isNoteInScale, midiNote: midiNote, chordNote:isNoteInChord,
-                        note:noteName, isOpenString:false, scaleDegree: scaleDegree, chordDegree: chordDegree  }
+      if ( isNoteInScale || isNoteInChord) {
+        let tempProps = { parentFretX:tempFretX, parentFretY:noteY, parentFretWidth: width, parentFretHeight: props.fretboardStringHeight,
+                          scaleNote:isNoteInScale, midiNote: midiNote, chordNote:isNoteInChord,
+                          noteName:noteName,   scaleDegree: scaleDegree, chordDegree: chordDegree  }
 
-      result.push ( <FretboardNote  key={ key } {...tempProps}/> )
-
+        result.push ( <FretboardNote  key={ key } {...tempProps}/> )
+      }
       tempFretX += props.fretboardFretWidth
     }
   }
@@ -78,7 +85,6 @@ var FretboardNotes = ( props ) => {
       {
         result.map(( value, index ) => {
           return value
-
         })
       }
     </g>

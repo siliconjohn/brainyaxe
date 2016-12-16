@@ -1,37 +1,39 @@
-// foundation
-@import "base/foundation-settings";
+@import "foundation-settings";
 @import "foundation";
 @include foundation-everything;
-
-$fret-border: $black;
+@import "fretboard-parent";
+@import "fretboard-svg";
+@import "fretboard-basic";
+@import "fretboard-pastel";
+@import "fonts";
 
 body{
   margin-bottom: rem-calc(100);
 }
 
-// foundation override
 .title-bar {
-  padding-bottom: rem-calc(2);
+  padding-left: rem-calc(10);
+  padding-right: rem-calc(10);
 }
 
 .top-bar {
   padding: 0px;
 
-  h1 {
-    margin-bottom: 0;
+  .top-bar-menu {
+    padding-right: rem-calc(1);
   }
 
   .app-name {
     color: #fff;
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     padding-left: rem-calc(7);
-    padding-top: rem-calc(1);
+    padding-top: rem-calc(4);
   }
 
   .link {
-    font-size: larger;
+    font-size: rem-calc(14);
     -webkit-border-radius: 0px 0px 5px 5px;
     -moz-border-radius: 0px 0px 5px 5px;
     border-radius: 0px 0px 5px 5px;
@@ -78,7 +80,10 @@ body{
   }
 }
 
-// misc
+.smaller-font {
+  font-size: rem-calc(14);
+}
+
 .no-pad-top {
   padding-top: 0 !important;
 }
@@ -106,23 +111,20 @@ body{
   box-shadow: 0 0 2px rgba(0,0,0,.14),0 2px 4px rgba(0,0,0,.28);
 }
 
-.button.tiny {
+.btn-wide {
+  width:7rem;
   font-weight: bold;
 }
 
-.btn-wide {
-  width:7rem;
-}
-
 .degrees {
-  font-size: x-large;
   word-wrap: break-word;
 }
 
-.note-circle-menu-degree {
-  font-size: rem-calc(12);
-  fill: #333;
-}
+// .note-circle-name {
+//   font-size: rem-calc(12);
+//   fill: #fff;
+//   stroke:#fff;
+// }
 
 .main-menu {
   margin-top: 1.5rem;
@@ -131,191 +133,20 @@ body{
     padding-top: 1rem;
     background-color: #fff;
   }
+  select {
+    height: rem-calc(30);
+    font-size: small;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
 
   .custom-tuning-select {
     width: 8rem;
     height: rem-calc(30);
-    padding-bottom: 0px;
-    padding-top: 0px;
     margin-right: 1rem;
-    font-size: small;
   }
 }
 
-
-.note-circle {
-
- .note-circle-bg {
-   fill: rgba(255,0,0,0.3);
-   stroke: rgba(255,0,0,0.7);
-   stroke-width: 1;
- }
-
- .note-circle-name {
-   font-family:"Arial Unicode MS";
-   font-size:18px;
-   fill: #000;
- }
-
- .note-circle-degree {
-   font-family:"Arial Unicode MS";
-   font-size:12px;
-   fill: #000;
- }
-
- .note-circle-yellow-bg {
-   fill: rgba(255,255,0,0.6);
-   stroke: rgba(255,255,0,0.8);
- }
-}
-
-// fretboard svg
-.fretboard-svg {
-
-  .background {
-    fill:#C0C0C0;
-  }
-
-  .nut {
-    fill: #000;
-  }
-
-  .fret {
-    fill: #fff;
-  }
-
-  .string {
-    stroke:#fff;
-  }
-
-  .inlay-marker {
-    fill: #999;
-    stroke-width: 0;
-  }
-
-  .marker-bold-text {
-    font-family:"Arial Unicode MS";
-    font-weight: bold;
-    font-size:18px;
-    fill: #333;
-  }
-
-  .marker-normal-text {
-    font-family:"Arial Unicode MS";
-    font-size:18px;
-    fill: #999;
-  }
-
-  .open-string-note {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(255,0,0,0.3);
-    stroke-width: 1;
-  }
-
-  .open-string-text {
-    font-family:"Arial Unicode MS";
-    font-size:18px;
-    fill: #000;
-  }
-
-  .fret-note-name {
-    font-family:"Arial Unicode MS";
-    font-size:18px;
-    fill: #000;
-  }
-
-  .fret-note-degree {
-    font-family:"Arial Unicode MS";
-    font-size:12px;
-    fill: #000;
-  }
-
-  .degree-circle {
-    fill: rgba(255,255,255,0.8);
-    stroke-width: 0px;
-  }
-
-  .degree-circle-1 {
-    stroke: #0000FF;
-    stroke-width: 1px;
-  }
-
-  .degree-circle-3 {
-    stroke: #00FF00;
-    stroke-width: 1px;
-  }
-
-  .degree-circle-5 {
-    stroke: #FF0000;
-    stroke-width: 1px;
-  }
-
-  .note-circle-scale {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(255,0,0,0.7);
-    stroke-width: 1;
-  }
-
-  .note-circle-scale-root {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(200,0,0,0.7);
-    stroke-width: 3;
-  }
-
-  .note-circle-chord {
-    fill: rgba(255,255,0,0.6);
-    stroke: rgba(255,255,0,0.8);
-    stroke-width: 1;
-  }
-
-  .note-circle-chord-root {
-    fill: rgba(255,255,0,0.6);
-    stroke: rgba(180,180,0,1);
-    stroke-width: 4;
-  }
-
-  .note-circle-scale-chord {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(255,255,0,0.6);
-    stroke-width: 3;
-  }
-
-  .note-circle-scale-chord-root {
-    fill: rgba(255,0,0,0.3);
-    stroke: rgba(255,255,0,0.6);
-    stroke-width: 3;
-  }
-}
-
-// fretboard
-.fretboard-parent {
-  width: 100%;
-  bottom: 0;
-  position: fixed;
-  margin-bottom: 0;
-  background-color: #fff;
-
-  .fretboard-header-parent {
-    width:100%;
-    height: 43.75px;
-    background-color: #1583cc;
-  }
-
-  @media only screen {
-
-    .fretboard-svg-parent {
-      width: 100%;
-      padding-top: 10px;
-      overflow-x: auto;
-    }
-  }
-
-  @media screen and (min-width: 40em){
-    
-    .fretboard-svg-parent {
-      width: 100%;
-      padding-top: 20px;
-      overflow-x: auto;
-    }
-  }
+.custom-tuning-buttons {
+  margin-top: -4px;
 }

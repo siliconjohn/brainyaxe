@@ -1,37 +1,29 @@
-var React = require('react')
-var { connect } = require('react-redux')
+import React from 'react'
+import { connect } from 'react-redux'
+import FretboardFret from 'FretboardFret'
 var utils = require('utils')
-var FretboardFret = require('FretboardFret')
 
 var FretboardFrets = ( props ) => {
-
-  // get the number of strings from the selected tuning
-  var numberOfStrings
-  try {
-    var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
-    numberOfStrings = tuning.midiNotes.length
-  } catch ( e ) {
-    numberOfStrings = 1
-  }
+  let { numberOfStrings, fretboardStringHeight, fretboardNutWidth,
+        fretboardOpenNoteWidth, fretboardNumberOfNotes, fretboardFretWidth } = props
 
   // set up x and y pos
-  var x = props.fretboardNutWidth + props.fretboardOpenNoteWidth + props.fretboardFretWidth
-  var height = numberOfStrings * props.fretboardStringHeight
-  var translate = `translate( ${ x }, 0 )`
+  let x = fretboardNutWidth + fretboardOpenNoteWidth + fretboardFretWidth
+  let height = numberOfStrings * fretboardStringHeight
 
-  // dummy array so I can use Array.map below
-  var frets = new Array( props.fretboardNumberOfNotes ).fill( 0 )
+  // svg position
+  let translate = `translate( ${ x }, 1 )`
 
   return (
     <g transform={ translate } className="frets">
       {
-        frets.map(( note, index ) => {
-          var tempProps =  { x:props.fretboardFretWidth * index, height:height, width:2 }
+        Array.from( new Array( fretboardNumberOfNotes ), (( note, index ) => {
+          let tempProps =  { x: fretboardFretWidth * index, height: height  }
 
           return (
             <FretboardFret key={ index } { ...tempProps }/>
           )
-        })
+        }))
       }
     </g>
   )
@@ -39,8 +31,6 @@ var FretboardFrets = ( props ) => {
 
 export default connect(( state ) => {
   return {
-    tunings: state.tunings,
-    selectedTuningKey: state.selectedTuningKey,
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNutWidth: state.fretboardNutWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,

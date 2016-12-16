@@ -111,3 +111,29 @@ export var changeFretboardFretWidth = ( width ) => {
     width
   }
 }
+
+export const CHANGE_FRETBOARD_THEME = 'CHANGE_FRETBOARD_THEME'
+
+export var changeFretboardTheme = ( themeName ) => {
+  return {
+    type: CHANGE_FRETBOARD_THEME,
+    themeName
+  }
+}
+
+export const CHANGE_FRETBOARD_HIGHLIGHT = 'CHANGE_FRETBOARD_HIGHLIGHT'
+
+export var changeFretboardHighlight = ( highlight ) => {
+  return {
+    type: CHANGE_FRETBOARD_HIGHLIGHT,
+    highlight
+  }
+}
+
+export const TOGGLE_FRETBOARD_SHOW_DEGREE = 'TOGGLE_FRETBOARD_SHOW_DEGREE'
+
+export var toggleFretboardShowDegree = () => {
+  return {
+    type: TOGGLE_FRETBOARD_SHOW_DEGREE
+  }
+}

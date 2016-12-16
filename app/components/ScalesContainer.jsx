@@ -13,7 +13,7 @@ var ScalesContainer = React.createClass({
         <div className="row">
           <div className="column small-centered large-8 medium-8 small-10 shadow">
             <div className="row title-bar shadow">
-              <h2>Choose Scale</h2>
+              Choose Scale
             </div>
             <div className="row menu-section">
               <div className="columns small-5 medium-4">
@@ -28,7 +28,7 @@ var ScalesContainer = React.createClass({
                 <ScaleIntervals/>
               </div>
               <div className="columns small-7 medium-8">
-                <NoteCirclesScale/>
+                {/*<NoteCirclesScale/>*/}
               </div>
             </div>
           </div>
@@ -38,4 +38,4 @@ var ScalesContainer = React.createClass({
   }
 })
 
-module.exports = ScalesContainer 
+module.exports = ScalesContainer

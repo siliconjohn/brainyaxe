@@ -119,4 +119,29 @@ describe( "Redux Actions", () => {
     expect( action ).toEqual( generatedAction )
   })
 
+  it( "Should change the theme", () => {
+    var action = {
+      type: actions.CHANGE_FRETBOARD_THEME,
+      themeName: "test"
+    }
+    var generatedAction = actions.changeFretboardTheme( "test" )
+    expect( action ).toEqual( generatedAction )
+  })
+
+  it( "Should change the highlight", () => {
+    var action = {
+      type: actions.CHANGE_FRETBOARD_HIGHLIGHT,
+      highlight: "1,3"
+    }
+    var generatedAction = actions.changeFretboardHighlight( "1,3" )
+    expect( action ).toEqual( generatedAction )
+  })
+
+  it( "Should toggle show degree", () => {
+    var action = {
+      type: actions.TOGGLE_FRETBOARD_SHOW_DEGREE
+    }
+    var generatedAction = actions.toggleFretboardShowDegree()
+    expect( action ).toEqual( generatedAction )
+  })
 })

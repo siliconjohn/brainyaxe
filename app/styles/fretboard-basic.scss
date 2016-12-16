@@ -1,0 +1,134 @@
+.fretboard-basic {
+
+  .background {
+    fill: #ffffe4;
+    stroke: none;
+  }
+
+  .background-outline {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1;
+  }
+
+  .nut {
+    fill: #000;
+    stroke: #000;
+    stroke-width: 1;
+  }
+
+  .fret {
+    stroke: #888;
+    stroke-width: 1;
+  }
+
+  .string {
+    stroke:#888;
+    stroke-width: 1;
+  }
+
+  .fret-number  {
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    fill: #666;
+  }
+
+  .fret-number-highlight {
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    fill: #333;
+  }
+
+  .note-text {
+    font-family: "Roboto Mono";
+    font-size:12px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 1;
+  }
+
+  .note-text-degree {
+    font-family: "Roboto Mono";
+    font-size:8px;
+    fill: #000;
+    stroke: #000;
+    stroke-width: 0;
+  }
+
+  .open-string-text {
+    font-family: "Roboto Mono";
+    font-size:14px;
+    fill: #333;
+    stroke: #333;
+    stroke-width: 1;
+  }
+
+  .note-circle {
+    fill: #000;
+    stroke: #000;
+    stroke-width: 1;
+  }
+
+  .highlight.degree-1 {
+
+    .note-circle {
+      fill: #A00;
+      stroke: #A00;
+      stroke-width: 1;
+    }
+  }
+
+  .highlight.degree-2 {
+
+    .note-circle {
+      fill: #AA0;
+      stroke: #AA0;
+      stroke-width: 1;
+    }
+  }
+
+  .highlight.degree-3 {
+
+    .note-circle {
+      fill: #007;
+      stroke: #007;
+      stroke-width: 1;
+    }
+  }
+
+  .highlight.degree-4 {
+
+    .note-circle {
+      fill: #077;
+      stroke: #077;
+      stroke-width: 1;
+    }
+  }
+
+  .highlight.degree-5 {
+
+    .note-circle {
+      fill: #080;
+      stroke: #080;
+      stroke-width: 1;
+    }
+  }
+
+  .highlight.degree-6 {
+
+    .note-circle {
+      fill: #380;
+      stroke: #380;
+      stroke-width: 1;
+    }
+  }
+
+  .highlight.degree-7 {
+
+    .note-circle {
+      fill: #083;
+      stroke: #083;
+      stroke-width: 1;
+    }
+  }
+}

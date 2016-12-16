@@ -12,9 +12,10 @@ export var CustomTuningContainer = React.createClass({
 
     return (
       <div>
-        <div className="text-center"><h2><strong>Create a Custom Tuning</strong></h2></div>
+        <div className="text-center smaller-font"><strong>Custom Tuning</strong></div>
+        <br></br>
         <div className="row">
-          <div className="column small-centered large-12 medium-12 small-12">
+          <div className="column small-centered large-12 medium-12 small-12 smaller-font">
             Strings {num} to 1, the lowest is first and the highest is last
               <CustomTuningButtons/>
           </div>

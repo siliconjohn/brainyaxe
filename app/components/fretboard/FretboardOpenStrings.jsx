@@ -1,35 +1,33 @@
-var React = require('react')
-var { connect } = require('react-redux')
+import React from 'react'
+import { connect } from 'react-redux'
+import FretboardOpenString from 'FretboardOpenString'
 var utils = require('utils')
-var FretboardOpenString = require('FretboardOpenString')
 
 var FretboardOpenStrings = ( props ) => {
+  let { numberOfStrings, tunings, selectedTuningKey, fretboardStringHeight,
+        fretboardNutWidth, fretboardOpenNoteWidth} = props
 
-  // get the number of strings from the selected tuning
+  // get the selected tuning
   try {
-    var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
-    var numberOfStrings = tuning.midiNotes.length
+    var tuning = utils.getObjectForKey( tunings, selectedTuningKey )
   } catch ( e ) {
     return ( <g></g> )
   }
 
-  var halfStringHeight = props.fretboardStringHeight / 2
-
-  // dummy array so I can use Array.map below
-  var strings = new Array( numberOfStrings ).fill( 0 )
-
   return (
-    <g className="open-strings">
+    <g className="open-strings" cursor="default">
       {
-        strings.map(( value, index ) => {
-          var tempProps =  { y:props.fretboardStringHeight * index + halfStringHeight,
-                            width: props.fretboardOpenNoteWidth, midiNote: tuning.midiNotes[ index ],
-                            note: utils.getNoteNameFromMIDINumber( tuning.midiNotes[ index ])}
+        Array.from( new Array( numberOfStrings ), (( value, index ) => {
+          let tempProps =  { y: fretboardStringHeight * index  ,
+                             height: fretboardStringHeight,
+                             width: fretboardOpenNoteWidth,
+                             midiNote: tuning.midiNotes[ index ],
+                             noteName: utils.getNoteNameFromMIDINumber( tuning.midiNotes[ index ])}
 
           return (
             <FretboardOpenString key={ index } { ...tempProps }/>
           )
-        })
+        }))
       }
     </g>
   )

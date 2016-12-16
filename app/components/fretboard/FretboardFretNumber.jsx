@@ -1,15 +1,17 @@
-var React = require('react')
+import React from 'react'
 
 const markers = [ 3, 5, 7, 9, 12, 15, 17, 19, 21, 24 ]
 
 var FretboardFretNumber = ( props ) => {
+  let { x, y, parentWidth, number } = props
 
-  var { x, y, number, fretWidth } = props
-  var markerClass = markers.indexOf( number ) > -1 ? "marker-bold-text " : "marker-normal-text"
-  var tempX = fretWidth / 2 - 8
+  let className = markers.indexOf( number ) > -1 ? "fret-number-highlight " : "fret-number"
+
+  // find center
+  let centerX = x + parentWidth / 2
 
   return (
-    <text x={ x + tempX  } y={ y } className={ markerClass }>{ number }</text>
+    <text x={ centerX } y={ y } textAnchor="middle" className={ className }>{ number }</text>
   )
 }
 
