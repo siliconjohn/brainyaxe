@@ -44,14 +44,4 @@ browserHistory.listen( location =>  {
 
   // send google analytics location
   ReactGA.pageview( window.location.hash )
-
-  // send woopra location, if woopra exists ( it may not be loaded yet )
-  try {
-    var loc = window.location.hash.replace("/","").replace("#","")
-    if ( loc === "") {
-      loc = "tunings"
-    }
-    window.woopra.track( loc )
-  }
-  catch ( e ) {}
 })
