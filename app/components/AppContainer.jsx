@@ -4,6 +4,10 @@ import Toolbar from 'Toolbar'
 
 export var AppContainer = React.createClass({
 
+  componentDidMount: function(){
+    $( document ).foundation()
+  },
+
   render: function() {
 
     return (
