@@ -106,7 +106,18 @@ export var fretboardThemeReducer = ( state = "", action ) => {
 export var fretboardHighlightReducer = ( state = [1], action ) => {
 
   if( action.type == actions.CHANGE_FRETBOARD_HIGHLIGHT ) {
-    return action.highlight
+    var newState = Object.assign([], state)
+
+    action.highlight.forEach( function( item, index, array ) {
+      var itemIndex = newState.indexOf( item )
+
+      if( itemIndex == -1 ) {
+        newState.push( item )
+      } else {
+        newState.splice( itemIndex, 1 )
+      }
+    })
+    return newState
   } else {
     return state
   }
