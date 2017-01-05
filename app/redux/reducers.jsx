@@ -103,7 +103,7 @@ export var fretboardThemeReducer = ( state = "", action ) => {
   }
 }
 
-export var fretboardHighlightReducer = ( state = 1, action ) => {
+export var fretboardHighlightReducer = ( state = [1], action ) => {
 
   if( action.type == actions.CHANGE_FRETBOARD_HIGHLIGHT ) {
     return action.highlight
