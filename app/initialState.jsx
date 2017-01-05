@@ -70,7 +70,7 @@ export var initialState = {
   selectedScaleKey: "scale2",
   selectedScaleNote: "G♯/A♭",//"G♯/A♭",
   selectedChordKey: "default",
-  selectedChordNote: "A", 
+  selectedChordNote: "A",
   numberOfCustomTuningStrings: 6,
   showCustomTuningMidiNote: false,
   fretboardNumberOfNotes: 12,
@@ -80,5 +80,5 @@ export var initialState = {
   fretboardFretWidth:60,
   fretboardTheme: "basic",
   fretboardShowDegree: true,
-  fretboardHighlight: "1,2,3,4,5,6,7",
+  fretboardHighlight: [1,2,3,4,5,6,7],
 }

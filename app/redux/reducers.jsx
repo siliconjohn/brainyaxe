@@ -28,7 +28,7 @@ export var scaleReducer = ( state = 'default', action ) => {
   if ( action.type == actions.CHANGE_SCALE ) {
     return action.key
   }
-  
+
   if ( action.type == actions.CHANGE_CHORD ) {
     return 'default'
   }
@@ -104,7 +104,7 @@ export var fretboardThemeReducer = ( state = "", action ) => {
   }
 }
 
-export var fretboardHighlightReducer = ( state = "1", action ) => {
+export var fretboardHighlightReducer = ( state = 1, action ) => {
 
   if( action.type == actions.CHANGE_FRETBOARD_HIGHLIGHT ) {
     return action.highlight

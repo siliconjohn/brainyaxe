@@ -120,7 +120,7 @@ describe( 'Redux Reducers', () => {
     it( 'Should toggle change the highlight', () => {
       var action = {
         type: "CHANGE_FRETBOARD_HIGHLIGHT",
-        highlight: "1,3"
+        highlight: [1,3]
       }
       var response = reducers.fretboardHighlightReducer( deepFreeze( 'default' ), deepFreeze( action ))
       expect( response ).toEqual( action.highlight )
