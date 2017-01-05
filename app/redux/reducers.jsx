@@ -52,7 +52,6 @@ export var chordReducer = ( state = 'default', action ) => {
   }
 
   if ( action.type == actions.CHANGE_SCALE ) {
-    console.log('e');
     return 'default'
   }
 
