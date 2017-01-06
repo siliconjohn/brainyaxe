@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { changeFretboardHighlight } from 'actions'
+import { ordinalSuffixOf } from 'utils'
 
 const intervals = [ 1, 2, 3, 4, 5, 6, 7 ]
 
@@ -13,14 +15,28 @@ const linkStyle = {
 export class FretboardIntervalChooser extends React.Component {
 
   render() {
+    var { dispatch, fretboardHighlight } = this.props
     return (
       <ul className="dropdown menu" data-dropdown-menu>
-        <li ><a href="#" style={ linkStyle }>Highlight</a>
+        <li><a href="#" style={ linkStyle }>Options</a>
         <ul className="menu dark">
-          <li><a href="#">Item 1</a></li>
-          <li><a href="#">Item 2</a></li>
-          <li><a href="#">Item 3</a></li>
-          <li><a href="#">Item 4</a></li>
+          <li className="dark pad-left">Highlight:</li>
+        {
+          intervals.map(( value, index ) => {
+
+            let check = ""
+            if( fretboardHighlight.indexOf( value ) > -1 ) check = "- "
+
+            return (
+              <li key= { index }>
+
+                <a href="#"  style={ linkStyle }
+                  onClick={ (e) => {
+                    dispatch( changeFretboardHighlight( [value] ))
+                  }}>{check}{ ordinalSuffixOf( value )}</a></li>
+            )
+          })
+        }
         </ul>
       </li>
     </ul>
