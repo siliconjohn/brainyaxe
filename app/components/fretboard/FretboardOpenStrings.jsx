@@ -5,11 +5,10 @@ import FretboardOpenString from 'FretboardOpenString'
 import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardOpenStrings = ( props ) => {
-  let { fretboardStringHeight, fretboardNutWidth, fretboardOpenNoteWidth,
-        tuning } = props
-
+  let { fretboardStringHeight, fretboardNutWidth,
+        fretboardOpenNoteWidth, tuning } = props
   let numberOfStrings = tuning.midiNotes.length
-
+  
   return (
     <g className="open-strings" cursor="default">
       {
@@ -34,6 +33,7 @@ export default connect(( state ) => {
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNutWidth: state.fretboardNutWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
+    tunings: state.tunings,
     tuning: SelectedTuningSelector( state )
   }
 })( FretboardOpenStrings )
