@@ -120,11 +120,17 @@ body{
   word-wrap: break-word;
 }
 
-// .note-circle-name {
-//   font-size: rem-calc(12);
-//   fill: #fff;
-//   stroke:#fff;
-// }
+.dark {
+  font-weight: bolder;
+  color:#000;
+  a {
+    font-weight:normal;
+    color:#000;
+  }
+}
+.pad-left {
+  padding-left: rem-calc(10);
+}
 
 .main-menu {
   margin-top: 1.5rem;

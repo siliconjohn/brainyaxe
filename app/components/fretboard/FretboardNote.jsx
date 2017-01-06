@@ -15,7 +15,7 @@ export class FretboardNote extends React.Component {
 
       // add the .highlight class if the note is to be highlighted
       let highlight = ""
-      if( this.props.fretboardHighlight.indexOf( degree ) > -1 ) highlight = "highlight "
+      if( this.props.fretboardHighlight.indexOf( parseInt( degree )) > -1 ) highlight = "highlight "
 
       return `${highlight}degree-${degree}`
     }

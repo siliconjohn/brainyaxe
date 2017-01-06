@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import FretboardIntervalChooser from 'FretboardIntervalChooser'
+
 var utils = require('utils')
 
 var FretboardHeader = ( props ) => {
@@ -41,7 +43,12 @@ var FretboardHeader = ( props ) => {
   return (
     <div className="title-bar shadow-small">
       <div className="title-bar-left">{ scaleOrChordText }</div>
-      <div className="title-bar-right">{ tuning.name } Tuning</div>
+      <div className="title-bar-left">
+        <FretboardIntervalChooser/>
+      </div>
+      <div className="title-bar-right">
+        { tuning.name } Tuning
+      </div>
     </div>
   )
 }
