@@ -15,8 +15,8 @@ import SelectedTuningSelector from 'selectedTuning'
 export var FretboardContainer = React.createClass({
 
   render: function () {
-    
-    var tuning = this.props.mytuning
+
+    var tuning = this.props.tuning
     var numberOfStrings = tuning.midiNotes.length
 
     // calculate the size
@@ -44,7 +44,7 @@ export var FretboardContainer = React.createClass({
             <FretboardInlayMarkers  numberOfStrings={ numberOfStrings }/>
             <FretboardStrings numberOfStrings={ numberOfStrings } />
             <FretboardFretNumbers numberOfStrings={ numberOfStrings } />
-            <FretboardOpenStrings  numberOfStrings={ numberOfStrings }  />
+            <FretboardOpenStrings/>
             <FretboardNotes/>
           </svg>
         </div>
@@ -63,6 +63,6 @@ export default connect(( state ) => {
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNumberOfNotes: state.fretboardNumberOfNotes,
     fretboardTheme: state.fretboardTheme,
-    mytuning: SelectedTuningSelector( state )
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardContainer )
