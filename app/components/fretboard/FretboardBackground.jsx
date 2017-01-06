@@ -1,17 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-var utils = require('utils')
+import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardBackground = ( props ) => {
-  let { numberOfStrings, selectedTuningKey, fretboardNumberOfNotes, fretboardFretWidth,
+  let { tuning, selectedTuningKey, fretboardNumberOfNotes, fretboardFretWidth,
         fretboardOpenNoteWidth, fretboardNutWidth, fretboardStringHeight} = props
+  let numberOfStrings = tuning.midiNotes.length
 
   // calculate the size
   let newProps = {}
-  newProps.x = props.fretboardOpenNoteWidth + props.fretboardNutWidth
+  newProps.x = fretboardOpenNoteWidth + fretboardNutWidth
   newProps.y = 1
-  newProps.height = props.fretboardStringHeight * numberOfStrings
-  newProps.width = ( props.fretboardFretWidth *  props.fretboardNumberOfNotes )
+  newProps.height = fretboardStringHeight * numberOfStrings
+  newProps.width = ( fretboardFretWidth *  fretboardNumberOfNotes )
 
   let polylinePoints = `${ newProps.x + newProps.width}, ${ newProps.y }, \
                         ${ newProps.x}, ${ newProps.y }, \
@@ -27,11 +28,12 @@ var FretboardBackground = ( props ) => {
 }
 export default connect(( state ) => {
   return {
-    selectedTuningKey: state.selectedTuningKey,
     fretboardNumberOfNotes: state.fretboardNumberOfNotes,
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNutWidth: state.fretboardNutWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
-    fretboardFretWidth: state.fretboardFretWidth
+    fretboardFretWidth: state.fretboardFretWidth,
+    unings: state.tunings,
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardBackground )

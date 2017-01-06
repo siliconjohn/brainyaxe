@@ -66,6 +66,7 @@ module.exports = {
       'node_modules',
       './app/redux',
       './app/components',
+      './app/selectors',
       './app/components/fretboard',
       './app/components/menus',
       './app/api'

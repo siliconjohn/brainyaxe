@@ -1,19 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { getNoteNameFromMIDINumber } from 'utils'
 import FretboardOpenString from 'FretboardOpenString'
-var utils = require('utils')
+import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardOpenStrings = ( props ) => {
-  let { numberOfStrings, tunings, selectedTuningKey, fretboardStringHeight,
-        fretboardNutWidth, fretboardOpenNoteWidth} = props
-
-  // get the selected tuning
-  try {
-    var tuning = utils.getObjectForKey( tunings, selectedTuningKey )
-  } catch ( e ) {
-    return ( <g></g> )
-  }
-
+  let { fretboardStringHeight, fretboardNutWidth,
+        fretboardOpenNoteWidth, tuning } = props
+  let numberOfStrings = tuning.midiNotes.length
+  
   return (
     <g className="open-strings" cursor="default">
       {
@@ -22,7 +17,7 @@ var FretboardOpenStrings = ( props ) => {
                              height: fretboardStringHeight,
                              width: fretboardOpenNoteWidth,
                              midiNote: tuning.midiNotes[ index ],
-                             noteName: utils.getNoteNameFromMIDINumber( tuning.midiNotes[ index ])}
+                             noteName: getNoteNameFromMIDINumber( tuning.midiNotes[ index ])}
 
           return (
             <FretboardOpenString key={ index } { ...tempProps }/>
@@ -35,10 +30,10 @@ var FretboardOpenStrings = ( props ) => {
 
 export default connect(( state ) => {
   return {
-    tunings: state.tunings,
-    selectedTuningKey: state.selectedTuningKey,
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNutWidth: state.fretboardNutWidth,
-    fretboardOpenNoteWidth: state.fretboardOpenNoteWidth
+    fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
+    tunings: state.tunings,
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardOpenStrings )
