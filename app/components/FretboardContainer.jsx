@@ -10,19 +10,14 @@ import FretboardFretNumbers from 'FretboardFretNumbers'
 import FretboardOpenStrings from 'FretboardOpenStrings'
 import FretboardInlayMarkers from 'FretboardInlayMarkers'
 import FretboardNotes from 'FretboardNotes'
+import SelectedTuningSelector from 'selectedTuning'
 
 export var FretboardContainer = React.createClass({
 
   render: function () {
-
-    // get the number of strings from the selected tuning
-    var numberOfStrings
-    try {
-      var tuning = utils.getObjectForKey( this.props.tunings, this.props.selectedTuningKey )
-      numberOfStrings = tuning.midiNotes.length
-    } catch ( e ) {
-      numberOfStrings = 1
-    }
+    
+    var tuning = this.props.mytuning
+    var numberOfStrings = tuning.midiNotes.length
 
     // calculate the size
     const extraHeight = 33
@@ -68,5 +63,6 @@ export default connect(( state ) => {
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNumberOfNotes: state.fretboardNumberOfNotes,
     fretboardTheme: state.fretboardTheme,
+    mytuning: SelectedTuningSelector( state )
   }
 })( FretboardContainer )
