@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import FretboardInlayMarker from 'FretboardInlayMarker'
-var utils = require('utils')
+import SelectedTuningSelector from 'selectedTuning'
 
 // frets to place the markers
 const markers = [ 3, 5, 7, 9, 12, 15, 17, 19, 21, 24 ]
 
 var FretboardInlayMarkers = ( props ) => {
-  let { fretboardStringHeight, fretboardNutWidth, numberOfStrings,
+  let { fretboardStringHeight, fretboardNutWidth, tuning,
         fretboardOpenNoteWidth, fretboardFretWidth, fretboardNumberOfNotes } = props
+  let numberOfStrings = tuning.midiNotes.length
 
   // set up x and y pos
   let x = fretboardNutWidth + fretboardOpenNoteWidth - fretboardFretWidth
@@ -22,7 +23,7 @@ var FretboardInlayMarkers = ( props ) => {
           let double = false;
           let fretX = ( number * fretboardFretWidth )
           if ( number > fretboardNumberOfNotes ) return ""
-          
+
           // if less than 3 strings only show single inlay marker
           if( numberOfStrings > 3 && ( number == 12 || number == 24 )) double = true
 
@@ -44,6 +45,8 @@ export default connect(( state ) => {
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNutWidth: state.fretboardNutWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
-    fretboardFretWidth: state.fretboardFretWidth
+    fretboardFretWidth: state.fretboardFretWidth,
+    tunings: state.tunings,
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardInlayMarkers )

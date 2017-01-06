@@ -1,20 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import FretboardNote from 'FretboardNote'
+import SelectedTuningSelector from 'selectedTuning'
 var utils = require('utils')
 
 var FretboardNotes = ( props ) => {
+  let { fretboardStringHeight, fretboardNutWidth,
+        fretboardOpenNoteWidth, tuning } = props
+  let numberOfStrings = tuning.midiNotes.length
 
   // get and calculate derived data
   try {
     var scale = utils.getObjectForKey( props.scales, props.selectedScaleKey )
     var chord = utils.getObjectForKey( props.chords, props.selectedChordKey )
-    var tuning = utils.getObjectForKey( props.tunings, props.selectedTuningKey )
     var selectedNotesForScale = utils.getNotesForArray( scale, props.selectedScaleNote )
     var selectedNotesForChord = utils.getNotesForArray( chord, props.selectedChordNote )
     var scaleDegrees = scale.degrees.split( ',' )
     var chordDegrees = chord.degrees.split( ',' )
-    var numberOfStrings = tuning.midiNotes.length
   } catch ( e ) {
     return ( <g></g> )
   }
@@ -98,13 +100,13 @@ export default connect(( state ) => {
     tunings: state.tunings,
     selectedScaleKey: state.selectedScaleKey,
     selectedChordKey: state.selectedChordKey,
-    selectedTuningKey: state.selectedTuningKey,
     selectedScaleNote: state.selectedScaleNote,
     selectedChordNote: state.selectedChordNote,
     fretboardNumberOfNotes: state.fretboardNumberOfNotes,
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardNutWidth: state.fretboardNutWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
-    fretboardFretWidth: state.fretboardFretWidth
+    fretboardFretWidth: state.fretboardFretWidth,
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardNotes )

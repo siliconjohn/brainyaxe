@@ -37,13 +37,12 @@ export var FretboardContainer = React.createClass({
 
         <div className="fretboard-svg-parent text-center">
            <svg xmlns="http://www.w3.org/2000/svg" className={ fretBoardClassName } width={ width } height={ height }>
-            <FretboardBackground numberOfStrings={ numberOfStrings }/>
-            <FretboardNut numberOfStrings={ numberOfStrings } fretboardStringHeight={ this.props.fretboardStringHeight}
-                fretboardNutWidth={ this.props.fretboardNutWidth } fretboardOpenNoteWidth={this.props.fretboardOpenNoteWidth} />
-            <FretboardFrets  numberOfStrings={ numberOfStrings }/>
-            <FretboardInlayMarkers  numberOfStrings={ numberOfStrings }/>
-            <FretboardStrings numberOfStrings={ numberOfStrings } />
-            <FretboardFretNumbers numberOfStrings={ numberOfStrings } />
+            <FretboardBackground/>
+            <FretboardNut/>
+            <FretboardFrets/>
+            <FretboardInlayMarkers />
+            <FretboardStrings/>
+            <FretboardFretNumbers/>
             <FretboardOpenStrings/>
             <FretboardNotes/>
           </svg>

@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import FretboardString from 'FretboardString'
+import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardStrings = ( props ) => {
   let { fretboardNutWidth, fretboardOpenNoteWidth, fretboardNumberOfNotes,
-        fretboardFretWidth, fretboardStringHeight, numberOfStrings} = props
+        fretboardFretWidth, fretboardStringHeight, tuning } = props
+  let numberOfStrings = tuning.midiNotes.length
 
   // setup svg translate
   let x = fretboardNutWidth + fretboardOpenNoteWidth
@@ -36,6 +38,8 @@ export default connect(( state ) => {
     fretboardNutWidth: state.fretboardNutWidth,
     fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
     fretboardNumberOfNotes: state.fretboardNumberOfNotes,
-    fretboardFretWidth: state.fretboardFretWidth
+    fretboardFretWidth: state.fretboardFretWidth,
+    tunings: state.tunings,
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardStrings )

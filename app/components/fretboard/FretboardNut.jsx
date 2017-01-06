@@ -1,8 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardNut = ( props ) => {
-  let { numberOfStrings, fretboardNutWidth, fretboardStringHeight,
+  let { tuning, fretboardNutWidth, fretboardStringHeight,
         fretboardOpenNoteWidth } = props
+  let numberOfStrings = tuning.midiNotes.length
 
   let nutSize = {}
   nutSize.x = fretboardOpenNoteWidth
@@ -15,4 +18,13 @@ var FretboardNut = ( props ) => {
   )
 }
 
-module.exports = FretboardNut
+export default connect(( state ) => {
+  return {
+    fretboardStringHeight: state.fretboardStringHeight,
+    fretboardNutWidth: state.fretboardNutWidth,
+    fretboardOpenNoteWidth: state.fretboardOpenNoteWidth,
+    fretboardNumberOfNotes: state.fretboardNumberOfNotes,
+    tunings: state.tunings,
+    tuning: SelectedTuningSelector( state )
+  }
+})( FretboardNut )

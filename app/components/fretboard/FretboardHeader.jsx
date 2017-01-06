@@ -1,27 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import FretboardIntervalChooser from 'FretboardIntervalChooser'
-
-var utils = require('utils')
+import SelectedTuningSelector from 'selectedTuning'
+import { getObjectForKey } from 'utils'
 
 var FretboardHeader = ( props ) => {
-  let { tunings, selectedTuningKey, scales, selectedScaleKey,
+  let { tuning, selectedTuningKey, scales, selectedScaleKey,
         selectedChordKey, chords } = props
-
-  // get selected tuning
-  try {
-    var tuning = utils.getObjectForKey( tunings, selectedTuningKey )
-  } catch ( e ) {
-   return ( <div></div> )
-  }
-
+  let numberOfStrings = tuning.midiNotes.length
   let scaleOrChordText = ""
 
   // get selected scale
   if( selectedScaleKey != 'default' ){
 
     try {
-      var scale = utils.getObjectForKey( scales, selectedScaleKey )
+      var scale = getObjectForKey( scales, selectedScaleKey )
     } catch (e) {
      return ( <div></div>)
     }
@@ -31,7 +24,7 @@ var FretboardHeader = ( props ) => {
     if( selectedChordKey != 'default' ){
 
       try {
-        var chord = utils.getObjectForKey( chords, selectedChordKey )
+        var chord = getObjectForKey( chords, selectedChordKey )
       } catch (e) {
        return ( <div></div>)
       }
@@ -56,10 +49,10 @@ var FretboardHeader = ( props ) => {
 export default connect(( state ) => {
   return {
     tunings: state.tunings,
-    selectedTuningKey: state.selectedTuningKey,
     scales: state.scales,
     selectedScaleKey: state.selectedScaleKey,
     chords: state.chords,
     selectedChordKey: state.selectedChordKey,
+    tuning: SelectedTuningSelector( state )
   }
 })( FretboardHeader )
