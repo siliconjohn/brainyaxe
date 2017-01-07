@@ -56,6 +56,11 @@ if( production ) {
       new webpack.optimize.DedupePlugin(),
       new WebpackErrorNotificationPlugin(),
       new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true}),
+      new webpack.DefinePlugin({
+        'process.env':{
+          'NODE_ENV': JSON.stringify('production')
+        }
+      })
     ],
     output: {
       path: __dirname,
@@ -108,12 +113,7 @@ if( production ) {
       }),
       new webpack.optimize.DedupePlugin(),
       new WebpackErrorNotificationPlugin(),
-      new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true}),
-      new webpack.DefinePlugin({
-        'process.env':{
-          'NODE_ENV': JSON.stringify('production')
-        }
-      })
+      new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true})
     ],
     output: {
       path: __dirname,
