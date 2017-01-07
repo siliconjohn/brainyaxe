@@ -1,4 +1,4 @@
-import { createSelector } from 'Reselect'
+import { createSelector } from 'reselect'
 import { getObjectForKey } from 'utils'
 
 const tuningsSelector = state => state.tunings
