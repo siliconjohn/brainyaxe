@@ -1,15 +1,15 @@
 // all possible notes, the array index is the midi number
 export const noteNamesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
-                               "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B","C",
+  "C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
 
 // array of all possible note names
 export const twelveNotesTable = ["C","C♯/D♭","D","D♯/E♭","E","F","F♯/G♭","G","G♯/A♭","A","A♯/B♭","B"]
@@ -37,7 +37,7 @@ module.exports.getNoteInArray = ( midiNumber, noteArray ) => {
   var noteName = noteNamesTable[ midiNumber ]
 
   return noteArray.find(( midiNote ) => {
-    return midiNote === noteName  ? true : false;
+    return midiNote === noteName  ? true : false
   })
 }
 
@@ -48,7 +48,7 @@ module.exports.getNotesForArray = ( scale, startNoteName ) => {
   var result = []
 
   // find first instance of start note in array
-  var rootMidiNote;
+  var rootMidiNote
   noteNamesTable.find(( name, index ) => {
     if( name === startNoteName) {
       rootMidiNote = index
@@ -87,16 +87,16 @@ module.exports.playMidiNote = ( midiNote ) => {
 }
 
 module.exports.ordinalSuffixOf = ( number ) => {
-  var j = number % 10,
-      k = number % 100;
+  var j = number % 10
+  var k = number % 100
   if( j == 1 && k != 11 ) {
-    return number + "st";
+    return number + "st"
   }
   if( j == 2 && k != 12 ) {
-    return number + "nd";
+    return number + "nd"
   }
   if( j == 3 && k != 13 ) {
-    return number + "rd";
+    return number + "rd"
   }
-  return number + "th";
+  return number + "th"
 }

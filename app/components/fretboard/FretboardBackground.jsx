@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardBackground = ( props ) => {
-  let { tuning, selectedTuningKey, fretboardNumberOfNotes, fretboardFretWidth,
-        fretboardOpenNoteWidth, fretboardNutWidth, fretboardStringHeight} = props
+  let { tuning, fretboardNumberOfNotes, fretboardFretWidth,
+    fretboardOpenNoteWidth, fretboardNutWidth, fretboardStringHeight} = props
   let numberOfStrings = tuning.midiNotes.length
 
   // calculate the size

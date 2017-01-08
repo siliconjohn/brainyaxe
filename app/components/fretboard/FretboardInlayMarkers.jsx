@@ -20,7 +20,7 @@ var FretboardInlayMarkers = ( props ) => {
     <g transform={ translate } className="inlays">
       {
         markers.map(( number, index ) => {
-          let double = false;
+          let double = false
           let fretX = ( number * fretboardFretWidth )
           if ( number > fretboardNumberOfNotes ) return ""
 
@@ -28,7 +28,7 @@ var FretboardInlayMarkers = ( props ) => {
           if( numberOfStrings > 3 && ( number == 12 || number == 24 )) double = true
 
           let tempProps = { x: fretX, y: 0, fretWidth: fretboardFretWidth,
-                            double: double, stringHeight: fretboardStringHeight }
+            double: double, stringHeight: fretboardStringHeight }
 
           return (
             <FretboardInlayMarker key={ index } { ...tempProps }/>

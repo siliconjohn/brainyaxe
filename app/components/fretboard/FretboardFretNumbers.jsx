@@ -20,8 +20,7 @@ var FretboardFretNumbers = ( props ) => {
       {
         Array.from( new Array( fretboardNumberOfNotes ), (( note, index ) => {
           let tempProps = { x:fretboardFretWidth * index, y:14,
-                            number:index + 1,
-                            parentWidth:fretboardFretWidth }
+            number:index + 1, parentWidth:fretboardFretWidth }
 
           return (
             <FretboardFretNumber key={ index } { ...tempProps }/>

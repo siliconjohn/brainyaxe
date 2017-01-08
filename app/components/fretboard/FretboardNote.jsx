@@ -6,7 +6,7 @@ const radius = 12 // size of note's circle
 export class FretboardNote extends React.Component {
 
   getDegreeClassName() {
-    let { scaleDegree, chordDegree } = this.props
+    let { scaleDegree, chordDegree, fretboardHighlight } = this.props
 
     let degree = scaleDegree ? scaleDegree : chordDegree
 
@@ -15,7 +15,7 @@ export class FretboardNote extends React.Component {
 
       // add the .highlight class if the note is to be highlighted
       let highlight = ""
-      if( this.props.fretboardHighlight.indexOf( parseInt( degree )) > -1 ) highlight = "highlight "
+      if( fretboardHighlight.indexOf( parseInt( degree )) > -1 ) highlight = "highlight "
 
       return `${highlight}degree-${degree}`
     }
@@ -44,7 +44,9 @@ export class FretboardNote extends React.Component {
   }
 
   getNoteDegreeText() {
-    if( this.props.fretboardShowDegree == false ) return
+    let { fretboardShowDegree, fretboardOpenNoteWidth } = this.props
+
+    if( fretboardShowDegree == false ) return
 
     let { scaleDegree, chordDegree } = this.props
 
@@ -55,16 +57,16 @@ export class FretboardNote extends React.Component {
       let y = this.centerY + radius * 0.6
 
       // if the note is an open note ( before the nut), we need to snug the text to make it fit
-      if( x <= this.props.fretboardOpenNoteWidth ) {
+      if( x <= fretboardOpenNoteWidth ) {
         x = this.centerX + radius * 0.4
         y = this.centerY + radius * 0.9
       }
 
       return (
-          <text x={ x } y={ y } textAnchor="start" dominantBaseline="hanging"
-            className="note-text-degree">{ degree }
-          </text>
-        )
+        <text x={ x } y={ y } textAnchor="start" dominantBaseline="hanging"
+          className="note-text-degree">{ degree }
+        </text>
+      )
     }
   }
 
@@ -96,6 +98,9 @@ FretboardNote.propTypes = {
   chordNote: React.PropTypes.string,
   scaleDegree: React.PropTypes.string,
   chordDegree: React.PropTypes.string,
+  fretboardHighlight: React.PropTypes.array.isRequired,
+  fretboardOpenNoteWidth: React.PropTypes.number.isRequired,
+  fretboardShowDegree: React.PropTypes.bool.isRequired,
 }
 
 export default connect(( state ) => {

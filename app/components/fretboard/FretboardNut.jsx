@@ -4,7 +4,7 @@ import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardNut = ( props ) => {
   let { tuning, fretboardNutWidth, fretboardStringHeight,
-        fretboardOpenNoteWidth } = props
+    fretboardOpenNoteWidth } = props
   let numberOfStrings = tuning.midiNotes.length
 
   let nutSize = {}

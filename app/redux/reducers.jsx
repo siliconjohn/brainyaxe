@@ -108,7 +108,7 @@ export var fretboardHighlightReducer = ( state = [1], action ) => {
   if( action.type == actions.CHANGE_FRETBOARD_HIGHLIGHT ) {
     var newState = Object.assign([], state)
 
-    action.highlight.forEach( function( item, index, array ) {
+    action.highlight.forEach( function( item ) {
       var itemIndex = newState.indexOf( item )
 
       if( itemIndex == -1 ) {
@@ -161,10 +161,10 @@ export var customTuningReducer = ( state = [], action ) => {
   if ( action.type == actions.INCREMENT_CUSTOM_TUNING_STRINGS ) {
 
     // duplicate state object
-    var newState = Object.assign([], state);
+    let newState = Object.assign([], state)
 
     // find custom tuning
-    var customTuning = utils.getObjectForKey( newState, "custom")
+    let customTuning = utils.getObjectForKey( newState, "custom")
 
     if( customTuning ) {
       // get highest not in tuning to use as new note
@@ -189,10 +189,10 @@ export var customTuningReducer = ( state = [], action ) => {
   if ( action.type == actions.DECREMENT_CUSTOM_TUNING_STRINGS ) {
 
     // duplicate state object
-    var newState = Object.assign([], state);
+    let newState = Object.assign([], state)
 
     // find custom tuning
-    var customTuning = utils.getObjectForKey( newState, "custom")
+    let customTuning = utils.getObjectForKey( newState, "custom")
 
     if( customTuning ) {
 
@@ -216,15 +216,15 @@ export var customTuningReducer = ( state = [], action ) => {
   if ( action.type == actions.CHANGE_CUSTOM_TUNING_NOTE ) {
 
     // duplicate state object
-    var newState = Object.assign([], state);
+    let newState = Object.assign([], state)
 
     // find custom tuning
-    var customTuning = utils.getObjectForKey( newState, "custom")
+    let customTuning = utils.getObjectForKey( newState, "custom")
 
     if( customTuning ) {
       try {
         // update note names
-        var notes = customTuning.notes.split(',')
+        let notes = customTuning.notes.split(',')
         notes[ notes.length - 1 - action.stringKey ] = utils.getNoteNameFromMIDINumber( action.midiNote )
         customTuning.notes = notes.toString()
         // update midi notes

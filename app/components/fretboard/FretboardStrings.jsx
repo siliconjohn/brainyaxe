@@ -5,7 +5,7 @@ import SelectedTuningSelector from 'selectedTuning'
 
 var FretboardStrings = ( props ) => {
   let { fretboardNutWidth, fretboardOpenNoteWidth, fretboardNumberOfNotes,
-        fretboardFretWidth, fretboardStringHeight, tuning } = props
+    fretboardFretWidth, fretboardStringHeight, tuning } = props
   let numberOfStrings = tuning.midiNotes.length
 
   // setup svg translate
@@ -21,7 +21,7 @@ var FretboardStrings = ( props ) => {
       {
         Array.from( new Array( numberOfStrings ), (( note, index ) => {
           let tempProps = { x:0, y:( index * fretboardStringHeight ) + halfStringHeight,
-                            width: stringWidth }
+            width: stringWidth }
 
           return (
             <FretboardString key={ index } { ...tempProps }/>

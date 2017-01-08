@@ -5,9 +5,8 @@ import SelectedTuningSelector from 'selectedTuning'
 import { getObjectForKey } from 'utils'
 
 var FretboardHeader = ( props ) => {
-  let { tuning, selectedTuningKey, scales, selectedScaleKey,
+  let { tuning,  scales, selectedScaleKey,
         selectedChordKey, chords } = props
-  let numberOfStrings = tuning.midiNotes.length
   let scaleOrChordText = ""
 
   // get selected scale
@@ -16,7 +15,7 @@ var FretboardHeader = ( props ) => {
     try {
       var scale = getObjectForKey( scales, selectedScaleKey )
     } catch (e) {
-     return ( <div></div>)
+      return ( <div></div>)
     }
 
     scaleOrChordText = scale.intervals.length > 0 ? scale.name + " Scale" : ""
@@ -26,7 +25,7 @@ var FretboardHeader = ( props ) => {
       try {
         var chord = getObjectForKey( chords, selectedChordKey )
       } catch (e) {
-       return ( <div></div>)
+        return ( <div></div>)
       }
 
       scaleOrChordText = chord.intervals.length > 0 ? chord.name + " Chord" : ""
