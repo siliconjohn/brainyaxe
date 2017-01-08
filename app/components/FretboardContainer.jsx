@@ -1,6 +1,5 @@
-var React = require('react')
-var { connect } = require('react-redux')
-var utils = require('utils');
+import React from 'react'
+import { connect } from 'react-redux'
 import FretboardNut from 'FretboardNut'
 import FretboardFrets from 'FretboardFrets'
 import FretboardHeader from 'FretboardHeader'
@@ -12,23 +11,25 @@ import FretboardInlayMarkers from 'FretboardInlayMarkers'
 import FretboardNotes from 'FretboardNotes'
 import SelectedTuningSelector from 'selectedTuning'
 
-export var FretboardContainer = React.createClass({
+export class FretboardContainer extends React.Component {
 
-  render: function () {
+  render() {
+    let { tunings, selectedTuningKey,fretboardNutWidth, fretboardFretWidth,
+      fretboardOpenNoteWidth, fretboardStringHeight, fretboardNumberOfNotes,
+      fretboardTheme, tuning } = this.props
 
-    var tuning = this.props.tuning
     var numberOfStrings = tuning.midiNotes.length
 
     // calculate the size
     const extraHeight = 33
-    const extraWidth = this.props.fretboardOpenNoteWidth
-    var height = this.props.fretboardStringHeight * numberOfStrings + extraHeight
-    var width = ( this.props.fretboardFretWidth * this.props.fretboardNumberOfNotes ) +
-                  this.props.fretboardOpenNoteWidth + this.props.fretboardNutWidth + extraWidth
+    const extraWidth = fretboardOpenNoteWidth
+    var height = fretboardStringHeight * numberOfStrings + extraHeight
+    var width = ( fretboardFretWidth * fretboardNumberOfNotes ) +
+                  fretboardOpenNoteWidth + fretboardNutWidth + extraWidth
 
     var fretBoardClassName = "fretboard-svg"
-    if( this.props.fretboardTheme != "") {
-      fretBoardClassName = `${fretBoardClassName} fretboard-${this.props.fretboardTheme}`
+    if( fretboardTheme != "") {
+      fretBoardClassName = `${fretBoardClassName} fretboard-${fretboardTheme}`
     }
 
     return (
@@ -50,7 +51,19 @@ export var FretboardContainer = React.createClass({
       </div>
     )
   }
-})
+}
+
+FretboardContainer.propTypes = {
+  tunings: React.PropTypes.array.isRequired,
+  selectedTuningKey: React.PropTypes.string.isRequired,
+  fretboardNutWidth: React.PropTypes.number.isRequired,
+  fretboardFretWidth: React.PropTypes.number.isRequired,
+  fretboardOpenNoteWidth: React.PropTypes.number.isRequired,
+  fretboardStringHeight: React.PropTypes.number.isRequired,
+  fretboardNumberOfNotes: React.PropTypes.number.isRequired,
+  fretboardTheme: React.PropTypes.string.isRequired,
+  tuning: React.PropTypes.object.isRequired
+}
 
 export default connect(( state ) => {
   return {

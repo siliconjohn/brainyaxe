@@ -1,14 +1,12 @@
-var React = require('react')
-var { connect } = require('react-redux')
-var actions = require('actions')
+import React from 'react'
+import { connect } from 'react-redux'
 import CustomTuningButtons from 'CustomTuningButtons'
 import CustomTuningNoteChooser from 'CustomTuningNoteChooser'
 
-export var CustomTuningContainer = React.createClass({
+export class CustomTuningContainer extends React.Component{
 
-  render: function () {
+  render(){
     var num = this.props.numberOfCustomTuningStrings
-    var result = []
 
     return (
       <div>
@@ -21,7 +19,7 @@ export var CustomTuningContainer = React.createClass({
           </div>
         </div>
         {
-          Array( num ).fill().map(( _, i ) => {
+          Array.from( new Array(num) ).map(( _, i ) => {
             return (
               <CustomTuningNoteChooser key={ i } stringNumber={ i }/>
             )
@@ -30,10 +28,14 @@ export var CustomTuningContainer = React.createClass({
       </div>
     )
   }
-})
+}
+
+CustomTuningContainer.propTypes = {
+  numberOfCustomTuningStrings: React.PropTypes.number.isRequired,
+}
 
 export default connect(( state ) => {
   return {
-      numberOfCustomTuningStrings: state.numberOfCustomTuningStrings
+    numberOfCustomTuningStrings: state.numberOfCustomTuningStrings
   }
-})(CustomTuningContainer)
+})( CustomTuningContainer )

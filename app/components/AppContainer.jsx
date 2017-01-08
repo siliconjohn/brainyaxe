@@ -1,15 +1,14 @@
-var React = require('react');
+import React from 'react'
 import FretboardContainer from 'FretboardContainer'
 import Toolbar from 'Toolbar'
 
-export var AppContainer = React.createClass({
+export class AppContainer extends React.Component{
 
-  componentDidMount: function(){
+  componentDidMount() {
     $( document ).foundation()
-  },
+  }
 
-  render: function() {
-
+  render() {
     return (
       <div>
         <Toolbar/>
@@ -18,6 +17,10 @@ export var AppContainer = React.createClass({
       </div>
     )
   }
-});
+}
 
-module.exports = AppContainer;
+AppContainer.propTypes = {
+  children: React.PropTypes.object
+}
+
+module.exports = AppContainer

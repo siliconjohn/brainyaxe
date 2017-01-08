@@ -1,13 +1,12 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
+import React from 'react'
 import ScaleIntervals from 'ScaleIntervals'
 import ScaleNoteChooser from 'ScaleNoteChooser'
 import ScaleChooser from 'ScaleChooser'
-import NoteCirclesScale from 'NoteCirclesScale'
+//import NoteCirclesScale from 'NoteCirclesScale'
 
-var ScalesContainer = React.createClass({
+export class ScalesContainer extends React.Component{
 
-  render: function() {
+  render() {
     return (
       <div className="main-menu">
         <div className="row">
@@ -36,6 +35,6 @@ var ScalesContainer = React.createClass({
       </div>
     )
   }
-})
+}
 
 module.exports = ScalesContainer

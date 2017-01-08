@@ -1,13 +1,14 @@
-var React = require('react')
-var { connect } = require('react-redux')
-var actions = require('actions')
+import React from 'react'
+import { connect } from 'react-redux'
+import { changeFretboardNumberOfNotes, changeFretboardStringHeight,
+  changeFretboardFretWidth } from 'actions'
 import NumericInput from 'react-numeric-input'
 
-export var Settings = React.createClass({
+export class Settings extends React.Component {
 
-  render: function() {
-     var { dispatch, fretboardNumberOfNotes, fretboardFretWidth,
-           fretboardStringHeight } = this.props
+  render() {
+    var { dispatch, fretboardNumberOfNotes, fretboardFretWidth,
+      fretboardStringHeight } = this.props
 
     return (
       <div className="main-menu">
@@ -24,7 +25,7 @@ export var Settings = React.createClass({
                 <NumericInput className="form-control" min={ 1 } max={ 100 }  mobile value={ fretboardNumberOfNotes }
                   onChange={ ( e ) => {
                     if ( e > 0 && e < 100 ) {
-                      dispatch( actions.changeFretboardNumberOfNotes( e ))
+                      dispatch( changeFretboardNumberOfNotes( e ))
                     }
                   }}/>
               </div>
@@ -39,7 +40,7 @@ export var Settings = React.createClass({
                 <NumericInput className="form-control" min={ 30 } max={ 70 } mobile value={ fretboardStringHeight }
                   onChange={ ( e ) => {
                     if ( e > 30 && e < 70 ) {
-                      dispatch( actions.changeFretboardStringHeight( e ))
+                      dispatch( changeFretboardStringHeight( e ))
                     }
                   }}/>
               </div>
@@ -54,7 +55,7 @@ export var Settings = React.createClass({
                 <NumericInput className="form-control" min={ 50 } max={ 150 } mobile value={ fretboardFretWidth }
                   onChange={ ( e ) => {
                     if ( e > 50 && e < 150 ) {
-                      dispatch( actions.changeFretboardFretWidth( e ))
+                      dispatch( changeFretboardFretWidth( e ))
                     }
                   }}/>
               </div>
@@ -66,7 +67,14 @@ export var Settings = React.createClass({
       </div>
     )
   }
-})
+}
+
+Settings.propTypes = {
+  dispatch: React.PropTypes.func.isRequired,
+  fretboardNumberOfNotes: React.PropTypes.number.isRequired,
+  fretboardFretWidth: React.PropTypes.number.isRequired,
+  fretboardStringHeight: React.PropTypes.number.isRequired
+}
 
 export default connect(( state ) => {
   return {
@@ -74,4 +82,4 @@ export default connect(( state ) => {
     fretboardStringHeight: state.fretboardStringHeight,
     fretboardFretWidth: state.fretboardFretWidth
   }
-})(Settings)
+})( Settings )

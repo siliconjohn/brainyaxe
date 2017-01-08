@@ -1,13 +1,12 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
+import React from 'react'
 import ChordIntervals from 'ChordIntervals'
 import ChordNoteChooser from 'ChordNoteChooser'
 import ChordChooser from 'ChordChooser'
-import NoteCirclesChord from 'NoteCirclesChord'
+//import NoteCirclesChord from 'NoteCirclesChord'
 
-var ChordsContainer = React.createClass({
+export class ChordsContainer extends React.Component{
 
-  render: function() {
+  render() {
     return (
       <div className="main-menu">
         <div className="row">
@@ -36,6 +35,6 @@ var ChordsContainer = React.createClass({
       </div>
     )
   }
-})
+}
 
 module.exports = ChordsContainer

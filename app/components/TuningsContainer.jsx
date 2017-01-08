@@ -1,11 +1,10 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
+import React from 'react'
 import CustomTuningContainer from 'CustomTuningContainer'
 import TuningChooser from 'TuningChooser'
 
-var TuningsContainer = React.createClass({
+export class TuningsContainer extends React.Component {
 
-  render: function() {
+  render() {
     return (
       <div className="main-menu">
         <div className="row">
@@ -26,6 +25,6 @@ var TuningsContainer = React.createClass({
       </div>
     )
   }
-})
+}
 
 module.exports = TuningsContainer

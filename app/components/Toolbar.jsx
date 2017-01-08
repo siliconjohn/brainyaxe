@@ -1,9 +1,9 @@
-var React = require('react')
-var { Link, IndexLink } = require('react-router')
+import React from 'react'
+import { Link, IndexLink } from 'react-router'
 
-var Toolbar = React.createClass({
+export class Toolbar extends React.Component {
 
-  render: function() {
+  render() {
     return (
       <div className="top-bar shadow-small">
         <div className="top-bar-left hide-for-small-only">
@@ -31,6 +31,6 @@ var Toolbar = React.createClass({
       </div>
     )
   }
-})
+}
 
 module.exports = Toolbar
