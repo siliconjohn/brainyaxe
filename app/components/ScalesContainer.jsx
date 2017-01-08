@@ -2,7 +2,6 @@ import React from 'react'
 import ScaleIntervals from 'ScaleIntervals'
 import ScaleNoteChooser from 'ScaleNoteChooser'
 import ScaleChooser from 'ScaleChooser'
-//import NoteCirclesScale from 'NoteCirclesScale'
 
 export class ScalesContainer extends React.Component{
 
@@ -27,7 +26,6 @@ export class ScalesContainer extends React.Component{
                 <ScaleIntervals/>
               </div>
               <div className="columns small-7 medium-8">
-                {/*<NoteCirclesScale/>*/}
               </div>
             </div>
           </div>

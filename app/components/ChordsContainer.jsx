@@ -2,7 +2,6 @@ import React from 'react'
 import ChordIntervals from 'ChordIntervals'
 import ChordNoteChooser from 'ChordNoteChooser'
 import ChordChooser from 'ChordChooser'
-//import NoteCirclesChord from 'NoteCirclesChord'
 
 export class ChordsContainer extends React.Component{
 
@@ -27,7 +26,6 @@ export class ChordsContainer extends React.Component{
                 <ChordIntervals/>
               </div>
               <div className="columns small-7 medium-8">
-                {/*<NoteCirclesChord/>*/}
               </div>
             </div>
           </div>
