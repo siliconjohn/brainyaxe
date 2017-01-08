@@ -34,4 +34,4 @@ export default connect(( state ) => {
   return {
     selectedChordNote: state.selectedChordNote
   }
-})(ChordNoteChooser)
+})( ChordNoteChooser )

@@ -25,7 +25,7 @@ export var CustomTuningNoteChooser = React.createClass({
         {
           utils.noteNamesTable.map(( note, index ) => {
             var tempProps = { note:note, index:index, references:references,
-                              showMidiNote: showCustomTuningMidiNote }
+              showMidiNote: showCustomTuningMidiNote }
 
             return (
               <CustomTuningNoteChooserOption key={ index } { ...tempProps }/>
@@ -36,7 +36,7 @@ export var CustomTuningNoteChooser = React.createClass({
       </select>
     )
   }
-});
+})
 
 export default connect(( state ) => {
   return {

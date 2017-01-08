@@ -21,4 +21,4 @@ export default connect(( state ) => {
     scales: state.scales,
     selectedScaleKey: state.selectedScaleKey
   }
-})(ScaleIntervals)
+})( ScaleIntervals )

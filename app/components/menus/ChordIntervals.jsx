@@ -21,4 +21,4 @@ export default connect(( state ) => {
     chords: state.chords,
     selectedChordKey: state.selectedChordKey
   }
-})(ChordIntervals)
+})( ChordIntervals )

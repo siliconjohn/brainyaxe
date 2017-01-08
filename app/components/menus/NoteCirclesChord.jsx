@@ -17,7 +17,7 @@ var NoteCirclesChord = (props) => {
      {
        selectedNotesForChord.map(( note, index ) => {
          var tempProps = { noteName:note, interval:chordDegrees[ index ],
-                           colorClassName:"note-circle-yellow-bg" }
+           colorClassName:"note-circle-yellow-bg" }
          return (
            <NoteCircle key={ index } { ...tempProps }/>
          )
