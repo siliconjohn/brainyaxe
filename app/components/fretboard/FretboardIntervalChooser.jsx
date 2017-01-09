@@ -18,7 +18,7 @@ export class FretboardIntervalChooser extends React.Component {
     var { dispatch, fretboardHighlight } = this.props
     return (
       <ul className="dropdown menu" data-dropdown-menu>
-        <li><a href="#" style={ linkStyle }><small>Options</small></a>
+        <li><a style={ linkStyle }><small>Options</small></a>
         <ul className="menu dark">
           <li className="pad-left dark-text"><small>HIGHLIGHTS</small></li>
         {
@@ -34,7 +34,7 @@ export class FretboardIntervalChooser extends React.Component {
             return (
               <li key= { index }>
 
-                <a href="#"  style={ linkStyle }
+                <a style={ linkStyle }
                   onClick={ (e) => {
                     dispatch( changeFretboardHighlight( [value] ))
                   }} dangerouslySetInnerHTML={{ __html: text }}></a></li>
