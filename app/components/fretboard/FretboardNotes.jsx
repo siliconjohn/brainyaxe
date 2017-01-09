@@ -106,7 +106,7 @@ export default connect(( state ) => {
     tuning: SelectedTuningSelector( state ),
     selectedScale: SelectedScaleSelector( state ),
     selectedScaleNotes: SelectedScaleNotesSelector( state ),
-    selectedChord: SelectedScaleSelector( state ),
+    selectedChord: SelectedChordSelector( state ),
     selectedChordNotes: SelectedChordNotesSelector( state ),
   }
 })( FretboardNotes )
