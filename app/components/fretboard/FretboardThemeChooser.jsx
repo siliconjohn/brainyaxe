@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { changeFretboardHighlight } from 'actions'
+import { changeFretboardTheme } from 'actions'
 import { ordinalSuffixOf } from 'utils'
-
-const intervals = [ 1, 2, 3, 4, 5, 6, 7 ]
 
 // inline style because I think foundation.js is messing with it and this
 // is the only way I can get it to work
@@ -12,20 +10,20 @@ const linkStyle = {
   paddingBottom: "4px"
 }
 
-export class FretboardIntervalChooser extends React.Component {
+export class FretboardThemeChooser extends React.Component {
 
   render() {
-    var { dispatch, fretboardHighlight } = this.props
+    var { dispatch, fretboardThemes, fretboardTheme } = this.props
+
     return (
       <ul className="dropdown menu" data-dropdown-menu>
-        <li><a style={ linkStyle }><small>OPTIONS</small></a>
-        <ul className="menu dark">
-          <li className="pad-left dark-text"><small>HIGHLIGHTS</small></li>
-        {
-          intervals.map(( value, index ) => {
+        <li><a style={ linkStyle }><small>THEME</small></a>
 
-            let text = ordinalSuffixOf( value )
-            if( fretboardHighlight.indexOf( value ) > -1 ) {
+        <ul className="menu dark">
+        {
+          fretboardThemes.map(( value, index ) => {
+            let text = value
+            if(   value == fretboardTheme ) {
               text = `<strong><span class="dark-text">${text}<span></strong>`
             } else {
               text = `<span class="gray-text">${text}<span>`
@@ -33,10 +31,9 @@ export class FretboardIntervalChooser extends React.Component {
 
             return (
               <li key= { index }>
-
                 <a style={ linkStyle }
                   onClick={ (e) => {
-                    dispatch( changeFretboardHighlight( [value] ))
+                    dispatch( changeFretboardTheme( value ))
                   }} dangerouslySetInnerHTML={{ __html: text }}></a></li>
             )
           })
@@ -50,6 +47,7 @@ export class FretboardIntervalChooser extends React.Component {
 
 export default connect(( state ) => {
   return {
-    fretboardHighlight: state.fretboardHighlight
+    fretboardThemes: state.fretboardThemes,
+    fretboardTheme: state.fretboardTheme,
   }
-})( FretboardIntervalChooser )
+})( FretboardThemeChooser )

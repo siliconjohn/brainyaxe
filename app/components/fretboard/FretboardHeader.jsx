@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import FretboardIntervalChooser from 'FretboardIntervalChooser'
 import SelectedTuningSelector from 'selectedTuning'
+import FretboardThemeChooser from 'FretboardThemeChooser'
 import { getObjectForKey } from 'utils'
 
 var FretboardHeader = ( props ) => {
@@ -37,6 +38,9 @@ var FretboardHeader = ( props ) => {
       <div className="title-bar-left">{ scaleOrChordText }</div>
       <div className="title-bar-left">
         <FretboardIntervalChooser/>
+      </div>
+      <div className="title-bar-left">
+        <FretboardThemeChooser/>
       </div>
       <div className="title-bar-right">
         { tuning.name } Tuning

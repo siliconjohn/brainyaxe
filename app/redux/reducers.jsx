@@ -257,6 +257,7 @@ export const appReducers = redux.combineReducers({
   fretboardOpenNoteWidth: (state = {}) => state,
   fretboardFretWidth: fretboardFretWidthReducer,
   fretboardTheme: fretboardThemeReducer,
+  fretboardThemes: (state = {}) => state,
   fretboardHighlight: fretboardHighlightReducer,
   fretboardShowDegree: toggleFretboardShowDegreeReducer,
 })

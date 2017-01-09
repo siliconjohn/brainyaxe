@@ -79,6 +79,7 @@ export var initialState = {
   fretboardOpenNoteWidth:40,
   fretboardFretWidth:60,
   fretboardTheme: "basic",
+  fretboardThemes: ["basic", "pastel"],
   fretboardShowDegree: true,
-  fretboardHighlight: [1,3,5],
+  fretboardHighlight: [1,3,5]
 }
