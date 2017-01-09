@@ -18,9 +18,8 @@ export class FretboardIntervalChooser extends React.Component {
     var { dispatch, fretboardHighlight } = this.props
     return (
       <ul className="dropdown menu" data-dropdown-menu>
-        <li><a style={ linkStyle }><small>OPTIONS</small></a>
-        <ul className="menu dark">
-          <li className="pad-left dark-text"><small>HIGHLIGHTS</small></li>
+        <li><a style={ linkStyle }><small>HIGHLIGHTS</small></a>
+        <ul className="menu dark"> 
         {
           intervals.map(( value, index ) => {
 
