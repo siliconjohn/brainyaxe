@@ -42,7 +42,7 @@ var FretboardHeader = ( props ) => {
       <div className="title-bar-left">
         <FretboardThemeChooser/>
       </div>
-      <div className="title-bar-right">
+      <div className="title-bar-right hide-for-small-only">
         { tuning.name } Tuning
       </div>
     </div>
