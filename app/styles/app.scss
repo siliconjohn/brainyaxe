@@ -18,9 +18,10 @@ body{
 
 .top-bar {
   padding: 0px;
+  text-align:center;
 
   .top-bar-menu {
-    padding-right: rem-calc(1);
+    display: inline-block;
   }
 
   .app-name {
@@ -29,7 +30,7 @@ body{
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     padding-left: rem-calc(7);
-    padding-top: rem-calc(4);
+    padding-top: rem-calc(3);
   }
 
   .link {
@@ -37,17 +38,18 @@ body{
     -webkit-border-radius: 0px 0px 5px 5px;
     -moz-border-radius: 0px 0px 5px 5px;
     border-radius: 0px 0px 5px 5px;
+    padding-top: rem-calc(9);
+    padding-bottom: rem-calc(6);
   }
 
   // for small screens only
   @media only screen {
 
     .top-bar-menu {
-      padding-right: rem-calc(1);
 
       .link {
-        padding-left: rem-calc(6);
-        padding-right: rem-calc(6);
+        padding-left: rem-calc(14);
+        padding-right: rem-calc(14);
       }
 
       .active {
@@ -62,12 +64,10 @@ body{
   @media screen and (min-width: 40em)
   {
     .top-bar-menu {
-      padding-top: rem-calc(0);
-      padding-right: rem-calc(10);
 
       .link {
-        padding-left: rem-calc(17);
-        padding-right: rem-calc(17);
+        padding-left: rem-calc(27);
+        padding-right: rem-calc(27);
       }
 
       .active {
