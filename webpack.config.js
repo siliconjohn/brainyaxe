@@ -24,8 +24,7 @@ const modulesDirectories = [
     './app/components',
     './app/selectors',
     './app/components/fretboard',
-    './app/components/menus',
-    './app/api'
+    './app/components/menus'
   ]
 
 if( production ) {
