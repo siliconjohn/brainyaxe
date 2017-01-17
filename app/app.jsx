@@ -1,9 +1,9 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var { Provider } = require('react-redux')
-var store = require('./redux/store')
-var { initialState } = require('./initialState')
-var { Route, Router, IndexRoute, hashHistory,browserHistory } = require('react-router')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { initialState } from './initialState'
+import { Route, Router, IndexRoute, hashHistory, browserHistory } from 'react-router'
+import { Provider } from 'react-redux'
+import { createStore } from 'store'
 import About from 'About'
 import Settings from 'Settings'
 import AppContainer from 'AppContainer'
@@ -17,7 +17,7 @@ require('style!css!sass!applicationStyles')
 // initialize google analytics
 ReactGA.initialize('UA-87996753-1')
 
-var newStore = store.createStore( initialState )
+var newStore = createStore( initialState )
 
 ReactDOM.render(
   <Provider store={ newStore }>
