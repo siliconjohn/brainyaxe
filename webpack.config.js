@@ -1,152 +1,96 @@
-var webpack = require('webpack');
-var WebpackErrorNotificationPlugin = require('webpack-error-notification');
-var WebpackNotifierPlugin = require('webpack-notifier');
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
+const WebpackNotifierPlugin = require('webpack-notifier');
+const WebpackErrorNotificationPlugin = require('webpack-error-notification');
 
 var exportValues = {}
 
-// if -p (production)
-const production = process.argv.indexOf("-p") != -1 ? true : false
+const env = process.argv[process.argv.indexOf("--env=production")]
+const nodeEnv =  env && "--env=production" ? 'production' : 'development'
+console.log('Environment: ' + nodeEnv )
 
-// these files are used for both dev and production
-const entryFiles = [
-  'script!jquery/dist/jquery.min.js',
-  'script!foundation-sites/dist/foundation.min.js',
-  //'script!foundation-sites/js/foundation.core.js',
-
-  './app/app.jsx'
+// setup default plugins
+var plugins = [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery',
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.DefinePlugin({
+      'process.env': { NODE_ENV: JSON.stringify (nodeEnv ) }
+    }),
+    new WebpackErrorNotificationPlugin(),
+    new WebpackNotifierPlugin({ title: 'Webpack', excludeWarnings: true }),
   ]
 
-// these files are used for both dev and production
-const modulesDirectories = [
-    'node_modules',
-    './app/redux',
-    './app/components',
-    './app/selectors',
-    './app/components/fretboard',
-    './app/components/menus'
-  ]
+// add plugins used only in production
+if( nodeEnv == 'production') {
+  plugins.push(  new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        },
+        output: {
+          comments: false,
+        },
+        minimize: true
+    })
+  )
+}
 
-if( production ) {
-
-  /////////////////////
-  // production
-  /////////////////////
-
-  exportValues = {
-    entry: entryFiles,
-    externals: {
-      jquery: 'jQuery'
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        '$': 'jquery',
-        'jQuery': 'jquery',
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          },
-          output: {
-            comments: false,
-          },
-          minimize: true
-      }),
-      new webpack.optimize.DedupePlugin(),
-      new WebpackErrorNotificationPlugin(),
-      new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true}),
-      new webpack.DefinePlugin({
-        'process.env':{
-          'NODE_ENV': JSON.stringify('production')
-        }
-      })
+exportValues =  {
+  entry:[
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
     ],
-    output: {
-      path: __dirname,
-      filename: './public/bundle.js',
-      sourceMapFilename: '[file].map'
-    },
-    resolve: {
-      root: __dirname,
-      modulesDirectories: modulesDirectories,
-      alias: {
-        applicationStyles: 'app/styles/app.scss',
-        utils: 'app/utils.jsx'
-      },
-      extensions:[ '','.js','.jsx']
-    },
-    module:{
-      loaders: [
-        {
-          loader: 'babel-loader',
-          query:{
-            presets:['react','es2015']
-          },
-          test: /\.jsx?$/,
-          exclude: /(node_modules|bower_components)/
-        }
-      ]
-    },
-    sassLoader: {
-      includePaths:[
-        path.resolve(__dirname, './node_modules/foundation-sites/scss'),
-      ]
-    },
-    devtool: 'source-map'
-  }
-} else {
 
-  ////////////////////
-  // dev
-  ////////////////////
+  output: {
+    path: path.resolve(__dirname, './public'),
+    filename: 'bundle.js',
+  },
 
-  exportValues = {
-    entry: entryFiles,
-    externals: {
-      jquery: 'jQuery'
+  externals: {
+    jquery: 'jQuery'
+  },
+
+  resolve: {
+    root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/redux',
+      './app/components',
+      './app/selectors',
+      './app/components/fretboard',
+      './app/components/menus'
+      ],
+    alias: {
+      applicationStyles: 'app/styles/app.scss',
+      utils: 'app/utils.jsx'
     },
-    plugins: [
-      new webpack.ProvidePlugin({
-        '$': 'jquery',
-        'jQuery': 'jquery',
-      }),
-      new webpack.optimize.DedupePlugin(),
-      new WebpackErrorNotificationPlugin(),
-      new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true})
-    ],
-    output: {
-      path: __dirname,
-      filename: './public/bundle.js',
-      sourceMapFilename: '[file].map'
-    },
-    resolve: {
-      root: __dirname,
-      modulesDirectories: modulesDirectories,
-      alias: {
-        applicationStyles: 'app/styles/app.scss',
-        utils: 'app/utils.jsx'
-      },
-      extensions:[ '','.js','.jsx']
-    },
-    module:{
-      loaders: [
-        {
-          loader: 'babel-loader',
-          query:{
-            presets:['react','es2015']
-          },
-          test: /\.jsx?$/,
-          exclude: /(node_modules|bower_components)/
-        }
-      ]
-    },
-    sassLoader: {
-      includePaths:[
-        path.resolve(__dirname, './node_modules/foundation-sites/scss'),
-      ]
-    },
-    devtool: 'cheap-source-map'
-  }
+    extensions:[ '','.js','.jsx']
+  },
+
+  module:{
+    loaders: [
+      {
+        loader: 'babel-loader',
+        query:{
+          presets:['react','es2015']
+        },
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/
+      }
+    ]
+  },
+
+  sassLoader: {
+    includePaths:[
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+    ]
+  },
+
+  plugins: plugins,
+  devtool: 'source-map'
 }
 
 module.exports = exportValues
